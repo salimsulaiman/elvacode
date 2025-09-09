@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -20,6 +22,22 @@ class ContactController extends Controller
     public function create()
     {
         //
+    }
+
+    public function send(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'address' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        Mail::to('support@elvacode.com')->send(new ContactFormMail($data));
+
+        return back()->with('success', 'Pesan berhasil dikirim!');
     }
 
     /**

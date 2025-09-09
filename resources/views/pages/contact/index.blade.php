@@ -112,45 +112,45 @@
 
             <!-- Kolom Kanan: Form -->
             <div class="w-full lg:w-1/2">
-                <form action="" method="POST"
+                <form action="{{ route('contact.send') }}" method="POST"
                     class="flex flex-col gap-4 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-md">
                     @csrf
 
                     <!-- Name + Email -->
                     <div class="flex flex-col lg:flex-row gap-4 w-full">
-                        <!-- Name -->
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="name"
                                 class="text-sm font-medium text-slate-700 dark:text-slate-300">Nama</label>
                             <input type="text" id="name" name="name" placeholder="Nama Anda"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150"
+                                value="{{ old('name') }}">
                         </div>
 
-                        <!-- Email -->
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="email"
                                 class="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
                             <input type="email" id="email" name="email" placeholder="Email Anda"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150"
+                                value="{{ old('email') }}">
                         </div>
                     </div>
 
                     <!-- Address + Phone -->
                     <div class="flex flex-col lg:flex-row gap-4 w-full">
-                        <!-- Address -->
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="address"
                                 class="text-sm font-medium text-slate-700 dark:text-slate-300">Alamat</label>
                             <input type="text" id="address" name="address" placeholder="Alamat Anda"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150"
+                                value="{{ old('address') }}">
                         </div>
 
-                        <!-- Phone -->
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="phone"
                                 class="text-sm font-medium text-slate-700 dark:text-slate-300">Telepon</label>
                             <input type="text" id="phone" name="phone" placeholder="Nomor Telepon"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150"
+                                value="{{ old('phone') }}">
                         </div>
                     </div>
 
@@ -158,25 +158,45 @@
                     <div class="flex flex-col gap-2 w-full">
                         <label for="subject" class="text-sm font-medium text-slate-700 dark:text-slate-300">Subjek</label>
                         <input type="text" id="subject" name="subject" placeholder="Subjek Pesan"
-                            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150"
+                            value="{{ old('subject') }}">
                     </div>
 
                     <!-- Message -->
                     <div class="flex flex-col gap-2 w-full">
                         <label for="message" class="text-sm font-medium text-slate-700 dark:text-slate-300">Pesan</label>
                         <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda"
-                            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150"></textarea>
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">{{ old('message') }}</textarea>
                     </div>
+
+                    @if (session('success'))
+                        <div
+                            class="mb-4 px-4 py-3 rounded-lg border 
+               bg-green-100 text-green-800 border-green-200
+               dark:bg-green-800 dark:text-green-100 dark:border-green-700">
+                            {{ session('success') }}
+                        </div>
+                    @elseif($errors->any())
+                        <div
+                            class="mb-4 px-4 py-3 rounded-lg border 
+               bg-red-100 text-red-800 border-red-200
+               dark:bg-red-800 dark:text-red-100 dark:border-red-700">
+                            <ul class="list-disc list-inside">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <!-- Submit -->
                     <button type="submit"
-                        class="rounded-2xl bg-violet-600 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold 
-           text-white shadow-lg hover:bg-violet-700 focus-visible:outline 
-           focus-visible:outline-offset-2 focus-visible:outline-violet-600 transition">
+                        class="rounded-2xl bg-violet-600 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-violet-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-violet-600 transition">
                         Kirim Pesan
                     </button>
                 </form>
             </div>
+
 
         </div>
     </section>

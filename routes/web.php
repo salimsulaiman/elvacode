@@ -25,4 +25,6 @@ Route::get('/article', [ArticleController::class, 'index'])->name('article.index
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.show');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
 Route::get('/privacy-policy', [PrivacyPolicyController::class, 'index'])->name('provicy-policy.index');

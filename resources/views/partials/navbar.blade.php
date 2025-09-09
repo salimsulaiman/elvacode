@@ -15,10 +15,10 @@
                         <span class="font-medium">+62 877-7642-1079</span>
                     </a>
 
-                    <a href="mailto:info@elvacode.com"
+                    <a href="mailto:support@elvacode.com"
                         class="transition-all duration-300 ease-in-out hidden md:flex items-center gap-2 text-slate-200 dark:text-slate-300 hover:text-purple-500">
                         <i class="fa fa-envelope text-xs"></i>
-                        <span class="font-medium">info@elvacode.com</span>
+                        <span class="font-medium">support@elvacode.com</span>
                     </a>
 
                 </div>
