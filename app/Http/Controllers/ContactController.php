@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -33,7 +34,20 @@ class ContactController extends Controller
             'phone' => 'nullable|string',
             'subject' => 'required|string',
             'message' => 'required|string',
+            'g-recaptcha-response' => 'required',
         ]);
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret'   => config('services.recaptcha.secret'),
+            'response' => $request->input('g-recaptcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        $result = $response->json();
+
+        if (!($result['success'] && $result['score'] >= 0.5 && $result['action'] === 'submit')) {
+            return back()->withErrors(['captcha' => 'Validasi reCAPTCHA gagal, coba lagi.'])->withInput();
+        }
 
         Mail::to('support@elvacode.com')->send(new ContactFormMail($data));
 

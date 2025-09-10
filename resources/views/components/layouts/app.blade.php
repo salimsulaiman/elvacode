@@ -23,13 +23,17 @@
         content="Elvacode menyediakan jasa pembuatan website profesional, responsif, dan terjangkau untuk membantu bisnis Anda tumbuh di dunia digital.">
     <meta name="twitter:image" content="{{ asset('assets/images/preview-elvacode.jpg') }}">
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.ga.measurement_id') }}"></script>
     <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
         }
+        gtag('js', new Date());
+        gtag('config', '{{ config('services.ga.measurement_id') }}');
     </script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
@@ -55,7 +59,7 @@
     <div x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 200 })">
         <!-- Floating Button -->
         <button x-show="show" @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-            class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-700 transition duration-300">
+            class="fixed bottom-24 right-2 z-40 p-3 rounded-full bg-violet-600 text-white shadow-lg hover:bg-violet-700 transition duration-300">
             <!-- Panah ke atas (SVG) -->
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -66,6 +70,13 @@
 
 
     @yield('script')
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </body>
 
 </html>

@@ -57,3 +57,7 @@
 }
 
 [x-cloak] { display: none !important; }
+
+.grecaptcha-badge {
+    z-index: 9999;
+}

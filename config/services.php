@@ -35,4 +35,13 @@ return [
         ],
     ],
 
+    'recaptcha' => [
+        'site'   => env('RECAPTCHA_SITE_KEY'),
+        'secret' => env('RECAPTCHA_SECRET_KEY'),
+    ],
+
+    'ga' => [
+        'measurement_id' => env('GA_MEASUREMENT_ID'),
+    ],
+
 ];

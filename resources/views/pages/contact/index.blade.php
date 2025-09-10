@@ -169,6 +169,8 @@
                             class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500 transition-all duration-150">{{ old('message') }}</textarea>
                     </div>
 
+                    <input type="hidden" name="g-recaptcha-response" id="recaptchaResponse">
+
                     @if (session('success'))
                         <div
                             class="mb-4 px-4 py-3 rounded-lg border 
@@ -200,7 +202,18 @@
 
         </div>
     </section>
+@endsection
 
-
-
+@section('script')
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site') }}"></script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ config('services.recaptcha.site') }}', {
+                    action: 'submit'
+                })
+                .then(function(token) {
+                    document.getElementById('recaptchaResponse').value = token;
+                });
+        });
+    </script>
 @endsection
