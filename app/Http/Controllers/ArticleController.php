@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -11,8 +13,34 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('pages.article.index');
+        $categories = ArticleCategory::get();
+        $search = request('search');
+        $categorySlug = request('category');
+
+        $articles = Article::with(['category', 'author'])
+            ->where('status', 'published')
+            ->when($search, function ($query, $search) {
+                $query->where('title', 'like', "%{$search}%");
+            })
+            ->when($categorySlug, function ($query, $categorySlug) {
+                $query->whereHas('category', function ($q) use ($categorySlug) {
+                    $q->where('slug', $categorySlug);
+                });
+            })
+            ->orderByDesc('published_at')
+            ->paginate(6)
+            ->withQueryString();
+
+
+        $popularArticles = Article::with(['category', 'author'])
+            ->where('status', 'published')
+            ->orderBy('views', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('pages.article.index', compact('categories', 'articles', 'popularArticles'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +63,23 @@ class ArticleController extends Controller
      */
     public function show($slug)
     {
-        return view('pages.article.detail', compact('slug'));
+
+        $categories = ArticleCategory::get();
+
+        $article = Article::with(['category', 'author'])
+            ->where('slug', $slug)
+            ->where('status', 'published')
+            ->firstOrFail();
+
+        $article->increment('views');
+
+        $otherArticles = Article::with(['category', 'author'])
+            ->where('slug', '!=', $slug)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('pages.article.detail', compact('categories', 'article', 'otherArticles'));
     }
 
     /**

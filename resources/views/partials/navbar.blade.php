@@ -119,7 +119,7 @@
                     <li>
                         <a href="{{ route('portfolio.index') }}"
                             class="font-semibold transition-colors duration-150 ease-in-out
-                        {{ request()->is('portfolio') ? 'text-violet-900 hover:text-violet-800 dark:hover:text-violet-300 dark:text-violet-400' : 'text-gray-800 dark:text-gray-200 hover:text-violet-900 dark:hover:text-violet-400' }}">
+                        {{ request()->is('portfolio*') ? 'text-violet-900 hover:text-violet-800 dark:hover:text-violet-300 dark:text-violet-400' : 'text-gray-800 dark:text-gray-200 hover:text-violet-900 dark:hover:text-violet-400' }}">
                             Portofolio
                         </a>
                     </li>
@@ -181,11 +181,43 @@
                     </a>
 
                 </div>
-                <button @click="open = !open" class="xlg:hidden text-gray-800 dark:text-gray-200 focus:outline-none"
-                    aria-label="Toggle menu navigasi">
-                    <i data-feather="menu" class="w-6 h-6" x-show="!open"></i>
-                    <i data-feather="x" class="w-6 h-6" x-show="open"></i>
-                </button>
+                <div class="flex items-center xlg:hidden gap-4">
+                    <div @click="toggleTheme"
+                        class="rounded-full bg-slate-200 dark:bg-slate-500 border border-slate-200 dark:border-slate-400 items-center justify-center cursor-pointer">
+
+                        <div class="rounded-full p-2 flex justify-center items-center"
+                            :class="theme === 'dark' ? 'bg-slate-700' : 'bg-white'">
+
+                            <template x-if="theme === 'dark'">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 0010.58 9.79z"></path>
+                                </svg>
+                            </template>
+
+                            <template x-if="theme === 'light'">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-yellow-500"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </template>
+
+                        </div>
+                    </div>
+                    <button @click="open = !open" class="text-gray-800 dark:text-gray-200 focus:outline-none"
+                        aria-label="Toggle menu navigasi">
+                        <i data-feather="menu" class="w-6 h-6" x-show="!open"></i>
+                        <i data-feather="x" class="w-6 h-6" x-show="open"></i>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm xlg:hidden" x-show="open" @click="open=false"

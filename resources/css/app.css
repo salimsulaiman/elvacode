@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import 'tailwindcss';
 
+@plugin "@tailwindcss/typography";
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -60,4 +62,12 @@
 
 .grecaptcha-badge {
     z-index: 9999;
+}
+
+.custom-list ul li,
+.custom-list ol li,
+.custom-list ul li p,
+.custom-list ol li p {
+  margin: 20px 0 !important;
+  line-height: 1.4 !important;
 }

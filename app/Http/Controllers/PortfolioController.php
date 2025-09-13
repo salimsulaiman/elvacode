@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -11,7 +12,11 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        return view('pages.portfolio.index');
+        $portfolios = Portfolio::with('category')
+            ->latest()
+            ->paginate(4);
+
+        return view('pages.portfolio.index', compact('portfolios'));
     }
 
     /**
@@ -35,7 +40,18 @@ class PortfolioController extends Controller
      */
     public function show($slug)
     {
-        return view('pages.portfolio.detail');
+
+        $portfolio = Portfolio::with('category')
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        $otherPortfolios = Portfolio::with('category')
+            ->where('slug', '!=', $slug)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('pages.portfolio.detail', compact('portfolio', 'otherPortfolios'));
     }
 
     /**

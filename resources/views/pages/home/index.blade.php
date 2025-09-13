@@ -76,7 +76,8 @@
             </div>
         </div>
     </section>
-    <div class="w-full bg-slate-100 dark:bg-slate-950 transition-colors duration-300 ease-in-out">
+    <div class="w-full bg-slate-100 dark:bg-slate-950 transition-colors duration-300 ease-in-out py-8"></div>
+    {{-- <div class="w-full bg-slate-100 dark:bg-slate-950 transition-colors duration-300 ease-in-out">
         <div class="relative overflow-hidden py-4 md:py-8 whitespace-nowrap max-w-7xl mx-auto">
             <!-- Gradient kiri -->
             <div
@@ -109,7 +110,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <section id="create-website"
         class="w-full scroll-mt-20 dark:bg-slate-900 isolate relative h-auto overflow-hidden transition-colors duration-300 ease-in-out">

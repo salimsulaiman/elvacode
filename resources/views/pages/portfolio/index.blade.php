@@ -87,27 +87,32 @@
                 kebutuhan unik klien
             </p>
             <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
-                <a href="{{ route('portfolio.show', ['slug' => 'taleify']) }}" class="w-full">
-                    <div class="w-full flex flex-col gap-3 group">
-                        <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700">
-                            <img src="{{ asset('assets/images/taleify-project.jpg') }}"
-                                alt="Taleify - Platform E-Learning by Elvacode"
-                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out">
+                @foreach ($portfolios as $portfolio)
+                    <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="w-full">
+                        <div class="w-full flex flex-col gap-3 group">
+                            <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700">
+                                <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->name }}"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out"
+                                    loading="lazy">
+                            </div>
+                            <h3
+                                class="text-3xl font-semibold text-slate-800 dark:text-slate-200 group-hover:text-violet-900 dark:group-hover:text-violet-300">
+                                {{ $portfolio->name }}
+                            </h3>
+                            <h5
+                                class="text-xs px-3 py-1 border border-slate-500 dark:border-slate-400 w-fit rounded-full text-slate-600 dark:text-slate-300 font-semibold">
+                                {{ $portfolio->category->name }}
+                            </h5>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 font-medium">
+                                {{ $portfolio->summary }}
+                            </p>
                         </div>
-                        <h3
-                            class="text-3xl font-semibold text-slate-800 dark:text-slate-200 group-hover:text-violet-900 dark:group-hover:text-violet-300">
-                            Taleify
-                        </h3>
-                        <h5
-                            class="text-xs px-3 py-1 border border-slate-500 dark:border-slate-400 w-fit rounded-full text-slate-600 dark:text-slate-300 font-semibold">
-                            Platform E-Learning
-                        </h5>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 font-medium">
-                            Taleify adalah platform e-learning interaktif yang membantu siswa belajar dengan lebih efektif
-                            melalui materi digital modern.
-                        </p>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
+            </div>
+
+            <div class="mt-6 w-full">
+                {{ $portfolios->links() }}
             </div>
         </div>
     </section>

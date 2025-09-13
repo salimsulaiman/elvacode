@@ -64,11 +64,11 @@
         class="relative isolate overflow-hidden bg-white dark:bg-gray-800 
          transition-colors duration-300 ease-in-out group/section">
 
-        <div class="max-w-7xl pt-16 pb-16 mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-20">
+        <div class="max-w-7xl py-8 sm:py-16 mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-4 md:gap-20">
             <!-- Kolom Kiri: Info & Sosmed -->
             <div class="w-full lg:w-1/2 flex flex-col gap-8">
                 <h2
-                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 leading-16">
+                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 leading-normal sm:leading-10 md:leading-16">
                     Punya Pertanyaan? Kami Siap Membantu!
                 </h2>
 
@@ -111,9 +111,9 @@
 
 
             <!-- Kolom Kanan: Form -->
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-1/2 mt-8 sm:mt-0">
                 <form action="{{ route('contact.send') }}" method="POST"
-                    class="flex flex-col gap-4 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-md">
+                    class="flex flex-col gap-4 sm:bg-white sm:dark:bg-slate-800 p-0 sm:p-8 rounded-2xl shadow-md">
                     @csrf
 
                     <!-- Name + Email -->
@@ -198,8 +198,6 @@
                     </button>
                 </form>
             </div>
-
-
         </div>
     </section>
 @endsection
