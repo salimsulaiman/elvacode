@@ -71,3 +71,11 @@
   margin: 20px 0 !important;
   line-height: 1.4 !important;
 }
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

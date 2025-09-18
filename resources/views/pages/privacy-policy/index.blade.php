@@ -4,7 +4,7 @@
 
 @section('content')
     <section
-        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white py-20 sm:py-28 overflow-hidden bg-cover bg-center">
+        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white pt-36 sm:pt-40 pb-20 sm:pb-28 overflow-hidden bg-cover bg-center">
         <div class="absolute inset-0 overflow-hidden">
             <div
                 class="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-violet-500 opacity-20 blur-3xl rounded-full pulse-glow">
@@ -124,8 +124,8 @@
             <li>Email: <a href="mailto:support@elvacode.com" class="text-blue-600 hover:underline">support@elvacode.com</a>
             </li>
             <li>Telepon: <a
-                    href="https://wa.me/6287776421079?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
-                    target="_blank" class="text-blue-600 hover:underline">+62 877-7642-1079</a></li>
+                    href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                    target="_blank" class="text-blue-600 hover:underline">+62 878-3548-2333</a></li>
         </ul>
 
         <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">7. Perubahan Kebijakan</h2>

@@ -4,7 +4,7 @@
 
 @section('content')
     <section
-        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white py-20 sm:py-28 overflow-hidden bg-cover bg-center">
+        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white pt-36 sm:pt-40 pb-20 sm:pb-28 overflow-hidden bg-cover bg-center">
         <div class="absolute inset-0 overflow-hidden">
             <div
                 class="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-violet-500 opacity-20 blur-3xl rounded-full pulse-glow">
@@ -150,7 +150,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <a href="https://wa.me/6287776421079?text=Halo%2C%20saya%20ingin%20menggunakan%20jasa%20Web%20Development%20Paket%20{{ urlencode($plan['name']) }}"
+                        <a href="https://wa.me/6287835482333?text=Halo%2C%20saya%20ingin%20menggunakan%20jasa%20Web%20Development%20Paket%20{{ urlencode($plan['name']) }}"
                             target="_blank"
                             class="mt-8 font-bold text-slate-700 dark:text-slate-200 w-full text-center p-2 rounded-full border border-slate-400 group-hover:border-white group-hover:text-white hover:bg-white hover:text-violet-600 transition-colors duration-150 ease-in-out">
                             Dapatkan Paket

@@ -1,50 +1,4 @@
-@if (!request()->is('/'))
-    <header
-        class="w-full bg-gradient-to-r from-violet-950 via-indigo-900 to-slate-950 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-900 dark:text-white shadow-xl border-b border-slate-300/50 dark:border-slate-700/50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-row justify-between items-center py-4 gap-4 lg:gap-0">
-                <div class="flex flex-row items-center gap-6 text-sm">
-
-                    <div class="flex items-center gap-2 text-slate-200 dark:text-slate-300">
-                        <i class="fa fa-map-marker text-xs text-emerald-500"></i>
-                        <span class="font-medium">Brebes, Indonesia</span>
-                    </div>
-                    <a href="https://wa.me/6287776421079?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
-                        class="transition-all duration-300 ease-in-out hidden md:flex items-center gap-2 text-slate-200 dark:text-slate-300 hover:text-blue-500">
-                        <i class="fa fa-phone text-xs"></i>
-                        <span class="font-medium">+62 877-7642-1079</span>
-                    </a>
-
-                    <a href="mailto:support@elvacode.com"
-                        class="transition-all duration-300 ease-in-out hidden md:flex items-center gap-2 text-slate-200 dark:text-slate-300 hover:text-purple-500">
-                        <i class="fa fa-envelope text-xs"></i>
-                        <span class="font-medium">support@elvacode.com</span>
-                    </a>
-
-                </div>
-                <div class="flex items-center gap-3">
-                    <a href="https://instagram.com" target="_blank"
-                        class="transition-colors duration-300 w-9 h-9 flex items-center justify-center rounded-full bg-slate-700 text-white hover:bg-slate-800">
-                        <i class="fa fa-instagram text-xs"></i>
-                    </a>
-
-                    <a href="https://facebook.com" target="_blank"
-                        class="transition-colors duration-300 w-9 h-9 flex items-center justify-center rounded-full bg-slate-700 text-white hover:bg-slate-800">
-                        <i class="fa fa-facebook text-xs"></i>
-                    </a>
-
-                    <a href="https://wa.me/628123456789" target="_blank"
-                        class="transition-colors duration-300 w-9 h-9 flex items-center justify-center rounded-full bg-slate-700 text-white hover:bg-slate-800">
-                        <i class="fa fa-youtube-play text-xs"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-@endif
-<div class="w-full z-50
-    {{ request()->is('/') ? 'fixed top-0' : 'sticky top-0' }}" x-data="themeSwitcher()"
-    x-init="initTheme()">
+<div class="w-full z-50 fixed top-0" x-data="themeSwitcher()" x-init="initTheme()">
     <nav class="w-full bg-transparent transition-all duration-300 ease-in-out" x-data="{ open: false, scrolled: false, service: false }"
         x-init="scrolled = window.scrollY > 10;
         window.addEventListener('scroll', () => {
@@ -169,11 +123,10 @@
                         </div>
                     </button>
 
-                    <a href="https://wa.me/6287776421079?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                    <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
                         target="_blank" rel="noopener noreferrer"
                         class="bg-slate-950 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-sm px-4 py-3 rounded-full text-white transition-colors duration-150 ease-in-out items-center gap-2 hidden md:flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"
-                            class="w-5 h-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5">
                             <path
                                 d="M16 .396C7.2.396.008 7.587.008 16.396c0 2.886.756 5.698 2.196 8.18L.004 32l7.656-2.184a15.902 15.902 0 0 0 8.34 2.312h.004c8.8 0 15.992-7.192 15.992-16 0-8.81-7.192-16-16-16zm0 29.278c-2.672 0-5.28-.72-7.56-2.08l-.54-.32-4.54 1.296 1.296-4.436-.352-.548c-1.38-2.18-2.108-4.708-2.108-7.268 0-7.476 6.08-13.556 13.56-13.556 3.62 0 7.02 1.412 9.58 3.972 2.56 2.564 3.976 5.96 3.976 9.58 0 7.48-6.084 13.56-13.56 13.56zm7.476-10.184c-.408-.204-2.42-1.196-2.796-1.336-.376-.14-.652-.204-.928.204s-1.064 1.336-1.304 1.612-.48.306-.888.102c-.408-.204-1.72-.632-3.276-2.016-1.212-1.08-2.032-2.416-2.272-2.824-.24-.408-.024-.628.18-.832.184-.184.408-.48.612-.72.204-.24.272-.408.408-.68.136-.272.068-.51-.034-.714-.102-.204-.928-2.24-1.272-3.06-.336-.808-.68-.7-.928-.712l-.796-.014c-.272 0-.714.102-1.088.51s-1.428 1.396-1.428 3.404 1.46 3.944 1.66 4.22c.204.272 2.868 4.38 6.952 6.14.972.42 1.732.672 2.324.864.976.312 1.86.268 2.56.164.78-.116 2.42-.988 2.76-1.944.34-.956.34-1.776.236-1.944-.1-.168-.368-.272-.776-.476z" />
                         </svg>

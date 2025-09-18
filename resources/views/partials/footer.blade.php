@@ -48,7 +48,7 @@
                     <li><a href="mailto:support@elvacode.com"
                             class="hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold">support@elvacode.com</a>
                     </li>
-                    <li><a href="https://wa.me/6287776421079"
+                    <li><a href="https://wa.me/6287835482333"
                             class="hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold"
                             target="_blank">+62
                             877-7642-1079</a></li>
@@ -61,7 +61,7 @@
                             class="hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold">
                             <i class="fa fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/6287776421079?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                        <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
                             target="_blank"
                             class="hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold">
                             <i class="fa fa-whatsapp"></i>

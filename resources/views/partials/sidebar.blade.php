@@ -9,13 +9,17 @@
         </a>
 
         <div class="relative">
-            <input type="text" placeholder="Cari sesuatu..."
-                class="w-full px-4 py-2 pr-12 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-violet-500 focus:outline-none transition-colors duration-300 ease-in-out" />
-            <button type="button"
-                class="absolute inset-y-0 right-3 flex items-center text-slate-500 hover:text-violet-600 dark:text-slate-400 dark:hover:text-violet-300">
-                <i data-feather="search" class="w-5 h-5"></i>
-            </button>
+            <form action="{{ route('article.index') }}" method="GET">
+                <input type="text" name="search" placeholder="Cari sesuatu..."
+                    class="w-full px-4 py-2 pr-12 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-violet-500 focus:outline-none transition-colors duration-300 ease-in-out"
+                    value="{{ request('search') }}" />
+                <button type="submit"
+                    class="absolute inset-y-0 right-3 flex items-center text-slate-500 hover:text-violet-600 dark:text-slate-400 dark:hover:text-violet-300">
+                    <i data-feather="search" class="w-5 h-5"></i>
+                </button>
+            </form>
         </div>
+
 
         <nav
             class="flex flex-col text-base font-medium divide-y divide-slate-200 dark:divide-slate-700 transition-colors duration-300 ease-in-out">

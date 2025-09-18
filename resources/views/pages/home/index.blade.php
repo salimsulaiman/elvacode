@@ -405,7 +405,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <a href="https://wa.me/6287776421079?text=Halo%2C%20saya%20ingin%20menggunakan%20jasa%20Web%20Development%20Paket%20{{ urlencode($plan['name']) }}"
+                        <a href="https://wa.me/6287835482333?text=Halo%2C%20saya%20ingin%20menggunakan%20jasa%20Web%20Development%20Paket%20{{ urlencode($plan['name']) }}"
                             target="_blank"
                             class="mt-8 font-bold text-slate-700 dark:text-slate-200 w-full text-center p-2 rounded-full border border-slate-400 group-hover:border-white group-hover:text-white hover:bg-white hover:text-violet-600 transition-colors duration-150 ease-in-out">
                             Get Started
@@ -626,7 +626,7 @@
                    focus-visible:outline-offset-2 focus-visible:outline-violet-600 transition">
                     Konsultasi Gratis
                 </a>
-                <a href="#"
+                <a href="{{ route('portfolio.index') }}"
                     class="text-sm sm:text-base font-semibold leading-6 text-gray-900 dark:text-gray-200 
                    hover:text-violet-600 dark:hover:text-violet-400 transition">
                     Lihat Portofolio →

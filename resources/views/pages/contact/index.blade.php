@@ -4,7 +4,7 @@
 
 @section('content')
     <section
-        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white py-20 sm:py-28 overflow-hidden bg-cover bg-center">
+        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white pt-36 sm:pt-40 pb-20 sm:pb-28 overflow-hidden bg-cover bg-center">
         <div class="absolute inset-0 overflow-hidden">
             <div
                 class="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-violet-500 opacity-20 blur-3xl rounded-full pulse-glow">
@@ -93,7 +93,7 @@
                     </a>
 
                     <!-- WhatsApp -->
-                    <a href="https://wa.me/6287776421079?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                    <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
                         target="_blank"
                         class="w-12 h-12 flex justify-center items-center bg-slate-200 dark:bg-slate-700 rounded-full hover:bg-green-100 dark:hover:bg-green-900 transition-colors duration-200">
                         <i class="fa fa-whatsapp text-green-500 text-xl"></i>
@@ -105,7 +105,7 @@
                 <div class="flex flex-col gap-3 mt-6 text-slate-800 dark:text-slate-200">
                     <p>Brebes, Jawa Tengah, Indonesia</p>
                     <p>support@elvacode.com</p>
-                    <p>+62 877-7642-1079</p>
+                    <p>+62 878-3548-2333</p>
                 </div>
             </div>
 

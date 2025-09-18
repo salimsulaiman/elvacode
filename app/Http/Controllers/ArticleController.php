@@ -35,10 +35,15 @@ class ArticleController extends Controller
         $popularArticles = Article::with(['category', 'author'])
             ->where('status', 'published')
             ->orderBy('views', 'desc')
-            ->take(3)
+            ->take(4)
             ->get();
 
-        return view('pages.article.index', compact('categories', 'articles', 'popularArticles'));
+        $latestArticle = Article::with(['category', 'author'])
+            ->where('status', 'published')
+            ->orderByDesc('published_at')
+            ->first();
+
+        return view('pages.article.index', compact('categories', 'articles', 'popularArticles', 'latestArticle'));
     }
 
 
@@ -75,6 +80,7 @@ class ArticleController extends Controller
 
         $otherArticles = Article::with(['category', 'author'])
             ->where('slug', '!=', $slug)
+            ->where('status', 'published')
             ->latest()
             ->take(3)
             ->get();
