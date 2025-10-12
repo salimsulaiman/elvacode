@@ -87,7 +87,7 @@
             @php
                 $plans = [
                     [
-                        'name' => 'Basic',
+                        'name' => 'Essential',
                         'price' => 'Rp 650.000',
                         'features' => [
                             'Cocok untuk: Personal Website, Startup, Bisnis Kecil',
@@ -112,7 +112,7 @@
                         ],
                     ],
                     [
-                        'name' => 'Advance',
+                        'name' => 'Premium',
                         'price' => 'Contact Us',
                         'features' => [
                             'Cocok untuk: Website E-commerce, Web Custom',

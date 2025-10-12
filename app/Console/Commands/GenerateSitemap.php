@@ -54,7 +54,8 @@ class GenerateSitemap extends Command
         // Artikel dinamis
         Article::where('status', 'published')->get()->each(function ($article) use ($sitemap) {
             $sitemap->add(
-                Url::create("/article/{$article->slug}")
+                // Url::create("/article/{$article->slug}")
+                Url::create(config('app.url') . "/article/{$article->slug}")
                     ->setLastModificationDate($article->updated_at)
                     ->setPriority(0.9)
                     ->setChangeFrequency('weekly')
@@ -63,14 +64,16 @@ class GenerateSitemap extends Command
 
         Portfolio::all()->each(function ($portfolio) use ($sitemap) {
             $sitemap->add(
-                Url::create("/portfolio/{$portfolio->slug}")
+                // Url::create("/portfolio/{$portfolio->slug}")
+                Url::create(config('app.url') . "/portfolio/{$portfolio->slug}")
                     ->setLastModificationDate($portfolio->updated_at)
                     ->setPriority(0.8)
                     ->setChangeFrequency('weekly')
             );
         });
 
-        $sitemap->writeToFile(public_path('sitemap.xml'));
+        // $sitemap->writeToFile(public_path('sitemap.xml'));
+        $sitemap->writeToFile(base_path('../public_html/sitemap.xml'));
 
         $this->info('Sitemap berhasil dibuat di public/sitemap.xml');
     }
