@@ -3,6 +3,10 @@
 @section('title', $article->title . ' - Elvacode')
 @section('meta_description', $article->excerpt ?? Str::limit(strip_tags($article->excerpt), 160))
 
+@section('og_image', asset('storage/' . $article->thumbnail))
+@section('twitter_image', asset('storage/' . $article->thumbnail))
+
+
 
 @section('content')
     <section
