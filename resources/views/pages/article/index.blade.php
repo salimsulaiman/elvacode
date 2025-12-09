@@ -66,64 +66,116 @@
         transition-colors duration-300 ease-in-out group/section">
 
         <div class="max-w-7xl py-8 sm:py-16 mx-auto px-6 lg:px-8">
-            <h2
-                class=" text-2xl sm:text-3xl md:text-4xl max-w-2xl md:max-w-xl font-bold text-slate-800 dark:text-slate-300">
-                Artikel Terbaru dari Elvacode
-            </h2>
+            @if (!request()->category && !request()->search && !request()->page)
+                @if ($featuredArticle)
+                    <h2
+                        class=" text-2xl sm:text-3xl md:text-4xl max-w-2xl md:max-w-xl font-bold text-slate-800 dark:text-slate-300">
+                        Sorotan Utama dari Elvacode
+                    </h2>
 
-            <p
-                class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
-                Berikut adalah beberapa artikel terbaru dari Elvacode. Setiap artikel dirancang dengan fokus pada
-                kebutuhan unik klien
-            </p>
+                    <p
+                        class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
+                        Temukan artikel pilihan unggulan yang mencerminkan standar kualitas dan arah pemikiran digital kami.
+                    </p>
+                @else
+                    <h2
+                        class=" text-2xl sm:text-3xl md:text-4xl max-w-2xl md:max-w-xl font-bold text-slate-800 dark:text-slate-300">
+                        Jelajahi Dunia Artikel Kami
+                    </h2>
 
-            @if (!request()->category)
-                <a href="{{ route('article.show', $latestArticle->slug) }}"
-                    class="w-full hidden sm:block aspect-video md:aspect-[16/7] mt-8 rounded-2xl relative overflow-hidden group">
-                    <img src="{{ asset('storage/' . $latestArticle->thumbnail) }}" alt="{{ $latestArticle->title }}"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <p
+                        class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
+                        Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.
+                    </p>
+                @endif
+                @if ($featuredArticle)
+                    <a href="{{ route('article.show', $featuredArticle->slug) }}"
+                        class="w-full hidden sm:block aspect-video md:aspect-[16/7] mt-8 rounded-2xl relative overflow-hidden group">
+                        <img src="{{ asset('storage/' . $featuredArticle->thumbnail) }}" alt="{{ $featuredArticle->title }}"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
 
-                    <div
-                        class="absolute left-0 right-0 bottom-0 flex flex-col justify-end 
+                        <div
+                            class="absolute left-0 right-0 bottom-0 flex flex-col justify-end 
                bg-gradient-to-t from-black/70 via-black/50 to-transparent 
                p-6 sm:p-8 backdrop-blur-sm">
-                        <div class="max-w-4xl space-y-3 sm:space-y-4">
-                            <h4
-                                class="text-lg sm:text-2xl font-semibold text-white group-hover:text-violet-200 line-clamp-1 md:line-clamp-2">
-                                {{ $latestArticle->title }}
-                            </h4>
-                            <p class="text-xs sm:text-sm md:text-base text-slate-200 line-clamp-2 font-medium">
-                                {{ $latestArticle->excerpt }}
-                            </p>
+                            <div class="max-w-4xl space-y-3 sm:space-y-4">
+                                <h4
+                                    class="text-lg sm:text-2xl font-semibold text-white group-hover:text-violet-200 line-clamp-1 md:line-clamp-2">
+                                    {{ $featuredArticle->title }}
+                                </h4>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-200 line-clamp-2 font-medium">
+                                    {{ $featuredArticle->excerpt }}
+                                </p>
+                            </div>
+
+                            <div class="flex flex-wrap gap-3 mt-4 items-center text-xs sm:text-sm">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/logos/icon-elvacode-2.png') }}" alt="Elvacode Icon"
+                                        class="w-5 h-5 object-contain">
+                                    <span class="text-slate-200">Tim Elvacode</span>
+                                </div>
+
+                                <div class="hidden sm:block w-[3px] h-4 bg-slate-300/70 rounded-full"></div>
+
+                                <div class="flex items-center gap-2">
+                                    <i data-feather="calendar" class="w-4 h-4 text-slate-300"></i>
+                                    <span class="text-slate-200">
+                                        {{ $featuredArticle->published_date ?? '-' }}
+                                    </span>
+                                </div>
+
+                                <div class="hidden sm:block w-[3px] h-4 bg-slate-300/70 rounded-full"></div>
+
+                                <div class="px-3 py-1 text-xs hidden sm:text-sm font-medium rounded-full sm:inline-block"
+                                    style="color: {{ $featuredArticle->category->text_color }};
+                        background-color: {{ $featuredArticle->category->background_color }};">
+                                    {{ $featuredArticle->category->name }}
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="flex flex-wrap gap-3 mt-4 items-center text-xs sm:text-sm">
-                            <div class="flex items-center gap-2">
-                                <img src="{{ asset('assets/logos/icon-elvacode-2.png') }}" alt="Elvacode Icon"
-                                    class="w-5 h-5 object-contain">
-                                <span class="text-slate-200">Tim Elvacode</span>
-                            </div>
-
-                            <div class="hidden sm:block w-[3px] h-4 bg-slate-300/70 rounded-full"></div>
-
-                            <div class="flex items-center gap-2">
-                                <i data-feather="calendar" class="w-4 h-4 text-slate-300"></i>
-                                <span class="text-slate-200">
-                                    {{ $latestArticle->published_date ?? '-' }}
-                                </span>
-                            </div>
-
-                            <div class="hidden sm:block w-[3px] h-4 bg-slate-300/70 rounded-full"></div>
-
-                            <div class="px-3 py-1 text-xs hidden sm:text-sm font-medium rounded-full sm:inline-block"
-                                style="color: {{ $latestArticle->category->text_color }};
-                        background-color: {{ $latestArticle->category->background_color }};">
-                                {{ $latestArticle->category->name }}
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                @endif
             @endif
+
+
+            @if (!request()->category && !request()->search && !request()->page)
+                @include('partials.popular-articles')
+            @endif
+
+
+            @if (request()->search)
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 max-w-2xl md:max-w-xl">
+                    Hasil Pencarian Artikel
+                </h2>
+
+                <p
+                    class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
+                    Menampilkan artikel yang relevan dengan kata kunci
+                    "<span class="font-semibold">{{ request('search') }}</span>".
+                </p>
+            @elseif (request()->category)
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 max-w-2xl md:max-w-xl">
+                    Artikel Berdasarkan Kategori
+                </h2>
+
+                <p
+                    class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
+                    Jelajahi kumpulan artikel sesuai preferensi pembacaan Anda.
+                </p>
+            @elseif (request()->page)
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 max-w-2xl md:max-w-xl">
+                    Jelajahi Dunia Artikel Kami
+                </h2>
+
+                <p
+                    class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
+                    Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.
+                </p>
+            @endif
+
 
             <div
                 class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-2 my-4 md:my-8 w-full relative">
@@ -131,18 +183,18 @@
                     class="flex gap-2 overflow-x-auto scrollbar-hide px-0 py-2 scroll-smooth min-w-0 max-w-full md:max-w-[calc(100%-17rem)]">
                     <a href="{{ route('article.index', request()->except('category')) }}"
                         class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
-        {{ empty(request()->category)
-            ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
-            : 'bg-slate-100 text-gray-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600' }}">
+                        {{ empty(request()->category)
+                            ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
+                            : 'bg-slate-100 text-gray-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600' }}">
                         Semua
                     </a>
 
                     @foreach ($categories as $category)
                         <a href="{{ route('article.index', array_merge(request()->except('category'), ['category' => $category->slug])) }}"
                             class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
-           {{ request()->category === $category->slug
-               ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
-               : 'bg-slate-100 text-gray-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600' }}">
+                            {{ request()->category === $category->slug
+                                ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
+                                : 'bg-slate-100 text-gray-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600' }}">
                             {{ $category->name }}
                         </a>
                     @endforeach
@@ -162,13 +214,6 @@
                     </button>
                 </form>
             </div>
-
-
-            @if (request('search'))
-                <div class="text-sm text-gray-700 dark:text-gray-300 mb-8">
-                    Hasil pencarian untuk: <span class="font-medium">{{ request('search') }}</span>
-                </div>
-            @endif
 
             @if ($articles->count() > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -209,46 +254,14 @@
                     {{ $articles->links() }}
                 </div>
             @else
-                <p class="text-center text-slate-600 dark:text-slate-400 font-medium">
+                <p class="text-center text-slate-600 dark:text-slate-400 font-medium py-24">
                     Artikel tidak ditemukan.
                 </p>
             @endif
 
-            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-3 mt-8">Artikel Populer</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                @foreach ($popularArticles as $popularArticle)
-                    <a href="{{ route('article.show', $popularArticle->slug) }}"
-                        class="w-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl duration-300 ease-in-out">
-                        <div class="w-full flex flex-col gap-3 group">
-                            <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700">
-                                <img src="{{ asset('storage/' . $popularArticle->thumbnail) }}"
-                                    alt="{{ $popularArticle->title }}"
-                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out">
-                            </div>
-                            <h5 class="text-xs w-fit rounded-full text-slate-600 dark:text-slate-300">
-                                Tim {{ $popularArticle->author->name }}
-                            </h5>
-                            <h4
-                                class="text-base font-semibold text-slate-800 dark:text-slate-200 group-hover:text-violet-900 dark:group-hover:text-violet-300 line-clamp-2">
-                                {{ $popularArticle->title }}
-                            </h4>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 font-medium">
-                                {{ $popularArticle->excerpt }}
-                            </p>
-                            <div class="flex w-full gap-4 items-center">
-                                <h5
-                                    class="text-[10px] px-3 py-1 bg-slate-200 dark:bg-slate-700 w-fit rounded-full text-slate-600 dark:text-slate-300 font-semibold">
-                                    {{ $popularArticle->category->name }}
-                                </h5>
-                                <h5
-                                    class="text-[10px] w-fit rounded-full text-slate-600 dark:text-slate-300 font-semibold">
-                                    {{ $popularArticle->published_date ?? '-' }}
-                                </h5>
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
+            @if (request()->category || request()->search || request()->page)
+                @include('partials.popular-articles')
+            @endif
         </div>
     </section>
 

@@ -17,6 +17,12 @@ class ArticleController extends Controller
         $search = request('search');
         $categorySlug = request('category');
 
+        $featuredArticle = Article::with(['category', 'author'])
+            ->where('status', 'published')
+            ->where('is_featured', true)
+            ->orderByDesc('published_at')
+            ->first();
+
         $articles = Article::with(['category', 'author'])
             ->where('status', 'published')
             ->when($search, function ($query, $search) {
@@ -43,7 +49,7 @@ class ArticleController extends Controller
             ->orderByDesc('published_at')
             ->first();
 
-        return view('pages.article.index', compact('categories', 'articles', 'popularArticles', 'latestArticle'));
+        return view('pages.article.index', compact('categories', 'featuredArticle', 'articles', 'popularArticles', 'latestArticle'));
     }
 
 

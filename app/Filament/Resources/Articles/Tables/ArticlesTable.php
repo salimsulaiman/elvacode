@@ -51,6 +51,15 @@ class ArticlesTable
                     ->getStateUsing(fn($record) => ucfirst($record->status))
                     ->sortable(),
 
+                BadgeColumn::make('is_featured')
+                    ->label('Featured')
+                    ->getStateUsing(fn($record) => $record->is_featured ? 'Featured' : '-')
+                    ->colors([
+                        'success' => fn($state) => $state === true || $state === 'Featured',
+                    ])
+                    ->visible(fn() => true)
+                    ->sortable(),
+
                 TextColumn::make('views')
                     ->label('Views')
                     ->sortable(),

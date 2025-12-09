@@ -18,7 +18,12 @@ class Article extends Model
         'category_id',
         'author_id',
         'status',
+        'is_featured',
         'published_at',
+    ];
+
+    protected $casts = [
+        'is_featured' => 'boolean',
     ];
 
     public function getPublishedDateAttribute()
@@ -33,22 +38,17 @@ class Article extends Model
         static::creating(function ($article) {
             if (empty($article->slug)) {
                 $slug = Str::slug($article->title);
-
-                // Ensure uniqueness
                 $count = static::where('slug', 'LIKE', "{$slug}%")->count();
                 $article->slug = $count ? "{$slug}-{$count}" : $slug;
             }
         });
 
         static::updating(function ($article) {
-            if ($article->isDirty('title')) {
+            if ($article->isDirty('title') && empty($article->slug)) {
                 $baseSlug = Str::slug($article->title);
-                $slug = $baseSlug;
-
                 $count = static::where('slug', 'LIKE', "{$baseSlug}%")
                     ->where('id', '!=', $article->id)
                     ->count();
-
                 $article->slug = $count ? "{$baseSlug}-{$count}" : $baseSlug;
             }
         });

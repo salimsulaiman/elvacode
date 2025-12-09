@@ -12,11 +12,12 @@
             <div
                 class="flex items-center gap-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg px-5 py-4">
                 <i data-feather="search" class="w-5 h-5 text-slate-500"></i>
-                <input x-model="q" type="text" placeholder="Cari sesuatu..." x-ref="searchInput"
+                <input x-model="q" type="text" name="search" placeholder="Cari sesuatu..." x-ref="searchInput"
                     class="w-full bg-transparent outline-none text-slate-800 dark:text-slate-200 placeholder-slate-400" />
                 <kbd class="hidden md:block text-xs text-slate-500">Esc</kbd>
             </div>
         </form>
+
         <div class="mt-3 text-sm text-slate-500 px-2">
             Tekan <span class="font-medium">Esc</span> untuk menutup
         </div>
