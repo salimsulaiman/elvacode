@@ -146,7 +146,7 @@
                     </div>
 
                     <article
-                        class="prose prose-neutral lg:prose-lg mt-6 custom-list prose-p:leading-loose dark:prose-invert">
+                        class="prose prose-neutral lg:prose-lg mt-6 custom-list prose-p:leading-loose dark:prose-invert text-justify">
                         {!! $article->content !!}
                     </article>
                 </div>
