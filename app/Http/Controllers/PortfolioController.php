@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -12,11 +13,25 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::with('category')
-            ->latest()
-            ->paginate(4);
+        $categories = PortfolioCategory::all();
 
-        return view('pages.portfolio.index', compact('portfolios'));
+        $featuredPortfolios = Portfolio::with('category')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
+        $portfolios = Portfolio::with('category')
+            ->when(request()->category, function ($query) {
+                $query->whereHas('category', function ($q) {
+                    $q->where('slug', request()->category);
+                });
+            })
+            ->latest()
+            ->paginate(4)
+            ->withQueryString();
+
+
+        return view('pages.portfolio.index', compact('categories', 'portfolios', 'featuredPortfolios'));
     }
 
     /**

@@ -10,17 +10,18 @@
                 class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75 animate-[pulse_8s_ease-in-out_infinite]">
             </div>
         </div>
-        <div class="max-w-7xl h-full flex flex-col items-center justify-center mx-auto relative pt-14 px-6 lg:px-8">
+        <div
+            class="max-w-7xl h-full flex flex-col items-center justify-center mx-auto relative pt-14 px-6 lg:px-8 section hero-section">
             <div class="py-16 sm:py-36 lg:py-40 relative z-20">
                 <div class="flex gap-16 justify-center items-center">
                     <div class="flex flex-col items-center">
                         <h1
-                            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-slate-300 leading-normal sm:leading-10 md:leading-16 lg:leading-20 text-center max-w-4xl mx-auto">
+                            class="hero-title split text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-slate-300 leading-normal sm:leading-10 md:leading-16 lg:leading-20 text-center max-w-4xl mx-auto">
                             Solusi Digital & Jasa Pembuatan Website untuk Bisnis Anda
                         </h1>
 
                         <p
-                            class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 text-center max-w-3xl mx-auto">
+                            class="hero-subtitle text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 text-center max-w-3xl mx-auto">
                             Kami menyediakan jasa pembuatan website dengan harga terjangkau, dirancang dengan strategi
                             yang
                             tepat agar sesuai
@@ -43,7 +44,7 @@
         </div>
     </section>
     <section id="create-website"
-        class="w-full scroll-mt-18 dark:bg-slate-900 isolate relative h-auto overflow-hidden transition-colors duration-300 ease-in-out">
+        class="section w-full scroll-mt-18 dark:bg-slate-900 isolate relative h-auto overflow-hidden transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto relative px-6 lg:px-8 pt-20 pb-16 md:pb-64 group min-h-auto">
             <div class="w-full flex flex-col lg:flex-row gap-8 justify-between items-center">
                 <div class="w-full lg:w-5/12">
@@ -57,12 +58,12 @@
                     </div>
 
                     <h3
-                        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8 leading-normal sm:leading-10 md:leading-16">
+                        class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8 leading-normal sm:leading-10 md:leading-16">
                         Wujudkan ide kreatif Anda menjadi website profesional.
                     </h3>
 
                     <p
-                        class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8">
+                        class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8">
                         Dari konsep hingga eksekusi, kami membantu membangun website impian Anda yang modern, responsif,
                         dan disesuaikan dengan kebutuhan bisnis agar tampil lebih percaya diri di dunia digital.
                     </p>
@@ -126,8 +127,9 @@
                         <div class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
                             <i data-feather="smile" class="w-4 h-4 text-slate-600 dark:text-slate-300"></i>
                         </div>
-                        <h2 class="font-bold text-5xl text-slate-800 dark:text-slate-400">
-                            95<span class="text-3xl">%</span>
+                        <h2 class="stat-number font-bold text-5xl text-slate-800 dark:text-slate-400" data-value="95"
+                            data-suffix="%">
+                            <span class="stat-value">0</span><span class="text-3xl">%</span>
                         </h2>
                     </div>
                     <p
@@ -141,8 +143,9 @@
                         <div class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
                             <i data-feather="check-circle" class="w-4 h-4 text-slate-600 dark:text-slate-300"></i>
                         </div>
-                        <h2 class="font-bold text-5xl text-slate-800 dark:text-slate-400">
-                            50<span class="text-3xl">+</span>
+                        <h2 class="stat-number font-bold text-5xl text-slate-800 dark:text-slate-400" data-value="50"
+                            data-suffix="+">
+                            <span class="stat-value">0</span><span class="text-3xl">+</span>
                         </h2>
                     </div>
                     <p
@@ -156,8 +159,9 @@
                         <div class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
                             <i data-feather="zap" class="w-4 h-4 text-slate-600 dark:text-slate-300"></i>
                         </div>
-                        <h2 class="font-bold text-5xl text-slate-800 dark:text-slate-400">
-                            40<span class="text-3xl">+</span>
+                        <h2 class="stat-number font-bold text-5xl text-slate-800 dark:text-slate-400" data-value="40"
+                            data-suffix="+">
+                            <span class="stat-value">0</span><span class="text-3xl">+</span>
                         </h2>
                     </div>
                     <p
@@ -171,8 +175,9 @@
                         <div class="w-8 h-8 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
                             <i data-feather="trending-up" class="w-4 h-4 text-slate-600 dark:text-slate-300"></i>
                         </div>
-                        <h2 class="font-bold text-5xl text-slate-800 dark:text-slate-400">
-                            25<span class="text-3xl">+</span>
+                        <h2 class="stat-number font-bold text-5xl text-slate-800 dark:text-slate-400" data-value="25"
+                            data-suffix="+">
+                            <span class="stat-value">0</span><span class="text-3xl">+</span>
                         </h2>
                     </div>
                     <p
@@ -184,8 +189,8 @@
         </div>
 
 
-        <div class="w-full max-w-7xl mx-auto relative px-6 lg:px-8 mt-8 md:mt-28 py-8 group">
-            <div class="w-full flex flex-col lg:flex-row-reverse gap-20 justify-between">
+        <div class="section w-full max-w-7xl mx-auto relative px-6 lg:px-8 mt-8 md:mt-28 py-8 group">
+            <div class="w-full flex flex-col lg:flex-row-reverse gap-20 justify-between items-center">
                 <div class="w-full lg:w-7/12">
                     <div class="flex gap-2 items-center">
                         <div
@@ -197,12 +202,12 @@
                     </div>
 
                     <h3
-                        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8 leading-normal sm:leading-10 md:leading-16">
+                        class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8 leading-normal sm:leading-10 md:leading-16">
                         Partner terpercaya untuk membangun website impian Anda.
                     </h3>
 
                     <p
-                        class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8">
+                        class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8">
                         Kami bukan hanya membuat website, tetapi memberikan solusi digital yang sesuai dengan kebutuhan
                         bisnis Anda.
                         Dengan harga yang bersahabat, desain modern, dan strategi tepat sasaran, kami hadir untuk membantu
@@ -294,7 +299,7 @@
         </div>
     </section>
     <section id="pricing" aria-label="Paket Harga Website Elvacode"
-        class="w-full bg-white dark:bg-slate-900 group/section transition-colors duration-300 ease-in-out">
+        class=" section w-full bg-white dark:bg-slate-900 group/section transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto py-12 px-6 lg:px-8">
             <div class="flex gap-2 items-center">
                 <div
@@ -306,12 +311,12 @@
             </div>
 
             <h3
-                class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8">
+                class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8">
                 Pilih Paket Website Sesuai Kebutuhan Anda
             </h3>
 
             <p
-                class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8">
+                class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8">
                 Paket fleksibel sesuai kebutuhan Anda, dari solusi sederhana hingga website profesional.
             </p>
 
@@ -393,7 +398,7 @@
         </div>
     </section>
     <section
-        class="py-12 bg-gradient-to-b from-white to-slate-100 
+        class="section py-12 bg-gradient-to-b from-white to-slate-100 
          dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 
          transition-colors duration-300 ease-in-out group/section">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -407,12 +412,12 @@
             </div>
 
             <h3
-                class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-2xl md:max-w-3xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8">
+                class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-2xl md:max-w-3xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8">
                 Solusi Website Profesional untuk Bisnis dan Organisasi Anda
             </h3>
 
             <p
-                class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8 max-w-2xl md:max-w-3xl">
+                class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium sm:font-semibold mt-6 sm:mt-8 max-w-2xl md:max-w-3xl">
                 Kami menyediakan layanan pembuatan website modern, responsif, dan sesuai kebutuhan Anda.
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
@@ -468,7 +473,125 @@
         </div>
     </section>
     <section
-        class="pt-8 pb-16 bg-gradient-to-b from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-900 transition-colors duration-300 ease-in-out group/section">
+        class="section w-full py-16 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out group/section">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex gap-2 items-center">
+                <div
+                    class="h-4 w-1 sm:h-5 sm:w-1.5 md:h-6 md:w-2 group-hover/section:w-3 group-hover/section:h-2 rotate-0 group-hover/section:rotate-180 rounded-full bg-violet-900 dark:bg-violet-500 transition-all duration-300 ease-in-out">
+                </div>
+                <h2 class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-300 uppercase">
+                    Portofolio
+                </h2>
+            </div>
+
+            <h3
+                class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-slate-100 mt-6 sm:mt-8">
+                Proyek yang Telah Kami Kerjakan
+            </h3>
+
+            <div class="mt-6 sm:mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+                <p
+                    class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium max-w-2xl md:max-w-3xl">
+                    Beragam website dan aplikasi yang kami bangun dengan fokus pada desain modern, performa optimal, dan
+                    kebutuhan bisnis klien.
+                </p>
+
+                <a href="{{ route('portfolio.index') }}"
+                    class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-violet-600 dark:text-violet-400 hover:underline whitespace-nowrap">
+                    Jelajahi Portfolio
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+                @foreach ($portfolios as $portfolio)
+                    <a href="{{ route('portfolio.show', $portfolio->slug) }}"
+                        class="group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-100 dark:bg-slate-800
+                            h-[380px] sm:h-[450px] relative overflow-hidden
+                            transition-all duration-300
+                            hover:bg-violet-600 active:bg-violet-600
+                            dark:hover:bg-violet-700 dark:active:bg-violet-700
+                            cursor-pointer block">
+
+
+                        <h3
+                            class="text-xl sm:text-xl text-slate-800 dark:text-slate-100 font-bold line-clamp-2
+                                transition-colors duration-300
+                                group-hover:text-white group-active:text-white
+                                leading-6">
+                            {{ $portfolio->name }}
+                        </h3>
+
+                        <p
+                            class="text-slate-700 dark:text-slate-300 text-sm mt-4
+                                    transition-colors duration-300
+                                    group-hover:text-white group-active:text-white
+                                    line-clamp-2">
+
+                            {{ $portfolio->summary }}
+                        </p>
+
+                        <div
+                            class="w-full absolute bg-slate-400 dark:bg-slate-600 bottom-0
+                                    h-[200px] sm:h-[230px] left-0 right-0
+                                    rounded-t-2xl sm:rounded-t-3xl z-30 overflow-hidden
+                                    transition-transform duration-300
+                                    group-hover:scale-[1.02] group-active:scale-[1.02]">
+
+                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="Portfolio Web Design"
+                                class="w-full h-full object-cover object-center">
+                        </div>
+
+                        <div
+                            class="w-full absolute bg-slate-300/60 dark:bg-slate-500/60
+                             
+                                bottom-6 group-hover:bottom-7 group-active:bottom-7
+                                h-[200px] sm:h-[230px] left-0 right-0
+                                rounded-t-2xl sm:rounded-t-3xl z-20 scale-95 sm:scale-90
+                                transition-all duration-300
+                                group-hover:scale-[0.97] sm:group-hover:scale-95 group-active:scale-[0.97] sm:group-active:scale-95">
+
+                        </div>
+
+                        <div
+                            class="w-full absolute bg-slate-300/40 dark:bg-slate-500/40
+                                 
+                                    bottom-12 group-hover:bottom-14 group-active:bottom-14
+                                    h-[200px] sm:h-[230px] left-0 right-0
+                                    rounded-t-2xl sm:rounded-t-3xl z-10 scale-85 sm:scale-80
+                                    transition-all duration-300
+                                    group-hover:scale-[0.92] sm:group-hover:scale-90 group-active:scale-[0.97] sm:group-active:scale-90">
+
+                        </div>
+
+                        <div
+                            class="rounded-full bg-white dark:bg-slate-900
+                                    h-8 w-8 sm:h-12 sm:w-12
+                                    absolute z-40 bottom-3 right-3 sm:bottom-4 sm:right-4
+                                    flex items-center justify-center shadow-lg
+                                    transition-all duration-300
+                                    group-hover:scale-110 group-active:scale-110
+                                    group-hover:-rotate-45 group-active:-rotate-45">
+
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-800 dark:text-slate-100
+                                transition-colors duration-300
+                                group-hover:text-violet-600 group-active:text-violet-600
+                                dark:group-hover:text-violet-400 dark:group-active:text-violet-400"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </div>
+
+                    </a>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <section
+        class="section py-16 bg-gradient-to-b from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-900 transition-colors duration-300 ease-in-out group/section">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex gap-2 items-center">
                 <div
@@ -480,12 +603,12 @@
             </div>
 
             <h3
-                class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-slate-100 mt-6 sm:mt-8">
+                class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-slate-100 mt-6 sm:mt-8">
                 Apa Kata Mereka Tentang Kami
             </h3>
 
             <p
-                class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl md:max-w-3xl">
+                class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl md:max-w-3xl">
                 Mereka puas dengan website modern yang mudah digunakan dan mendukung pertumbuhan bisnis.
             </p>
             <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">

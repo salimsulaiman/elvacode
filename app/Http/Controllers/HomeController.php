@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +12,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home.index');
+        $portfolios = Portfolio::with('category')
+            ->orderBy('created_at', 'desc')
+            ->limit(4)
+            ->get();
+        return view('pages.home.index', compact('portfolios'));
     }
 
     /**
