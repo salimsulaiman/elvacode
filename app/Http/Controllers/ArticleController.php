@@ -8,23 +8,14 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $categories = ArticleCategory::get();
         $search = request('search');
         $categorySlug = request('category');
 
-        $featuredArticle = Article::with(['category', 'author'])
-            ->where('status', 'published')
-            ->where('is_featured', true)
-            ->orderByDesc('published_at')
-            ->first();
-
         $articles = Article::with(['category', 'author'])
-            ->where('status', 'published')
+            ->published()
             ->when($search, function ($query, $search) {
                 $query->where('title', 'like', "%{$search}%");
             })
@@ -37,82 +28,77 @@ class ArticleController extends Controller
             ->paginate(6)
             ->withQueryString();
 
+        $featuredArticle = Article::with(['category', 'author'])
+            ->published()
+            ->where('is_featured', true)
+            ->orderByDesc('published_at')
+            ->first();
 
         $popularArticles = Article::with(['category', 'author'])
-            ->where('status', 'published')
+            ->published()
             ->orderBy('views', 'desc')
             ->take(4)
             ->get();
 
         $latestArticle = Article::with(['category', 'author'])
-            ->where('status', 'published')
+            ->published()
             ->orderByDesc('published_at')
             ->first();
 
-        return view('pages.article.index', compact('categories', 'featuredArticle', 'articles', 'popularArticles', 'latestArticle'));
+        return view('pages.article.index', compact(
+            'categories',
+            'articles',
+            'featuredArticle',
+            'popularArticles',
+            'latestArticle'
+        ));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show($slug)
     {
-
         $categories = ArticleCategory::get();
 
         $article = Article::with(['category', 'author'])
+            ->published()
             ->where('slug', $slug)
-            ->where('status', 'published')
             ->firstOrFail();
 
         $article->increment('views');
 
         $otherArticles = Article::with(['category', 'author'])
+            ->published()
             ->where('slug', '!=', $slug)
-            ->where('status', 'published')
-            ->latest()
+            ->latest('published_at')
             ->take(3)
             ->get();
 
-        return view('pages.article.detail', compact('categories', 'article', 'otherArticles'));
+        return view('pages.article.detail', compact(
+            'categories',
+            'article',
+            'otherArticles'
+        ));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //
