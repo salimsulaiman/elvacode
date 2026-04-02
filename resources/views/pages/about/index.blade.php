@@ -65,10 +65,15 @@
     <section
         class="w-full overflow-hidden isolate dark:bg-slate-900 transition-colors duration-300 ease-in-out group relative">
 
-        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-            <div style="clip-path: polygon(25.9% 55.9%, 0% 38.4%, 2.5% 73.1%, 14.5% 99.9%, 19.3% 98%, 27.5% 67.5%, 39.8% 37.6%, 47.6% 31.9%, 52.5% 41.7%, 54.8% 65.5%, 72.5% 23.3%, 99.9% 35.1%, 82.1% 0%, 72.4% 23.2%, 23.9% 2.3%, 25.9% 55.9%)"
-                class="relative right-[calc(50%-11rem)] aspect-1155/678 w-144.5 translate-x-1/2 -rotate-30 bg-gradient-to-bl from-[#60a5fa] to-[#a855f7] opacity-25 sm:right-[calc(50%-30rem)] sm:w-288.75 animate-[pulse_10s_ease-in-out_infinite_2s]">
+        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 sm:-top-80">
+
+            <div
+                class="relative mx-auto w-[28rem] h-[28rem]
+        sm:w-[40rem] sm:h-[40rem]
+        bg-gradient-to-bl from-blue-400 to-purple-500
+        opacity-20 blur-2xl rounded-full">
             </div>
+
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8 sm:pt-16 pb-4 sm:pb-12">
@@ -77,11 +82,12 @@
                 <div class="w-full lg:w-6/12">
 
                     <h2
-                        class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8">
+                        class="text-2xl sm:text-3xl md:text-4xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-white mt-6 sm:mt-8 leading-normal sm:leading-10">
                         Membantu bisnis berkembang melalui website berkualitas.
                     </h2>
 
-                    <p class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8">
+                    <p
+                        class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 text-justify max-w-2xl md:max-w-3xl">
                         Kami adalah tim yang berfokus pada pembuatan website modern, cepat, dan responsif. Dengan pengalaman
                         lebih dari 2 tahun, kami menghadirkan solusi digital yang profesional dan efektif untuk mendukung
                         pertumbuhan bisnis Anda.
@@ -91,35 +97,8 @@
                 </div>
 
                 <div class="w-full lg:w-6/12">
-                    <div class="relative w-full aspect-square">
-                        <div class="absolute inset-0 bg-cover bg-center z-30"
-                            style="
-                            background-image: url('{{ asset('assets/images/background-it.jpg') }}');
-                            -webkit-mask-image: url('{{ asset('assets/images/shape.png') }}');
-                            -webkit-mask-repeat: no-repeat;
-                            -webkit-mask-position: center;
-                            -webkit-mask-size: contain;
-                            mask-image: url('{{ asset('assets/images/shape.png') }}');
-                            mask-repeat: no-repeat;
-                            mask-position: center;
-                            mask-size: contain;">
-                        </div>
-
-                        <div
-                            class="w-2/5 h-2/6 bg-transparent absolute top-6 left-1 rounded-tl-sm p-4 flex flex-col gap-2 items-end justify-center">
-                            <h3 class="text-4xl md:text-7xl font-bold text-slate-900 dark:text-slate-100">95<span
-                                    class="text-base md:text-2xl">%</span></h3>
-                            <h4 class="text-violet-900 text-xs md:text-xl font-bold text-end dark:text-violet-400">Tingkat
-                                Kepuasan
-                            </h4>
-                        </div>
-
-                        <div
-                            class="w-2/5 h-2/6 bg-transparent absolute bottom-6 right-1 rounded-br-sm pt-4 pl-4 flex flex-col gap-2 justify-center">
-                            <h3 class="text-4xl md:text-7xl font-bold text-slate-900 dark:text-slate-100">2<span
-                                    class="text-base md:text-2xl">Tahun</span></h3>
-                            <h4 class="text-violet-900 text-base md:text-3xl font-bold dark:text-violet-400">Pengalaman</h4>
-                        </div>
+                    <div class="relative w-full">
+                        <img src="{{ asset('assets/images/experience.png') }}" alt="Tentang Elvacode" class="w-full h-full">
                     </div>
                 </div>
 
@@ -129,12 +108,13 @@
     <section
         class="pt-4 pb-4 sm:pt-8 sm:pb-16 bg-gradient-to-b from-slate-50 via-indigo-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-950 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 mt-6 sm:mt-8">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-white mt-6 sm:mt-8 leading-normal sm:leading-10">
                 Pencapaian Elvacode
             </h2>
 
             <p
-                class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
+                class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 text-justify max-w-2xl md:max-w-3xl">
                 Kami berkomitmen menghadirkan solusi digital yang modern dan fungsional.
                 Statistik berikut menjadi cerminan dedikasi kami pada setiap proyek.
             </p>

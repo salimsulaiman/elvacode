@@ -62,14 +62,15 @@
     </section>
     <section id="pricing" aria-label="Paket Harga Website Elvacode"
         class="w-full overflow-hidden isolate dark:bg-slate-900 transition-colors duration-300 ease-in-out group/section relative">
-        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-            <div style="clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%)"
-                class="relative mx-auto aspect-[1155/678] w-[36rem] 
-         rotate-[30deg] bg-gradient-to-tr 
-         from-pink-300 via-sky-200 to-purple-400 
-         opacity-30 sm:w-[72rem] 
-         animate-[pulse_8s_ease-in-out_infinite]">
+        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 sm:-top-80">
+
+            <div
+                class="relative mx-auto w-[28rem] h-[28rem]
+        sm:w-[40rem] sm:h-[40rem]
+        bg-gradient-to-tr from-pink-300 via-sky-200 to-purple-400
+        opacity-20 blur-2xl rounded-full">
             </div>
+
         </div>
 
 
@@ -92,10 +93,13 @@
                         'features' => [
                             'Cocok untuk: Personal Website, Startup, Bisnis Kecil',
                             'Tampilan Responsive',
-                            '4 Statis Halaman',
-                            'Free Domain & Server 1 Tahun',
+                            '4 Halaman Statis',
+                            'Free Domain (web.id / my.id)',
+                            'Free Hosting 1 Tahun',
                             '1x Revisi Desain',
-                            'SSL/HTTP Secure',
+                            'SSL/HTTPS Secure',
+                            'Gratis Logo Sederhana',
+                            'Panduan Penggunaan Website',
                         ],
                     ],
                     [
@@ -104,11 +108,14 @@
                         'features' => [
                             'Cocok untuk: Portfolio Website, Bisnis Menengah',
                             'Tampilan Responsive',
-                            '5 - 10 Statis Halaman',
-                            'Free Domain & Server 1 Tahun',
+                            '5 - 10 Halaman Statis',
+                            'Free Domain (web.id / my.id / .com)',
+                            'Free Hosting 1 Tahun',
                             '3x Revisi Desain',
-                            'SSL/HTTP Secure',
+                            'SSL/HTTPS Secure',
                             'Free Maintenance 1 Tahun',
+                            'Optimasi Kecepatan Dasar',
+                            'Gratis Logo Sederhana',
                         ],
                     ],
                     [
@@ -117,14 +124,16 @@
                         'features' => [
                             'Cocok untuk: Website E-commerce, Web Custom',
                             'Tampilan Responsive',
-                            'Free Domain & Server 1 Tahun',
-                            'SSL/HTTP Secure',
+                            'Free Domain (web.id / my.id / .com / .id / .co.id)',
+                            'Free Hosting 1 Tahun',
+                            'SSL/HTTPS Secure',
                             'Gratis Email Bisnis',
                             'Free Maintenance 1 Tahun',
-                            '5x Revisi Desain',
                             'Custom Design',
                             'Custom Feature',
                             'Garansi 6 Bulan',
+                            'Optimasi Kecepatan Dasar',
+                            'Gratis Logo Sederhana',
                         ],
                     ],
                 ];

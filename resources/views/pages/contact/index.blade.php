@@ -61,7 +61,7 @@
         </div>
     </section>
     <section
-        class="relative isolate overflow-hidden bg-white dark:bg-gray-800 
+        class="relative isolate overflow-hidden bg-white dark:bg-slate-900 
          transition-colors duration-300 ease-in-out group/section">
 
         <div class="max-w-7xl py-8 sm:py-16 mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-4 md:gap-20">
@@ -81,29 +81,29 @@
                 <!-- Sosial Media Icons -->
                 <div class="flex items-center gap-4 mt-4">
                     <!-- Instagram -->
-                    <a href="https://instagram.com" target="_blank"
+                    <a href="https://www.instagram.com/elvacodecom" target="_blank"
                         class="w-12 h-12 flex justify-center items-center bg-slate-200 dark:bg-slate-700 rounded-full hover:bg-violet-100 dark:hover:bg-violet-900 transition-colors duration-200">
-                        <i class="fa fa-instagram text-violet-600 text-xl"></i>
+                        <i class="fa fa-instagram text-violet-600 dark:text-white text-xl"></i>
                     </a>
 
                     <!-- Facebook -->
                     <a href="https://facebook.com" target="_blank"
                         class="w-12 h-12 flex justify-center items-center bg-slate-200 dark:bg-slate-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-200">
-                        <i class="fa fa-facebook text-blue-600 text-xl"></i>
+                        <i class="fa fa-facebook text-blue-600 dark:text-white text-xl"></i>
                     </a>
 
                     <!-- WhatsApp -->
                     <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
                         target="_blank"
                         class="w-12 h-12 flex justify-center items-center bg-slate-200 dark:bg-slate-700 rounded-full hover:bg-green-100 dark:hover:bg-green-900 transition-colors duration-200">
-                        <i class="fa fa-whatsapp text-green-500 text-xl"></i>
+                        <i class="fa fa-whatsapp text-green-500 dark:text-white text-xl"></i>
                     </a>
                 </div>
 
 
                 <!-- Informasi Kontak -->
                 <div class="flex flex-col gap-3 mt-6 text-slate-800 dark:text-slate-200">
-                    <p>Brebes, Jawa Tengah, Indonesia</p>
+                    <p>Tegal, Jawa Tengah, Indonesia</p>
                     <p>support@elvacode.com</p>
                     <p>+62 878-3548-2333</p>
                 </div>

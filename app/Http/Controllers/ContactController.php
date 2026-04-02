@@ -35,6 +35,24 @@ class ContactController extends Controller
             'subject' => 'required|string',
             'message' => 'required|string',
             'g-recaptcha-response' => 'required',
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'name.string' => 'Nama harus berupa teks.',
+
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+
+            'address.string' => 'Alamat harus berupa teks.',
+
+            'phone.string' => 'Nomor telepon harus berupa teks.',
+
+            'subject.required' => 'Subjek wajib diisi.',
+            'subject.string' => 'Subjek harus berupa teks.',
+
+            'message.required' => 'Pesan wajib diisi.',
+            'message.string' => 'Pesan harus berupa teks.',
+
+            'g-recaptcha-response.required' => 'Silakan verifikasi bahwa Anda bukan robot.',
         ]);
 
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [

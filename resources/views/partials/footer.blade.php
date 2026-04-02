@@ -57,7 +57,7 @@
                             class="hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold">
                             <i class="fa fa-facebook"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank"
+                        <a href="https://www.instagram.com/elvacodecom" target="_blank"
                             class="hover:text-violet-600 dark:hover:text-violet-400 transition font-semibold">
                             <i class="fa fa-instagram"></i>
                         </a>

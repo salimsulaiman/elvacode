@@ -65,14 +65,15 @@
          dark:bg-gray-900 
          transition-colors duration-300 ease-in-out group/section">
 
-        <div aria-hidden="true" class="absolute top-0 right-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-            <div style="clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%)"
-                class="relative mx-auto aspect-[1155/678] w-[36rem]
-                    rotate-[30deg] bg-gradient-to-tr
-                    from-violet-700 via-sky-600 to-cyan-500
-                    opacity-25 sm:w-[72rem]
-                    animate-[pulse_8s_ease-in-out_infinite]">
+        <div aria-hidden="true" class="absolute top-0 right-0 -z-10 sm:-top-80">
+
+            <div
+                class="w-[28rem] h-[28rem]
+        sm:w-[40rem] sm:h-[40rem]
+        bg-gradient-to-tr from-violet-700 via-sky-600 to-cyan-500
+        opacity-20 blur-2xl rounded-full">
             </div>
+
         </div>
 
 

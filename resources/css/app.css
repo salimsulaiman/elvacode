@@ -41,21 +41,17 @@
 }
 
 
-@keyframes slide {
+@keyframes marquee {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
-.animate-slide {
-  animation: slide 35s linear infinite;
-}
-
-.paused {
-  animation-play-state: paused !important;
+.animate-marquee {
+  animation: marquee 35s linear infinite;
 }
 
 [x-cloak] { display: none !important; }

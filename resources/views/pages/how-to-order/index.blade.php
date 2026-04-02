@@ -62,34 +62,35 @@
     </section>
     <section
         class="relative isolate overflow-hidden bg-gradient-to-t from-white to-slate-100 
-         dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 
+         dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 
          transition-colors duration-300 ease-in-out group/section">
 
-        <div aria-hidden="true" class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-            <div style="clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%)"
-                class="relative mx-auto aspect-[1155/678] w-[36rem] 
-         rotate-[30deg] bg-gradient-to-tr 
-         from-pink-300 via-sky-200 to-purple-400 
-         opacity-30 sm:w-[72rem] 
-         animate-[pulse_8s_ease-in-out_infinite]">
+        <div aria-hidden="true" class="absolute inset-x-0 top-0 -z-10 sm:-top-80">
+
+            <div
+                class="relative mx-auto w-[28rem] h-[28rem]
+        sm:w-[40rem] sm:h-[40rem]
+        bg-gradient-to-tr from-pink-300 via-sky-200 to-purple-400
+        opacity-20 blur-2xl rounded-full">
             </div>
+
         </div>
 
         <div class="max-w-7xl py-8 sm:py-16 mx-auto px-6 lg:px-8">
             <h2
-                class=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-2xl md:max-w-3xl leading-normal md:leading-16 font-bold text-slate-800 dark:text-slate-300">
+                class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-md md:max-w-2xl font-bold text-slate-800 dark:text-white mt-6 sm:mt-8 leading-normal sm:leading-10 md:leading-16">
                 Bagaimana Cara Memesan Website di Elvacode?
             </h2>
 
             <p
-                class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl md:max-w-3xl">
+                class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 text-justify max-w-2xl md:max-w-3xl">
                 Kami membuat proses pemesanan mudah dan transparan. Ikuti langkah-langkah berikut untuk mulai
                 bekerjasama
                 dengan kami.
             </p>
             <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
                 <!-- Step 1 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
                     <div
                         class="w-12 h-12 flex items-center justify-center rounded-full bg-violet-600 text-white font-bold text-lg shadow-md">
                         1
@@ -102,7 +103,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
                     <div
                         class="w-12 h-12 flex items-center justify-center rounded-full bg-violet-600 text-white font-bold text-lg shadow-md">
                         2
@@ -116,7 +117,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
                     <div
                         class="w-12 h-12 flex items-center justify-center rounded-full bg-violet-600 text-white font-bold text-lg shadow-md">
                         3
@@ -129,7 +130,7 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
                     <div
                         class="w-12 h-12 flex items-center justify-center rounded-full bg-violet-600 text-white font-bold text-lg shadow-md">
                         4
@@ -142,7 +143,7 @@
                 </div>
 
                 <!-- Step 5 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-6 transition hover:shadow-lg">
                     <div
                         class="w-12 h-12 flex items-center justify-center rounded-full bg-violet-600 text-white font-bold text-lg shadow-md">
                         5
