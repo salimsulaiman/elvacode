@@ -931,7 +931,7 @@
     </section>
     <section
         class="section relative isolate overflow-hidden py-24 sm:py-32 bg-slate-950 dark:bg-white transition-colors duration-500">
-        <div class="mx-auto max-w-3xl text-center px-6">
+        <div class="mx-auto max-w-7xl text-center px-6">
 
             <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="Elvacode Logo"
                 class="w-24 sm:w-28 md:w-32 mx-auto mb-8 sm:mb-10 invert dark:invert-0 transition duration-300">
