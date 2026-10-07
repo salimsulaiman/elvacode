@@ -17,6 +17,8 @@ document.fonts.ready.then(() => {
     initHeroAnimation();
     initSectionReveal();
     initStatCounter();
+    initLaptopParallax();
+    initTypographyParallax();
 });
 
 function initHeroAnimation() {
@@ -150,6 +152,133 @@ function initStatCounter(selector = ".stat-number") {
             },
             "-=0.3" // overlap biar terasa hidup
         );
+    });
+}
+
+function initLaptopParallax() {
+    const mm = gsap.matchMedia();
+
+    gsap.utils.toArray("[data-laptop-parallax]").forEach((root) => {
+        const back = root.querySelector('[data-layer="back"]');
+        const front = root.querySelector('[data-layer="front"]');
+        if (!back || !front) return;
+
+        mm.add(
+            {
+                motionOk: "(prefers-reduced-motion: no-preference)",
+                isDesktop: "(min-width: 1024px)",
+            },
+            (ctx) => {
+                const { motionOk, isDesktop } = ctx.conditions;
+                if (!motionOk) return;
+
+                const backRange = isDesktop ? 10 : 5;
+                const frontRange = isDesktop ? 14 : 7;
+
+                // Animasi masuk
+                gsap.from([back, front], {
+                    opacity: 0,
+                    y: 40,
+                    duration: 1,
+                    ease: "power3.out",
+                    stagger: 0.15,
+                    scrollTrigger: { trigger: root, start: "top 85%", once: true },
+                });
+
+                // Parallax scroll
+                const scrollOpts = {
+                    trigger: root,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 0.6,
+                };
+
+                gsap.fromTo(back,
+                    { yPercent: backRange },
+                    { yPercent: -backRange, ease: "none", scrollTrigger: scrollOpts });
+
+                gsap.fromTo(front,
+                    { yPercent: -frontRange },
+                    { yPercent: frontRange, ease: "none", scrollTrigger: scrollOpts });
+
+                // Parallax mouse (desktop saja)
+                if (isDesktop) {
+                    const backX = gsap.quickTo(back, "x", { duration: 0.8, ease: "power3" });
+                    const backY = gsap.quickTo(back, "y", { duration: 0.8, ease: "power3" });
+                    const frontX = gsap.quickTo(front, "x", { duration: 0.8, ease: "power3" });
+                    const frontY = gsap.quickTo(front, "y", { duration: 0.8, ease: "power3" });
+
+                    const onMove = (e) => {
+                        const r = root.getBoundingClientRect();
+                        const nx = (e.clientX - r.left) / r.width - 0.5;
+                        const ny = (e.clientY - r.top) / r.height - 0.5;
+
+                        backX(nx * -16);  backY(ny * -16);
+                        frontX(nx * 28);  frontY(ny * 28);
+                    };
+                    const onLeave = () => {
+                        backX(0); backY(0); frontX(0); frontY(0);
+                    };
+
+                    root.addEventListener("mousemove", onMove);
+                    root.addEventListener("mouseleave", onLeave);
+
+                    return () => {
+                        root.removeEventListener("mousemove", onMove);
+                        root.removeEventListener("mouseleave", onLeave);
+                    };
+                }
+            }
+        );
+    });
+}
+function initTypographyParallax() {
+    const sections = gsap.utils.toArray("[data-type-section]");
+    if (!sections.length) return;
+
+    const mm = gsap.matchMedia();
+
+    sections.forEach((section) => {
+        const block = section.querySelector("[data-type-block]");
+        const text = section.querySelector("[data-type-text]");
+        if (!block || !text) return;
+
+        mm.add("(prefers-reduced-motion: no-preference)", () => {
+            const split = SplitText.create(text, { type: "words" });
+
+            gsap.fromTo(
+                split.words,
+                { opacity: 0.15 },
+                {
+                    opacity: 1,
+                    ease: "none",
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: text,
+                        start: "top 80%",
+                        end: "bottom 50%",
+                        scrub: true,
+                    },
+                }
+            );
+
+            gsap.fromTo(
+                block,
+                { y: 60 },
+                {
+                    y: -60,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 0.8,
+                    },
+                }
+            );
+
+            return () => split.revert();
+        });
     });
 }
 

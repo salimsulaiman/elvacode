@@ -61,7 +61,7 @@
 <body x-data="{ openSearch: false, q: '' }" @keydown.escape.window="openSearch = false" x-init="$watch('openSearch', value => value && $nextTick(() => $refs.searchInput.focus()))"
     class="bg-white dark:bg-slate-900 relative">
     @include('partials.navbar')
-    <main class="w-full font-dmsans">
+    <main class="w-full font-body">
         @yield('content')
         @include('partials.search-modal')
     </main>
