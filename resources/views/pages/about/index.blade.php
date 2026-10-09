@@ -4,204 +4,215 @@
 
 @section('content')
     <section
-        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white pt-36 sm:pt-40 pb-20 sm:pb-28 overflow-hidden bg-cover bg-center">
-        <div class="absolute inset-0 overflow-hidden">
-            <div
-                class="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-violet-500 opacity-20 blur-3xl rounded-full pulse-glow">
-            </div>
-            <div
-                class="absolute top-20 right-1/4 w-64 h-64 bg-blue-400 opacity-15 blur-2xl rounded-full float-animation [animation-delay:-2s]">
-            </div>
-            <div
-                class="absolute bottom-20 left-1/4 w-48 h-48 bg-purple-400 opacity-10 blur-2xl rounded-full float-animation [animation-delay:-4s]">
-            </div>
-            <div class="absolute top-32 left-1/3 w-32 h-32 bg-indigo-400 opacity-8 blur-xl rounded-full drift-animation">
-            </div>
-            <div
-                class="absolute bottom-32 right-1/3 w-24 h-24 bg-violet-400 opacity-12 blur-xl rounded-full drift-animation [animation-delay:-7s]">
-            </div>
+        class="section font-body relative w-full bg-violet-600 pt-36 sm:pt-44 pb-16 sm:pb-24 border-b border-violet-400/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
 
-            <div class="absolute inset-0 geometric-pattern"></div>
-
-            <div
-                class="absolute inset-0 opacity-5 [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:50px_50px]">
-            </div>
-
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent rotate-12 origin-left">
-                </div>
-                <div
-                    class="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent -rotate-12 origin-left">
-                </div>
-                <div
-                    class="absolute bottom-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent rotate-6 origin-left">
-                </div>
-            </div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
-            <nav class="flex justify-center mb-6" aria-label="Breadcrumb">
-                <ol class="flex items-center space-x-2 text-sm text-violet-200">
-                    <li><a href="/" class="hover:text-white transition-colors duration-200">Home</a></li>
-                    <li>/</li>
+            <nav aria-label="Breadcrumb">
+                <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
+                    <li>
+                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            Home
+                        </a>
+                    </li>
+                    <li aria-hidden="true">/</li>
                     <li class="text-white font-semibold">Tentang Kami</li>
                 </ol>
             </nav>
 
-            <div class="text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold relative">
-                    Tentang Elvacode
-                    <div
-                        class="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold text-violet-300 opacity-30 blur-sm -z-10">
-                        Tentang Elvacode
-                    </div>
-                </h1>
-            </div>
+            <h1
+                class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
+                Mengenal Lebih Dekat
+                <span class="font-bold text-slate-900">Elvacode</span>
+            </h1>
         </div>
     </section>
 
-
     <section
-        class="w-full overflow-hidden isolate dark:bg-slate-900 transition-colors duration-300 ease-in-out group relative">
+        class="section font-body w-full bg-white dark:bg-slate-900 py-24 sm:py-32 transition-colors duration-300 ease-in-out">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
 
-        <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 sm:-top-80">
+                <div class="lg:col-span-7">
+                    <div class="flex gap-2 items-center">
+                        <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                            <span class="font-bold text-slate-800 dark:text-white">//</span>
+                            Siapa Kami
+                        </h2>
+                    </div>
 
-            <div
-                class="relative mx-auto w-[28rem] h-[28rem]
-        sm:w-[40rem] sm:h-[40rem]
-        bg-gradient-to-bl from-blue-400 to-purple-500
-        opacity-20 blur-2xl rounded-full">
-            </div>
-
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8 sm:pt-16 pb-4 sm:pb-12">
-            <div class="flex flex-col-reverse lg:flex-row gap-4 lg:gap-20 justify-between items-center">
-
-                <div class="w-full lg:w-6/12">
-
-                    <h2
-                        class="text-2xl sm:text-3xl md:text-4xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-white mt-6 sm:mt-8 leading-normal sm:leading-10">
-                        Membantu bisnis berkembang melalui website berkualitas.
-                    </h2>
+                    <h3
+                        class="font-primary section-title split mt-6 max-w-3xl text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20">
+                        Website
+                        <span class="font-bold text-violet-500 dark:text-violet-300">Profesional</span>
+                        untuk Bisnis Anda
+                    </h3>
 
                     <p
-                        class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 text-justify max-w-2xl md:max-w-3xl">
+                        class="section-desc mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed text-justify">
                         Kami adalah tim yang berfokus pada pembuatan website modern, cepat, dan responsif. Dengan pengalaman
                         lebih dari 2 tahun, kami menghadirkan solusi digital yang profesional dan efektif untuk mendukung
                         pertumbuhan bisnis Anda.
                     </p>
 
-                    <video src="" class="w-full rounded-2xl aspect-video bg-slate-200 mt-8"></video>
+                    <div
+                        class="mt-10 aspect-video w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800 sm:mt-12">
+                        <iframe src="https://www.youtube.com/embed/CMzboyx0WtE" title="Video Elvacode" loading="lazy"
+                            class="h-full w-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
 
-                <div class="w-full lg:w-6/12">
-                    <div class="relative w-full">
-                        <img src="{{ asset('assets/images/experience.png') }}" alt="Tentang Elvacode" class="w-full h-full">
+                <div class="flex flex-col justify-center lg:col-span-5">
+                    <div
+                        class="grid grid-cols-2 divide-x divide-slate-200 dark:divide-slate-800 lg:grid-cols-1 lg:divide-x-0 lg:divide-y">
+
+                        <div class="py-8 pr-4 sm:pr-8 lg:py-12 lg:pr-0">
+                            <div class="stat-number font-primary text-6xl font-bold leading-none tracking-tighter text-slate-800 dark:text-white sm:text-8xl lg:text-[164px]"
+                                data-value="95">
+                                <span class="stat-value">0</span><span class="text-violet-500 dark:text-violet-300">%</span>
+                            </div>
+                            <p class="mt-4 text-sm font-semibold text-slate-800 dark:text-white sm:text-base">
+                                Kepuasan pelanggan
+                            </p>
+                            <p class="mt-1.5 max-w-xs text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                                Mayoritas klien puas dengan hasil, kualitas, dan layanan kami.
+                            </p>
+                        </div>
+
+                        <div class="py-8 pl-4 sm:pl-8 lg:py-12 lg:pl-0">
+                            <div class="stat-number font-primary text-6xl font-bold leading-none tracking-tighter text-slate-800 dark:text-white sm:text-8xl lg:text-9xl"
+                                data-value="2">
+                                <span class="stat-value">0</span><span class="text-violet-500 dark:text-violet-300">+</span>
+                            </div>
+                            <p class="mt-4 text-sm font-semibold text-slate-800 dark:text-white sm:text-base">
+                                Tahun pengalaman
+                            </p>
+                            <p class="mt-1.5 max-w-xs text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                                Berpengalaman membangun website untuk berbagai jenis bisnis.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    @php
+        $stats = [
+            [
+                'value' => 95,
+                'suffix' => '%',
+                'label' => 'Kepuasan Klien',
+                'image' => 'happy-client.jpg',
+                'alt' => 'Klien Elvacode yang puas setelah menggunakan layanan',
+            ],
+            [
+                'value' => 50,
+                'suffix' => '+',
+                'label' => 'Proyek Selesai',
+                'image' => 'finish-project.jpg',
+                'alt' => 'Proyek website Elvacode yang berhasil diselesaikan',
+            ],
+            [
+                'value' => 40,
+                'suffix' => '+',
+                'label' => 'Ide Terealisasi',
+                'image' => 'realitation-idea.jpg',
+                'alt' => 'Ide klien yang berhasil direalisasikan menjadi website',
+            ],
+            [
+                'value' => 25,
+                'suffix' => '+',
+                'label' => 'Bisnis Berkembang',
+                'image' => 'business-growth.jpg',
+                'alt' => 'Bisnis klien yang berkembang setelah memiliki website profesional',
+            ],
+        ];
+    @endphp
+
     <section
-        class="pt-4 pb-4 sm:pt-8 sm:pb-16 bg-gradient-to-b from-slate-50 via-indigo-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-950 transition-colors duration-300 ease-in-out">
+        class="section font-body w-full bg-slate-50 dark:bg-slate-950 py-20 sm:py-32 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2
-                class="text-2xl sm:text-3xl md:text-4xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-white mt-6 sm:mt-8 leading-normal sm:leading-10">
-                Pencapaian Elvacode
-            </h2>
 
-            <p
-                class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 text-justify max-w-2xl md:max-w-3xl">
-                Kami berkomitmen menghadirkan solusi digital yang modern dan fungsional.
-                Statistik berikut menjadi cerminan dedikasi kami pada setiap proyek.
-            </p>
+            <div class="flex gap-2 items-center">
+                <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                    <span class="font-bold text-slate-800 dark:text-white">//</span>
+                    Pencapaian
+                </h2>
+            </div>
 
-            <section aria-label="Statistik Keberhasilan Elvacode"
-                class="font-medium mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="relative rounded-xl overflow-hidden shadow-lg aspect-[4/5] w-full h-full group">
-                    <img src="{{ asset('assets/images/happy-client.jpg') }}"
-                        alt="Klien Elvacode yang puas setelah menggunakan layanan"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
+                <h3
+                    class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-2xl mx-auto lg:mx-0">
+                    Pencapaian <span class="font-bold text-violet-500 dark:text-violet-300">Elvacode</span>
+                </h3>
 
+                <p
+                    class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
+                    Kami berkomitmen menghadirkan solusi digital yang modern dan fungsional. Statistik berikut menjadi
+                    cerminan dedikasi kami pada setiap proyek.
+                </p>
+            </div>
+
+            <div aria-label="Statistik Keberhasilan Elvacode"
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
+                @foreach ($stats as $stat)
                     <div
-                        class="absolute rounded-2xl backdrop-blur-xs bottom-4 left-4 right-4 h-[100px] bg-black/40 flex flex-col justify-center items-start text-white px-4">
-                        <h3 class="text-2xl md:text-4xl font-medium">95%</h3>
-                        <p class="text-xs md:text-sm mt-0">Kepuasan Klien</p>
+                        class="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
+                        <img src="{{ asset('assets/images/' . $stat['image']) }}" alt="{{ $stat['alt'] }}" loading="lazy"
+                            class="h-full w-full object-cover">
+
+                        <div
+                            class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent px-6 pb-6 pt-16 text-white">
+                            <h3 class="stat-number font-primary text-4xl md:text-5xl font-bold tracking-tight"
+                                data-value="{{ $stat['value'] }}">
+                                <span class="stat-value">0</span><span>{{ $stat['suffix'] }}</span>
+                            </h3>
+                            <p class="mt-1 text-sm font-medium text-slate-300">{{ $stat['label'] }}</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="relative rounded-xl overflow-hidden shadow-lg aspect-[4/5] w-full h-full group">
-                    <img src="{{ asset('assets/images/finish-project.jpg') }}"
-                        alt="Proyek website Elvacode yang berhasil diselesaikan"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div
-                        class="absolute rounded-2xl backdrop-blur-xs bottom-4 left-4 right-4 h-[100px] bg-black/40 flex flex-col justify-center items-start text-white px-4">
-                        <h3 class="text-2xl md:text-4xl font-medium">50+</h3>
-                        <p class="text-xs md:text-sm mt-0">Proyek Selesai</p>
-                    </div>
-                </div>
-
-                <div class="relative rounded-xl overflow-hidden shadow-lg aspect-[4/5] w-full h-full group">
-                    <img src="{{ asset('assets/images/realitation-idea.jpg') }}"
-                        alt="Ide klien yang berhasil direalisasikan menjadi website"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div
-                        class="absolute rounded-2xl backdrop-blur-xs bottom-4 left-4 right-4 h-[100px] bg-black/40 flex flex-col justify-center items-start text-white px-4">
-                        <h3 class="text-2xl md:text-4xl font-medium">40+</h3>
-                        <p class="text-xs md:text-sm mt-0">Ide Terealisasi</p>
-                    </div>
-                </div>
-
-                <div class="relative rounded-xl overflow-hidden shadow-lg aspect-[4/5] w-full h-full group">
-                    <img src="{{ asset('assets/images/business-growth.jpg') }}"
-                        alt="Bisnis klien yang berkembang setelah memiliki website profesional"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div
-                        class="absolute rounded-2xl backdrop-blur-xs bottom-4 left-4 right-4 h-[100px] bg-black/40 flex flex-col justify-center items-start text-white px-4">
-                        <h3 class="text-2xl md:text-4xl font-medium">25+</h3>
-                        <p class="text-xs md:text-sm mt-0">Bisnis Berkembang</p>
-                    </div>
-                </div>
-            </section>
+                @endforeach
+            </div>
 
         </div>
     </section>
 
     <section
-        class="relative py-20 bg-gradient-to-r from-gray-50 to-white dark:from-gray-900 dark:to-slate-950 transition-colors duration-300 ease-in-out">
-        <div class="mx-auto max-w-4xl text-center px-6 lg:px-8">
-            <span
-                class="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wide 
-                      text-violet-700 dark:text-violet-300 bg-violet-100/70 dark:bg-violet-900/40 rounded-full">
-                Mari Bekerja Sama
-            </span>
+        class="section font-body relative isolate overflow-hidden py-24 sm:py-32 bg-slate-900 dark:bg-violet-600 transition-colors duration-500">
+        <div class="mx-auto max-w-3xl text-center px-6">
 
-            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Siap Diskusi Proyek Website Anda?
-            </h2>
+            <div class="flex justify-center">
+                <h2 class="font-primary text-sm font-semibold text-slate-400 dark:text-violet-100 uppercase">
+                    <span class="font-bold text-white dark:text-white">//</span>
+                    Mari Bekerja Sama
+                </h2>
+            </div>
 
-            <p class="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Kami membantu mewujudkan website sesuai kebutuhan bisnis Anda —
-                modern, responsif, dan dikelola dengan sepenuh hati.
+            <h3
+                class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-white dark:text-white leading-normal sm:leading-10 md:leading-16">
+                Siap Diskusi Proyek
+                <span class="font-bold text-violet-300 dark:text-white">Website</span> Anda?
+            </h3>
+
+            <p
+                class="section-desc mt-6 sm:mt-8 mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-slate-300 dark:text-violet-100 font-medium">
+                Kami membantu mewujudkan website sesuai kebutuhan bisnis Anda, modern, responsif, dan dikelola dengan
+                sepenuh hati.
             </p>
 
-            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div class="mt-10 flex justify-center">
                 <a href="{{ route('contact.index') }}"
-                    class="rounded-2xl bg-violet-600 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold 
-                   text-white shadow-lg hover:bg-violet-700 focus-visible:outline 
-                   focus-visible:outline-offset-2 focus-visible:outline-violet-600 transition">
+                    class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-white py-2 pl-6 pr-2 text-sm font-bold text-slate-900 dark:text-violet-700 transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-100 dark:hover:text-violet-700">
                     Konsultasi Gratis
+                    <span
+                        class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 dark:bg-violet-600 text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600">
+                        <i data-feather="arrow-up-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
+                    </span>
                 </a>
             </div>
         </div>
     </section>
-
-
-
 @endsection

@@ -1,6 +1,16 @@
-      <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 my-8">Artikel Populer</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-          @foreach ($popularArticles as $popularArticle)
+      <div class="mt-16 sm:mt-20 flex gap-2 items-center">
+          <h4 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+              <span class="font-bold text-slate-800 dark:text-white">//</span>
+              Populer
+          </h4>
+      </div>
+
+      <h3
+          class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16">
+          Artikel <span class="font-bold text-violet-500 dark:text-violet-300">Populer</span>
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          @foreach ($popularArticles->take(3) as $popularArticle)
               <a href="{{ route('article.show', $popularArticle->slug) }}"
                   class="w-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl duration-300 ease-in-out">
                   <div class="w-full flex flex-col gap-3 group">

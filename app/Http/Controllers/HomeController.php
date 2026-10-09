@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,15 @@ class HomeController extends Controller
     {
         $portfolios = Portfolio::with('category')
             ->orderBy('created_at', 'desc')
-            ->limit(4)
+            ->limit(6)
             ->get();
-        return view('pages.home.index', compact('portfolios'));
+        $showcasePortfolios = Portfolio::with('category')->latest()->take(8)->get();
+        $articles = Article::with(['category', 'author'])
+            ->published()
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+        return view('pages.home.index', compact('portfolios', 'showcasePortfolios', 'articles'));
     }
 
     /**

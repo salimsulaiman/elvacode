@@ -5,74 +5,41 @@
 
 @section('content')
     <section
-        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white pt-36 sm:pt-40 pb-20 sm:pb-28 overflow-hidden bg-cover bg-center">
-        <div class="absolute inset-0 overflow-hidden">
-            <div
-                class="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-violet-500 opacity-20 blur-3xl rounded-full pulse-glow">
-            </div>
-            <div
-                class="absolute top-20 right-1/4 w-64 h-64 bg-blue-400 opacity-15 blur-2xl rounded-full float-animation [animation-delay:-2s]">
-            </div>
-            <div
-                class="absolute bottom-20 left-1/4 w-48 h-48 bg-purple-400 opacity-10 blur-2xl rounded-full float-animation [animation-delay:-4s]">
-            </div>
-            <div class="absolute top-32 left-1/3 w-32 h-32 bg-indigo-400 opacity-8 blur-xl rounded-full drift-animation">
-            </div>
-            <div
-                class="absolute bottom-32 right-1/3 w-24 h-24 bg-violet-400 opacity-12 blur-xl rounded-full drift-animation [animation-delay:-7s]">
-            </div>
+        class="section font-body relative w-full bg-violet-600 pt-36 sm:pt-44 pb-16 sm:pb-24 border-b border-violet-500/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
 
-            <div class="absolute inset-0 geometric-pattern"></div>
-
-            <div
-                class="absolute inset-0 opacity-5 [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:50px_50px]">
-            </div>
-
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent rotate-12 origin-left">
-                </div>
-                <div
-                    class="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent -rotate-12 origin-left">
-                </div>
-                <div
-                    class="absolute bottom-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent rotate-6 origin-left">
-                </div>
-            </div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
-            <nav class="flex justify-center mb-6" aria-label="Breadcrumb">
-                <ol class="flex items-center space-x-2 text-sm text-violet-200">
-                    <li><a href="/" class="hover:text-white transition-colors duration-200">Home</a></li>
-                    <li>/</li>
-                    <li><a href="{{ route('portfolio.index') }}"
-                            class="hover:text-white transition-colors duration-200">Portofolio</a></li>
-                    <li>/</li>
-                    <li class="text-white font-semibold">Detail Portfolio</li>
+            <nav aria-label="Breadcrumb">
+                <ol class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-violet-100">
+                    <li>
+                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            Home
+                        </a>
+                    </li>
+                    <li aria-hidden="true">/</li>
+                    <li>
+                        <a href="{{ route('portfolio.index') }}"
+                            class="transition-colors duration-150 ease-in-out hover:text-white">
+                            Portofolio
+                        </a>
+                    </li>
+                    <li aria-hidden="true">/</li>
+                    <li class="text-white font-semibold">Detail Portofolio</li>
                 </ol>
             </nav>
 
-            <div class="text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold relative">
-                    {{ $portfolio->name }}
-                    <div
-                        class="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold text-violet-300 opacity-30 blur-sm -z-10">
-                        {{ $portfolio->name }}
-                    </div>
-                </h1>
-            </div>
+            <h1
+                class="font-primary section-title mt-6 mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.15]">
+                {{ $portfolio->name }}
+            </h1>
         </div>
     </section>
-    <section
-        class="relative isolate overflow-hidden bg-white
-         dark:bg-gray-900 
-         transition-colors duration-300 ease-in-out group/section">
+    <section class="font-body relative isolate bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
 
-        <div class="max-w-7xl py-8 sm:py-16 mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row gap-8 md:gap-20 justify-between">
-                <div class="w-full md:w-9/12">
-                    <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700">
+        <div class="max-w-7xl py-16 sm:py-24 mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 justify-between">
+                <div class="w-full lg:w-9/12">
+                    <div
+                        class="w-full aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
                         <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->name }}"
                             class="w-full h-full object-cover object-center">
                     </div>
@@ -81,39 +48,60 @@
                         {{ $portfolio->category->name }}
                     </h5>
                     <h2
-                        class="text-4xl w-full font-bold text-slate-800 dark:text-slate-300 leading-normal sm:leading-10 md:leading-16 mt-4">
+                        class="font-primary text-4xl w-full font-bold text-slate-800 dark:text-slate-300 leading-normal sm:leading-10 md:leading-16 mt-4">
                         {{ $portfolio->name }}
                     </h2>
 
+                    <div class="mt-10 flex gap-2 items-center">
+                        <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                            <span class="font-bold text-slate-800 dark:text-white">//</span>
+                            Tentang Proyek
+                        </h2>
+                    </div>
+
+                    <p
+                        class="font-body mt-4 w-full text-base font-medium leading-relaxed text-slate-700 dark:text-slate-300 text-justify">
+                        {{ $portfolio->summary }}
+                    </p>
+
+                    <hr class="my-10 border-t border-slate-200 dark:border-slate-800">
+
                     <article
-                        class="prose prose-neutral lg:prose-lg mt-4 custom-list prose-p:leading-loose dark:prose-invert text-justify">
+                        class="font-body prose prose-neutral mt-8 custom-list prose-p:leading-loose dark:prose-invert text-justify max-w-none">
                         {!! $portfolio->content !!}
                     </article>
 
 
                 </div>
-                <div class="w-full md:w-3/12">
-                    <h3 class="text-base text-slate-800 dark:text-white mb-4 font-semibold">Proyek Lainnya</h3>
-                    <div class="w-full grid grid-cols-1 gap-4">
-                        @foreach ($otherPortfolios as $otherPortfolio)
-                            <a href="{{ route('portfolio.show', $otherPortfolio->slug) }}"
-                                class="w-full flex flex-col gap-2 group">
-                                <div class="w-full rounded-xl overflow-hidden bg-slate-200 aspect-video">
-                                    <img src="{{ asset('storage/' . $otherPortfolio->thumbnail) }}"
-                                        alt="{{ $otherPortfolio->name }}"
-                                        class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out grayscale-100 group-hover:grayscale-0"
-                                        loading="lazy">
-                                </div>
-                                <h4
-                                    class="text-lg font-semibold text-slate-800 dark:text-slate-200 group-hover:text-violet-900 dark:group-hover:text-violet-300">
-                                    {{ $otherPortfolio->name }}</h4>
-                                <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 font-medium">
-                                    {{ $otherPortfolio->summary }}
-                                </p>
-                            </a>
-                        @endforeach
+                <aside class="w-full lg:w-3/12">
+                    <div>
+                        <h3 class="font-primary text-sm font-semibold uppercase text-slate-500 dark:text-slate-300">
+                            <span class="font-bold text-slate-800 dark:text-white">//</span>
+                            Proyek Lainnya
+                        </h3>
+
+                        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                            @foreach ($otherPortfolios as $otherPortfolio)
+                                <a href="{{ route('portfolio.show', $otherPortfolio->slug) }}"
+                                    class="group flex w-full flex-col gap-3">
+                                    <div
+                                        class="aspect-video w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
+                                        <img src="{{ asset('storage/' . $otherPortfolio->thumbnail) }}"
+                                            alt="{{ $otherPortfolio->name }}" loading="lazy"
+                                            class="h-full w-full object-cover object-center grayscale transition duration-300 ease-in-out group-hover:scale-105 group-hover:grayscale-0">
+                                    </div>
+                                    <h4
+                                        class="font-primary text-lg font-semibold text-slate-800 transition-colors duration-150 ease-in-out group-hover:text-violet-600 dark:text-slate-200 dark:group-hover:text-violet-300">
+                                        {{ $otherPortfolio->name }}
+                                    </h4>
+                                    <p class="line-clamp-2 text-sm font-medium text-slate-600 dark:text-slate-400">
+                                        {{ $otherPortfolio->summary }}
+                                    </p>
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
     </section>

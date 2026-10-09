@@ -21,7 +21,7 @@
                             </span>
                         </div>
                         <h1
-                            class="font-primary hero-title split text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-4xl mx-auto lg:mx-0 mt-6">
+                            class="font-primary hero-title split text-3xl sm:text-4xl md:text-7xl font-bold sm:font-normal tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-18 max-w-3xl mx-auto lg:mx-0 mt-6">
                             Solusi
                             <span class="font-bold text-violet-500 dark:text-violet-300">
                                 Website
@@ -96,58 +96,153 @@
             </div>
         </div>
     </div>
+    @php
+        $showcase = $portfolios->take(8)->values();
+
+        while ($showcase->isNotEmpty() && $showcase->count() < 6) {
+            $showcase = $showcase->concat($showcase)->values();
+        }
+    @endphp
+
     <section id="create-website"
-        class="section w-full scroll-mt-18 dark:bg-slate-900 isolate relative h-auto overflow-hidden transition-colors duration-300 ease-in-out">
-        <div class="max-w-7xl mx-auto relative px-6 lg:px-8 pt-32 pb-16 md:pb-64 group min-h-auto">
-            <div class="w-full flex flex-col lg:flex-row gap-8 justify-between items-center">
-                <div class="w-full lg:w-5/12">
-                    <div class="flex gap-2 items-center">
-                        <h2 class="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase">
-                            <span class="font-bold text-slate-800 dark:text-white">//</span>
-                            Bangun Website Impian
-                        </h2>
+        class="section font-body w-full scroll-mt-18 relative isolate overflow-hidden bg-white dark:bg-slate-900 pt-24 sm:pt-32 pb-32 sm:pb-72 transition-colors duration-300 ease-in-out">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center">
+                <div class="flex gap-2 items-center justify-center">
+                    <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                        <span class="font-bold text-slate-800 dark:text-white">//</span>
+                        Bangun Website Impian
+                    </h2>
+                </div>
+
+                <h3
+                    class="font-primary section-title split mt-6 max-w-3xl text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20">
+                    Wujudkan Website <span class="font-bold text-violet-500 dark:text-violet-300">Profesional</span> Anda
+                </h3>
+
+                <p
+                    class="section-desc mt-6 sm:mt-8 max-w-xl text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+                    Kami membantu membangun website modern yang sesuai dengan kebutuhan bisnis Anda.
+                </p>
+            </div>
+        </div>
+        @if ($showcase->isNotEmpty())
+            <div class="mt-14 sm:mt-20 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                <div x-data="{
+                    x: 0,
+                    half: 0,
+                    paused: false,
+                    dragging: false,
+                    moved: false,
+                    startX: 0,
+                    startPos: 0,
+                    last: 0,
+                    raf: null,
+                    speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40,
+                    init() {
+                        const track = this.$refs.track;
+                        this.measure();
+                        const step = (t) => {
+                            if (!this.last) this.last = t;
+                            const dt = Math.min((t - this.last) / 1000, 0.05);
+                            this.last = t;
+                            if (!this.paused && !this.dragging) this.x -= this.speed * dt;
+                            this.wrap();
+                            track.style.transform = `translate3d(${this.x}px,0,0)`;
+                            this.raf = requestAnimationFrame(step);
+                        };
+                        this.raf = requestAnimationFrame(step);
+                    },
+                    destroy() {
+                        cancelAnimationFrame(this.raf);
+                    },
+                    measure() {
+                        this.half = this.$refs.track.scrollWidth / 2;
+                    },
+                    wrap() {
+                        if (this.half <= 0) return;
+                        while (this.x <= -this.half) this.x += this.half;
+                        while (this.x > 0) this.x -= this.half;
+                    },
+                    down(e) {
+                        if (e.pointerType === 'mouse' && e.button !== 0) return;
+                        this.dragging = true;
+                        this.moved = false;
+                        this.startX = e.clientX;
+                        this.startPos = this.x;
+                    },
+                    move(e) {
+                        if (!this.dragging) return;
+                        const diff = e.clientX - this.startX;
+                        if (Math.abs(diff) > 5) this.moved = true;
+                        this.x = this.startPos + diff;
+                    },
+                    up() {
+                        if (!this.dragging) return;
+                        this.dragging = false;
+                        setTimeout(() => this.moved = false, 0);
+                    },
+                    wheel(e) {
+                        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+                        e.preventDefault();
+                        this.x -= e.deltaX;
+                    }
+                }" x-on:resize.window.debounce.200ms="measure()" x-on:pointerdown="down($event)"
+                    x-on:pointermove.window="move($event)" x-on:pointerup.window="up()" x-on:pointercancel.window="up()"
+                    x-on:pointerenter="if ($event.pointerType === 'mouse') paused = true"
+                    x-on:pointerleave="if ($event.pointerType === 'mouse') paused = false" x-on:focusin="paused = true"
+                    x-on:focusout="paused = false" x-on:wheel="wheel($event)"
+                    x-on:click.capture="if (moved) { $event.preventDefault(); $event.stopPropagation(); }"
+                    class="touch-pan-y select-none overflow-hidden" :class="dragging ? 'cursor-grabbing' : 'cursor-grab'">
+
+                    <div x-ref="track" class="flex w-max will-change-transform">
+                        @foreach ([false, true] as $isClone)
+                            <div class="flex shrink-0 gap-6 pr-6"
+                                @if ($isClone) aria-hidden="true" @endif>
+                                @foreach ($showcase as $portfolio)
+                                    <a href="{{ route('portfolio.show', $portfolio->slug) }}" draggable="false"
+                                        @if ($isClone) tabindex="-1" @endif
+                                        class="group flex w-[78vw] shrink-0 flex-col overflow-hidden rounded-2xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 sm:w-[22rem] lg:w-[26rem] dark:bg-slate-800/50 dark:hover:bg-violet-600">
+
+                                        <div
+                                            class="aspect-video w-full overflow-hidden rounded-b-2xl bg-slate-200 dark:bg-slate-700">
+                                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}"
+                                                alt="{{ $isClone ? '' : $portfolio->name }}" loading="lazy"
+                                                draggable="false"
+                                                class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105">
+                                        </div>
+
+                                        <div class="flex items-center justify-between gap-4 px-5 py-4">
+                                            <div class="flex min-w-0 flex-col">
+                                                <h4
+                                                    class="font-primary line-clamp-1 text-base font-semibold text-slate-800 transition-colors duration-300 ease-in-out group-hover:text-white dark:text-white">
+                                                    {{ $portfolio->name }}
+                                                </h4>
+
+                                                <span
+                                                    class="text-xs font-medium text-slate-500 transition-colors duration-300 ease-in-out group-hover:text-slate-400 dark:text-slate-400 dark:group-hover:text-white">
+                                                    {{ $portfolio->category->name }}
+                                                </span>
+                                            </div>
+
+                                            <i data-feather="arrow-up-right"
+                                                class="h-4 w-4 shrink-0 text-slate-500 transition-colors duration-300 ease-in-out group-hover:text-violet-300 dark:text-slate-400 dark:group-hover:text-white"></i>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endforeach
                     </div>
-
-                    <h3
-                        class="font-primary section-title split text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-4xl mx-auto lg:mx-0 mt-6">
-                        Wujudkan Website <span class="font-bold text-violet-500 dark:text-violet-300">Profesional</span>
-                        Anda
-                    </h3>
-
-                    <p
-                        class="section-desc text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 text-justify">
-                        Dari konsep hingga eksekusi, kami membantu membangun website impian Anda yang modern, responsif,
-                        dan disesuaikan dengan kebutuhan bisnis agar tampil lebih percaya diri di dunia digital.
-                    </p>
-                </div>
-
-                <div
-                    class="w-full lg:w-7/12 relative mt-6 md:mt-12 lg:mt-0 
-            h-[250px] sm:h-[320px] md:h-[380px] lg:h-[400px]">
-
-                    <img src="{{ asset('assets/images/create-website.png') }}" alt="Create Website"
-                        class="w-full lg:absolute lg:top-0">
-
                 </div>
             </div>
-        </div>
-        <div aria-hidden="true" class="absolute inset-0 top-[calc(100%-13rem)] -z-10">
-
-            <div
-                class="relative mx-auto w-[500px] h-[500px]
-        -translate-x-1/2 left-1/2
-        bg-gradient-to-tr from-pink-400 to-indigo-500
-        opacity-20 blur-xl rounded-full
-        sm:w-[700px] sm:h-[700px]">
-            </div>
-
-        </div>
+        @endif
     </section>
     <section
         class="w-full py-0 md:py-32 relative transition-colors duration-300 ease-in-out
          bg-slate-50 dark:bg-slate-800">
         <div
-            class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-24 rounded-none md:rounded-2xl shadow-xl bg-slate-950 dark:bg-white relative lg:absolute top-0 md:-top-24 lg:-top-36 left-1/2 -translate-x-1/2 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12 lg:gap-20 text-center md:text-left justify-items-center md:justify-items-start transition-colors duration-300 ease-in-out border border-slate-900 dark:border-slate-100">
+            class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-24 rounded-none md:rounded-2xl shadow-xl bg-slate-950 dark:bg-white relative lg:absolute top-0 md:-top-24 lg:-top-48 left-1/2 -translate-x-1/2 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12 lg:gap-20 text-center md:text-left justify-items-center md:justify-items-start transition-colors duration-300 ease-in-out border border-slate-900 dark:border-slate-100">
 
             <div class="space-y-4 w-full">
                 <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="Logo Elvacode"
@@ -168,7 +263,8 @@
                 class="w-full grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-10 transition-colors duration-300 ease-in-out">
 
                 <div class="flex flex-col gap-2">
-                    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-1 justify-center md:justify-start">
+                    <div
+                        class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-1 justify-center md:justify-start">
                         <div
                             class="w-8 h-8 shrink-0 bg-slate-700 dark:bg-slate-100 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out">
                             <i data-feather="smile" class="w-4 h-4 text-slate-300 dark:text-slate-600"></i>
@@ -185,7 +281,8 @@
                 </div>
 
                 <div class="flex flex-col gap-2">
-                    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-1 justify-center md:justify-start">
+                    <div
+                        class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-1 justify-center md:justify-start">
                         <div
                             class="w-8 h-8 shrink-0 bg-slate-700 dark:bg-slate-100 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out">
                             <i data-feather="check-circle" class="w-4 h-4 text-slate-300 dark:text-slate-600"></i>
@@ -241,7 +338,7 @@
         </div>
 
 
-        <div class="section w-full max-w-7xl mx-auto relative px-6 lg:px-8 mt-8 md:-mt-12 lg:mt-48 py-8 group">
+        <div class="section w-full max-w-7xl mx-auto relative px-6 lg:px-8 mt-8 md:-mt-12 lg:mt-48 pt-8 pb-20 group">
             <div class="w-full flex flex-col lg:flex-row-reverse gap-20 justify-between items-center">
                 <div class="w-full lg:w-7/12">
                     <div class="flex gap-2 items-center">
@@ -507,9 +604,6 @@
                 class="mt-12 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 rounded-2xl border border-slate-900 dark:border-white bg-slate-900 dark:bg-white px-6 py-6 lg:px-8 transition-colors duration-300 ease-in-out hover:border-violet-500 dark:hover:border-violet-400">
 
                 <div class="lg:w-1/3">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-violet-300 dark:text-violet-600">
-                        Opsional
-                    </span>
                     <h4 class="mt-1 text-xl font-bold text-white dark:text-slate-900">
                         Enterprise
                     </h4>
@@ -543,21 +637,19 @@
         </div>
     </section>
     <section data-type-section
-        class="relative isolate overflow-hidden bg-slate-900 dark:bg-white py-24 sm:py-32 lg:py-40 transition-colors duration-500">
+        class="relative isolate overflow-hidden bg-violet-500 min-h-screen flex items-center py-20 sm:py-24 lg:py-32 bg-cover bg-center"
+        style="background-image: url('/assets/images/background-typography.jpg');">
 
-        <div data-type-block class="mx-auto max-w-5xl px-6 lg:px-8">
-            <p class="text-sm font-semibold uppercase text-slate-400 dark:text-slate-500">
-                <span class="font-bold text-white dark:text-slate-900">//</span>
-                What We Do
-            </p>
-
+        <div data-type-block class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
             <h2 data-type-text
-                class="mt-8 font-display text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-balance leading-[1.15] text-white dark:text-slate-900">
-                We design and build modern
-                <span class="text-violet-300 dark:text-violet-500">websites</span>
-                that help your
-                <span class="text-violet-300 dark:text-violet-500">business</span>
-                grow, stand out, and turn visitors into customers.
+                class="font-body text-[3.25rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-normal tracking-[-0.04em] sm:tracking-tighter text-balance leading-[0.95] text-white">
+                Build
+                <span class="text-slate-900 font-bold">Websites</span>
+                That Drive
+                <span
+                    class="text-slate-900 font-bold text-[4.5rem] sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[14rem]">
+                    Growth
+                </span>
             </h2>
         </div>
     </section>
@@ -590,62 +682,99 @@
                         'icon' => 'briefcase',
                         'title' => 'Company Profile',
                         'desc' => 'Website elegan untuk memperkuat citra dan kredibilitas bisnis Anda.',
+                        'span' => 'lg:col-span-2',
+                        'invert' => true,
                     ],
                     [
                         'icon' => 'shopping-cart',
                         'title' => 'Toko Online',
                         'desc' => 'Solusi e-commerce modern untuk meningkatkan penjualan bisnis Anda.',
+                        'span' => 'lg:col-span-1',
+                        'invert' => false,
                     ],
                     [
                         'icon' => 'layers',
                         'title' => 'Website Instansi',
                         'desc' => 'Cocok untuk instansi pemerintah, sekolah, maupun organisasi non-profit.',
+                        'span' => 'lg:col-span-1',
+                        'invert' => false,
                     ],
                     [
                         'icon' => 'code',
                         'title' => 'Custom Website',
                         'desc' => 'Website dengan fitur fleksibel yang dirancang sesuai kebutuhan bisnis Anda.',
+                        'span' => 'lg:col-span-1',
+                        'invert' => false,
                     ],
                     [
                         'icon' => 'user',
                         'title' => 'Portfolio & Personal',
                         'desc' => 'Tampilkan karya dan profil profesional Anda dengan desain yang berkesan.',
+                        'span' => 'lg:col-span-1',
+                        'invert' => false,
                     ],
                     [
                         'icon' => 'book-open',
                         'title' => 'Website Sekolah',
                         'desc' => 'Informasi akademik, berita, dan pendaftaran siswa dalam satu platform.',
+                        'span' => 'lg:col-span-2',
+                        'invert' => true,
                     ],
                     [
                         'icon' => 'monitor',
                         'title' => 'Landing Page',
                         'desc' => 'Halaman tunggal yang fokus pada konversi untuk promosi dan kampanye.',
+                        'span' => 'lg:col-span-2',
+                        'invert' => true,
                     ],
                     [
                         'icon' => 'settings',
                         'title' => 'Sistem Informasi',
                         'desc' => 'Aplikasi web untuk mengelola data, laporan, dan operasional bisnis.',
+                        'span' => 'lg:col-span-2',
+                        'invert' => false,
                     ],
                 ];
             @endphp
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
                 @foreach ($services as $service)
-                    <div
-                        class="group relative flex flex-col gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-6 transition-colors duration-300 ease-in-out hover:bg-slate-900 hover:border-slate-900 dark:hover:bg-white dark:hover:border-white">
+                    @php
+                        $inv = $service['invert'];
+                        $wide = str_contains($service['span'], 'col-span-2');
+                    @endphp
 
-                        <div
-                            class="flex h-12 w-12 items-center justify-center rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 transition-colors duration-300 ease-in-out group-hover:bg-violet-500 group-hover:border-violet-500 group-hover:text-white dark:group-hover:bg-violet-500 dark:group-hover:border-violet-500 dark:group-hover:text-white">
-                            <i data-feather="{{ $service['icon'] }}" class="h-5 w-5"></i>
+                    <div
+                        class="group relative flex min-h-[220px] sm:min-h-[240px] flex-col justify-between gap-10 rounded-2xl border p-6 sm:p-8 transition-colors duration-300 ease-in-out hover:bg-violet-500 hover:border-violet-500 dark:hover:bg-violet-500 dark:hover:border-violet-500 {{ $service['span'] }}
+            {{ $inv
+                ? 'bg-slate-900 border-slate-900 dark:bg-white dark:border-white'
+                : 'bg-slate-50 border-slate-200 dark:bg-slate-800/50 dark:border-slate-800' }}">
+
+                        <div class="flex items-start justify-between">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-xl border transition-colors duration-300 ease-in-out group-hover:bg-white group-hover:border-white group-hover:text-violet-600 dark:group-hover:bg-white dark:group-hover:border-white dark:group-hover:text-violet-600
+                    {{ $inv
+                        ? 'bg-slate-800 border-slate-700 text-white dark:bg-slate-100 dark:border-slate-200 dark:text-slate-900'
+                        : 'bg-white border-slate-200 text-slate-700 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200' }}">
+                                <i data-feather="{{ $service['icon'] }}" class="h-5 w-5"></i>
+                            </div>
+
+                            <span
+                                class="font-primary text-sm font-semibold transition-colors duration-300 ease-in-out group-hover:text-violet-200 dark:group-hover:text-violet-200
+                    {{ $inv ? 'text-slate-500 dark:text-slate-400' : 'text-slate-400 dark:text-slate-500' }}">
+                                {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}
+                            </span>
                         </div>
 
                         <div class="flex flex-col gap-2">
                             <h4
-                                class="text-lg font-semibold text-slate-800 dark:text-white transition-colors duration-300 ease-in-out group-hover:text-white dark:group-hover:text-slate-900">
+                                class="font-primary text-xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-white dark:group-hover:text-white {{ $wide ? 'lg:text-2xl' : '' }}
+                    {{ $inv ? 'text-white dark:text-slate-900' : 'text-slate-800 dark:text-white' }}">
                                 {{ $service['title'] }}
                             </h4>
                             <p
-                                class="text-sm leading-relaxed text-slate-600 dark:text-slate-400 transition-colors duration-300 ease-in-out group-hover:text-slate-300 dark:group-hover:text-slate-600">
+                                class="text-sm leading-relaxed transition-colors duration-300 ease-in-out group-hover:text-violet-100 dark:group-hover:text-violet-100 {{ $wide ? 'max-w-md' : '' }}
+                    {{ $inv ? 'text-slate-300 dark:text-slate-600' : 'text-slate-600 dark:text-slate-400' }}">
                                 {{ $service['desc'] }}
                             </p>
                         </div>
@@ -655,122 +784,77 @@
 
         </div>
     </section>
-    <section
-        class="section w-full py-16 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out group/section">
+    <section class="section w-full py-24 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
             <div class="flex gap-2 items-center">
-                <div
-                    class="h-4 w-1 sm:h-5 sm:w-1.5 md:h-6 md:w-2 group-hover/section:w-3 group-hover/section:h-2 rotate-0 group-hover/section:rotate-180 rounded-full bg-violet-900 dark:bg-violet-500 transition-all duration-300 ease-in-out">
-                </div>
-                <h2 class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-300 uppercase">
+                <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                    <span class="font-bold text-slate-800 dark:text-white">//</span>
                     Portofolio
                 </h2>
             </div>
 
-            <h3
-                class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-md md:max-w-lg font-bold text-slate-800 dark:text-slate-100 mt-6 sm:mt-8 leading-normal sm:leading-10 md:leading-16">
-                Proyek yang Telah Kami Kerjakan
-            </h3>
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
+                <h3
+                    class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20 max-w-3xl mx-auto lg:mx-0">
+                    Proyek yang Telah <span class="font-bold text-violet-500 dark:text-violet-300">Kami</span> Kerjakan
+                </h3>
 
-            <div class="mt-6 sm:mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
-                <p
-                    class="section-desc text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium text-justify max-w-2xl md:max-w-3xl">
-                    Beragam website dan aplikasi yang kami bangun dengan fokus pada desain modern, performa optimal, dan
-                    kebutuhan bisnis klien.
-                </p>
+                <div class="w-full lg:w-5/12 lg:max-w-md flex flex-col gap-5">
+                    <p
+                        class="section-desc text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
+                        Beragam website dan aplikasi yang kami bangun dengan fokus pada desain modern, performa optimal,
+                        dan kebutuhan bisnis klien.
+                    </p>
 
-                <a href="{{ route('portfolio.index') }}"
-                    class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-violet-600 dark:text-violet-400 hover:underline whitespace-nowrap">
-                    Jelajahi Portfolio
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
+                    <a href="{{ route('portfolio.index') }}"
+                        class="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 dark:text-white transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
+                        Jelajahi Portofolio
+                        <i data-feather="arrow-right"
+                            class="h-4 w-4 transition-transform duration-150 ease-in-out group-hover/link:translate-x-1"></i>
+                    </a>
+                </div>
             </div>
-            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
                 @foreach ($portfolios as $portfolio)
                     <a href="{{ route('portfolio.show', $portfolio->slug) }}"
-                        class="group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-100 dark:bg-slate-800
-                            h-[380px] sm:h-[450px] relative overflow-hidden
-                            transition-all duration-300
-                            hover:bg-violet-600 active:bg-violet-600
-                            dark:hover:bg-violet-700 dark:active:bg-violet-700
-                            cursor-pointer block">
+                        class="group relative block h-[400px] sm:h-[440px] overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-800/50 p-6 transition-colors duration-300 ease-in-out hover:bg-slate-900 dark:hover:bg-white">
 
-
-                        <h3
-                            class="text-xl sm:text-xl text-slate-800 dark:text-slate-100 font-bold line-clamp-2
-                                transition-colors duration-300
-                                group-hover:text-white group-active:text-white
-                                leading-6">
+                        <h4
+                            class="line-clamp-1 font-primary text-2xl font-bold leading-6 text-slate-800 dark:text-white transition-colors duration-300 ease-in-out group-hover:text-white dark:group-hover:text-slate-900">
                             {{ $portfolio->name }}
-                        </h3>
+                        </h4>
 
                         <p
-                            class="text-slate-700 dark:text-slate-300 text-sm mt-4
-                                    transition-colors duration-300
-                                    group-hover:text-white group-active:text-white
-                                    line-clamp-2">
-
+                            class="mt-3 line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 transition-colors duration-300 ease-in-out group-hover:text-slate-300 dark:group-hover:text-slate-600">
                             {{ $portfolio->summary }}
                         </p>
 
                         <div
-                            class="w-full absolute bg-slate-400 dark:bg-slate-600 bottom-0
-                                    h-[200px] sm:h-[230px] left-0 right-0
-                                    rounded-t-2xl sm:rounded-t-3xl z-30 overflow-hidden
-                                    transition-transform duration-300
-                                    group-hover:scale-[1.02] group-active:scale-[1.02]">
-
-                            <img src="{{ asset('storage/' . $portfolio->image) }}" alt="Portfolio Web Design"
-                                class="w-full h-full object-cover object-center">
+                            class="absolute inset-x-0 bottom-0 z-30 h-[210px] sm:h-[250px] overflow-hidden rounded-t-2xl bg-slate-200 dark:bg-slate-700 transition-transform duration-300 ease-in-out">
+                            <img src="{{ asset('storage/' . $portfolio->thumbnail) }}" alt="{{ $portfolio->name }}"
+                                loading="lazy"
+                                class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]">
                         </div>
 
                         <div
-                            class="w-full absolute bg-slate-300/60 dark:bg-slate-500/60
-                             
-                                bottom-6 group-hover:bottom-7 group-active:bottom-7
-                                h-[200px] sm:h-[230px] left-0 right-0
-                                rounded-t-2xl sm:rounded-t-3xl z-20 scale-95 sm:scale-90
-                                transition-all duration-300
-                                group-hover:scale-[0.97] sm:group-hover:scale-95 group-active:scale-[0.97] sm:group-active:scale-95">
-
+                            class="absolute inset-x-4 bottom-4 z-20 h-[210px] sm:h-[250px] rounded-t-2xl bg-slate-300/60 dark:bg-slate-600/50 transition-transform duration-300 ease-in-out group-hover:translate-y-[-10px]">
                         </div>
 
                         <div
-                            class="w-full absolute bg-slate-300/40 dark:bg-slate-500/40
-                                 
-                                    bottom-12 group-hover:bottom-14 group-active:bottom-14
-                                    h-[200px] sm:h-[230px] left-0 right-0
-                                    rounded-t-2xl sm:rounded-t-3xl z-10 scale-85 sm:scale-80
-                                    transition-all duration-300
-                                    group-hover:scale-[0.92] sm:group-hover:scale-90 group-active:scale-[0.97] sm:group-active:scale-90">
-
+                            class="absolute inset-x-8 bottom-8 z-10 h-[210px] sm:h-[250px] rounded-t-2xl bg-slate-300/30 dark:bg-slate-600/30 transition-transform duration-300 ease-in-out group-hover:translate-y-[-16px]">
                         </div>
 
                         <div
-                            class="rounded-full bg-white dark:bg-slate-900
-                                    h-8 w-8 sm:h-12 sm:w-12
-                                    absolute z-40 bottom-3 right-3 sm:bottom-4 sm:right-4
-                                    flex items-center justify-center shadow-lg
-                                    transition-all duration-300
-                                    group-hover:scale-110 group-active:scale-110
-                                    group-hover:-rotate-45 group-active:-rotate-45">
-
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-800 dark:text-slate-100
-                                transition-colors duration-300
-                                group-hover:text-violet-600 group-active:text-violet-600
-                                dark:group-hover:text-violet-400 dark:group-active:text-violet-400"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
+                            class="absolute bottom-4 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-slate-900 text-slate-800 dark:text-white shadow-lg transition-colors duration-300 ease-in-out group-hover:bg-violet-500 group-hover:text-white dark:group-hover:bg-violet-500 dark:group-hover:text-white">
+                            <i data-feather="arrow-up-right"
+                                class="h-5 w-5 transition-transform duration-300 ease-in-out"></i>
                         </div>
-
                     </a>
                 @endforeach
             </div>
+
         </div>
     </section>
     <section class="section py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 ease-in-out">
@@ -929,50 +1013,143 @@
 
         </div>
     </section>
+
+    @if ($articles->isNotEmpty())
+        <section class="section w-full py-24 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="flex gap-2 items-center">
+                    <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                        <span class="font-bold text-slate-800 dark:text-white">//</span>
+                        Artikel
+                    </h2>
+                </div>
+
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
+                    <h3
+                        class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20 max-w-3xl mx-auto lg:mx-0">
+                        Artikel <span class="font-bold text-violet-500 dark:text-violet-300">Terbaru</span> dari Kami
+                    </h3>
+
+                    <div class="w-full lg:w-5/12 lg:max-w-md flex flex-col gap-5">
+                        <p
+                            class="section-desc text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
+                            Wawasan, tips, dan kabar terbaru seputar pengembangan website, aplikasi, dan teknologi untuk
+                            mendukung pertumbuhan bisnis kamu.
+                        </p>
+
+                        <a href="{{ route('article.index') }}"
+                            class="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 dark:text-white transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
+                            Lihat Semua Artikel
+                            <i data-feather="arrow-right"
+                                class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
+                    @foreach ($articles as $article)
+                        <a href="{{ route('article.show', $article->slug) }}"
+                            class="group flex flex-col overflow-hidden rounded-2xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 dark:bg-slate-800/50 dark:hover:bg-slate-700/60">
+
+                            <div
+                                class="relative aspect-[16/10] w-full overflow-hidden rounded-b-4xl bg-slate-200 dark:bg-slate-700">
+                                @if ($article->thumbnail)
+                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="{{ $article->title }}"
+                                        loading="lazy"
+                                        class="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105">
+                                @endif
+
+                                <span
+                                    class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 backdrop-blur-sm dark:bg-slate-900/80 dark:text-white">
+                                    {{ $article->category->name ?? 'Artikel' }}
+                                </span>
+                            </div>
+
+                            <div class="flex flex-1 flex-col gap-3 p-6">
+                                <div
+                                    class="flex items-center gap-2 text-xs font-medium text-slate-500 transition-colors duration-300 ease-in-out group-hover:text-slate-400 dark:text-slate-400 dark:group-hover:text-slate-300">
+                                    <i data-feather="calendar" class="h-3.5 w-3.5"></i>
+                                    <span>{{ $article->published_date }}</span>
+                                </div>
+
+                                <h4
+                                    class="font-primary line-clamp-2 text-xl font-bold leading-snug text-slate-800 transition-colors duration-300 ease-in-out group-hover:text-white dark:text-white">
+                                    {{ $article->title }}
+                                </h4>
+
+                                <p
+                                    class="line-clamp-3 text-sm leading-relaxed text-slate-600 transition-colors duration-300 ease-in-out group-hover:text-slate-300 dark:text-slate-400 dark:group-hover:text-slate-300">
+                                    {{ $article->excerpt ?: \Illuminate\Support\Str::limit(strip_tags($article->content), 120) }}
+                                </p>
+
+                                <div
+                                    class="mt-auto flex items-center justify-between gap-4 border-t border-slate-200 pt-4 transition-colors duration-300 ease-in-out group-hover:border-slate-700 dark:border-slate-700 dark:group-hover:border-slate-600">
+                                    <div class="flex min-w-0 items-center gap-3">
+                                        <span
+                                            class="line-clamp-1 text-sm font-semibold text-slate-700 transition-colors duration-300 ease-in-out group-hover:text-white dark:text-slate-200">
+                                            {{ $article->author->name ?? 'Admin' }}
+                                        </span>
+                                    </div>
+
+                                    <span
+                                        class="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-slate-800 transition-colors duration-300 ease-in-out group-hover:text-violet-300 dark:text-white">
+                                        Baca
+                                        <i data-feather="arrow-up-right"
+                                            class="h-4 w-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+
+            </div>
+        </section>
+    @endif
     <section
-        class="section relative isolate overflow-hidden py-24 sm:py-32 bg-slate-950 dark:bg-white transition-colors duration-500">
+        class="section relative isolate overflow-hidden py-24 sm:py-32 bg-slate-950 dark:bg-violet-500 transition-colors duration-500">
         <div class="mx-auto max-w-7xl text-center px-6">
 
             <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="Elvacode Logo"
                 class="w-24 sm:w-28 md:w-32 mx-auto mb-8 sm:mb-10 invert dark:invert-0 transition duration-300">
 
             <div class="flex justify-center">
-                <h2 class="text-sm font-semibold text-slate-400 dark:text-slate-500 uppercase">
-                    <span class="font-bold text-white dark:text-slate-900">//</span>
+                <h2 class="text-sm font-semibold text-slate-400 dark:text-violet-100 uppercase">
+                    <span class="font-bold text-white dark:text-slate-950">//</span>
                     Mulai Sekarang
                 </h2>
             </div>
 
             <h3
-                class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white dark:text-slate-900 leading-normal sm:leading-10 md:leading-20">
+                class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white dark:text-white leading-normal sm:leading-10 md:leading-20">
                 Tingkatkan Bisnis Anda dengan Website
-                <span class="font-bold text-violet-300 dark:text-violet-500">Profesional</span>
+                <span class="font-bold text-violet-300 dark:text-slate-950">Profesional</span>
             </h3>
 
             <p
-                class="section-desc mt-6 sm:mt-8 mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-slate-300 dark:text-slate-600 font-medium">
-                Bersama <span class="font-semibold text-white dark:text-slate-900">Elvacode</span>, hadirkan website
+                class="section-desc mt-6 sm:mt-8 mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-slate-300 dark:text-violet-50 font-medium">
+                Bersama <span class="font-semibold text-white dark:text-slate-950">Elvacode</span>, hadirkan website
                 modern, cepat, dan elegan yang siap meningkatkan kehadiran digital Anda.
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="{{ route('contact.index') }}"
-                    class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-slate-900 py-2 pl-6 pr-2 text-sm font-bold text-slate-900 dark:text-white transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-500">
+                    class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-slate-950 py-2 pl-6 pr-2 text-sm font-bold text-slate-900 dark:text-white transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-white dark:hover:text-violet-600">
                     Konsultasi Gratis
                     <span
-                        class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600">
+                        class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600 dark:group-hover/cta:bg-violet-500 dark:group-hover/cta:text-white">
                         <i data-feather="arrow-up-right"
-                            class="h-4 w-4 transition-transform duration-150 ease-in-out group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"></i>
+                            class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                     </span>
                 </a>
 
                 <a href="{{ route('portfolio.index') }}"
-                    class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-slate-600 dark:border-slate-300 py-2 pl-6 pr-2 text-sm font-bold text-white dark:text-slate-900 transition-colors duration-150 ease-in-out hover:border-violet-400 hover:text-violet-300 dark:hover:border-violet-500 dark:hover:text-violet-600">
+                    class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-slate-600 dark:border-white/60 py-2 pl-6 pr-2 text-sm font-bold text-white dark:text-white transition-colors duration-150 ease-in-out hover:border-violet-400 hover:text-violet-300 dark:hover:border-white dark:hover:bg-white dark:hover:text-violet-600">
                     Lihat Portofolio
                     <span
-                        class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 transition-colors duration-150 ease-in-out group-hover/cta:bg-violet-500 group-hover/cta:text-white">
-                        <i data-feather="arrow-right"
-                            class="h-4 w-4 transition-transform duration-150 ease-in-out group-hover/cta:translate-x-0.5"></i>
+                        class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 dark:bg-violet-400 text-white dark:text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-violet-500 group-hover/cta:text-white dark:group-hover/cta:bg-violet-500">
+                        <i data-feather="arrow-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                     </span>
                 </a>
             </div>

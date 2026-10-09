@@ -37,7 +37,7 @@ class ArticleController extends Controller
         $popularArticles = Article::with(['category', 'author'])
             ->published()
             ->orderBy('views', 'desc')
-            ->take(4)
+            ->take(3)
             ->get();
 
         $latestArticle = Article::with(['category', 'author'])

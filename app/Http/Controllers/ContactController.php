@@ -67,7 +67,7 @@ class ContactController extends Controller
             return back()->withErrors(['captcha' => 'Validasi reCAPTCHA gagal, coba lagi.'])->withInput();
         }
 
-        Mail::to('support@elvacode.com')->send(new ContactFormMail($data));
+        Mail::to('admin@elvacode.com')->send(new ContactFormMail($data));
 
         return back()->with('success', 'Pesan berhasil dikirim!');
     }

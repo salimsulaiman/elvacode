@@ -4,131 +4,97 @@
 
 @section('content')
     <section
-        class="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-violet-900 text-white pt-36 sm:pt-40 pb-20 sm:pb-28 overflow-hidden bg-cover bg-center">
-        <div class="absolute inset-0 overflow-hidden">
-            <div
-                class="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-violet-500 opacity-20 blur-3xl rounded-full pulse-glow">
-            </div>
-            <div
-                class="absolute top-20 right-1/4 w-64 h-64 bg-blue-400 opacity-15 blur-2xl rounded-full float-animation [animation-delay:-2s]">
-            </div>
-            <div
-                class="absolute bottom-20 left-1/4 w-48 h-48 bg-purple-400 opacity-10 blur-2xl rounded-full float-animation [animation-delay:-4s]">
-            </div>
-            <div class="absolute top-32 left-1/3 w-32 h-32 bg-indigo-400 opacity-8 blur-xl rounded-full drift-animation">
-            </div>
-            <div
-                class="absolute bottom-32 right-1/3 w-24 h-24 bg-violet-400 opacity-12 blur-xl rounded-full drift-animation [animation-delay:-7s]">
-            </div>
+        class="section font-body relative w-full bg-violet-600 pt-36 sm:pt-44 pb-16 sm:pb-24 border-b border-violet-400/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
 
-            <div class="absolute inset-0 geometric-pattern"></div>
-
-            <div
-                class="absolute inset-0 opacity-5 [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:50px_50px]">
-            </div>
-
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent rotate-12 origin-left">
-                </div>
-                <div
-                    class="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent -rotate-12 origin-left">
-                </div>
-                <div
-                    class="absolute bottom-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent rotate-6 origin-left">
-                </div>
-            </div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
-            <nav class="flex justify-center mb-6" aria-label="Breadcrumb">
-                <ol class="flex items-center space-x-2 text-sm text-violet-200">
-                    <li><a href="/" class="hover:text-white transition-colors duration-200">Home</a></li>
-                    <li>/</li>
+            <nav aria-label="Breadcrumb">
+                <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
+                    <li>
+                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            Home
+                        </a>
+                    </li>
+                    <li aria-hidden="true">/</li>
                     <li class="text-white font-semibold">Artikel</li>
                 </ol>
             </nav>
 
-            <div class="text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold relative">
-                    Artikel
-                    <div
-                        class="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold text-violet-300 opacity-30 blur-sm -z-10">
-                        Artikel
-                    </div>
-                </h1>
-            </div>
+            <h1
+                class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
+                Artikel &amp;
+                <span class="font-bold text-slate-900">Insight</span>
+            </h1>
         </div>
     </section>
     <section
-        class="relative isolate overflow-hidden bg-white
-        dark:bg-gray-900 
-        transition-colors duration-300 ease-in-out group/section">
+        class="section font-body relative isolate overflow-hidden bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
 
-        <div class="max-w-7xl py-8 sm:py-16 mx-auto px-6 lg:px-8">
+        <div class="max-w-7xl py-16 sm:py-24 mx-auto px-6 lg:px-8">
             @if (!request()->category && !request()->search && !request()->page)
-                @if ($featuredArticle)
-                    <h2
-                        class=" text-2xl sm:text-3xl md:text-4xl max-w-2xl md:max-w-xl font-bold text-slate-800 dark:text-slate-300">
-                        Sorotan Utama dari Elvacode
+                @php
+                    $introLabel = $featuredArticle ? 'Sorotan Utama' : 'Jelajahi Artikel';
+                    $introTitle = $featuredArticle ? 'Sorotan Utama dari' : 'Jelajahi Dunia';
+                    $introAccent = $featuredArticle ? 'Elvacode' : 'Artikel Kami';
+                    $introDesc = $featuredArticle
+                        ? 'Temukan artikel pilihan unggulan yang mencerminkan standar kualitas dan arah pemikiran digital kami.'
+                        : 'Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.';
+                @endphp
+
+                <div class="flex gap-2 items-center">
+                    <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                        <span class="font-bold text-slate-800 dark:text-white">//</span>
+                        {{ $introLabel }}
                     </h2>
+                </div>
+
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
+                    <h3
+                        class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-3xl mx-auto lg:mx-0">
+                        {{ $introTitle }}
+                        <span class="font-bold text-violet-500 dark:text-violet-300">{{ $introAccent }}</span>
+                    </h3>
 
                     <p
-                        class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
-                        Temukan artikel pilihan unggulan yang mencerminkan standar kualitas dan arah pemikiran digital kami.
+                        class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
+                        {{ $introDesc }}
                     </p>
-                @else
-                    <h2
-                        class=" text-2xl sm:text-3xl md:text-4xl max-w-2xl md:max-w-xl font-bold text-slate-800 dark:text-slate-300">
-                        Jelajahi Dunia Artikel Kami
-                    </h2>
-
-                    <p
-                        class=" text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
-                        Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.
-                    </p>
-                @endif
+                </div>
                 @if ($featuredArticle)
                     <a href="{{ route('article.show', $featuredArticle->slug) }}"
-                        class="w-full hidden sm:block aspect-video md:aspect-[16/7] mt-8 rounded-2xl relative overflow-hidden group">
+                        class="group relative mt-12 block w-full aspect-[4/5] sm:aspect-video md:aspect-[16/7] overflow-hidden rounded-2xl">
                         <img src="{{ asset('storage/' . $featuredArticle->thumbnail) }}" alt="{{ $featuredArticle->title }}"
-                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
 
                         <div
-                            class="absolute left-0 right-0 bottom-0 flex flex-col justify-end 
-               bg-gradient-to-t from-black/70 via-black/50 to-transparent 
-               p-6 sm:p-8 backdrop-blur-sm">
-                            <div class="max-w-4xl space-y-3 sm:space-y-4">
+                            class="absolute inset-x-0 bottom-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/50 to-transparent p-5 sm:p-8">
+                            <div class="max-w-4xl space-y-2 sm:space-y-4">
                                 <h4
-                                    class="text-lg sm:text-2xl font-semibold text-white group-hover:text-violet-200 line-clamp-1 md:line-clamp-2">
+                                    class="line-clamp-2 text-lg font-semibold text-white group-hover:text-violet-200 sm:text-2xl">
                                     {{ $featuredArticle->title }}
                                 </h4>
-                                <p class="text-xs sm:text-sm md:text-base text-slate-200 line-clamp-2 font-medium">
+                                <p class="line-clamp-2 text-xs font-medium text-slate-200 sm:text-sm md:text-base">
                                     {{ $featuredArticle->excerpt }}
                                 </p>
                             </div>
 
-                            <div class="flex flex-wrap gap-3 mt-4 items-center text-xs sm:text-sm">
+                            <div class="mt-4 flex flex-wrap items-center gap-3 text-xs sm:text-sm">
                                 <div class="flex items-center gap-2">
                                     <img src="{{ asset('assets/logos/icon-elvacode-2.png') }}" alt="Elvacode Icon"
-                                        class="w-5 h-5 object-contain">
+                                        class="h-5 w-5 object-contain">
                                     <span class="text-slate-200">Tim Elvacode</span>
                                 </div>
 
-                                <div class="hidden sm:block w-[3px] h-4 bg-slate-300/70 rounded-full"></div>
+                                <div class="hidden h-4 w-[3px] rounded-full bg-slate-300/70 sm:block"></div>
 
                                 <div class="flex items-center gap-2">
-                                    <i data-feather="calendar" class="w-4 h-4 text-slate-300"></i>
-                                    <span class="text-slate-200">
-                                        {{ $featuredArticle->published_date ?? '-' }}
-                                    </span>
+                                    <i data-feather="calendar" class="h-4 w-4 text-slate-300"></i>
+                                    <span class="text-slate-200">{{ $featuredArticle->published_date ?? '-' }}</span>
                                 </div>
 
-                                <div class="hidden sm:block w-[3px] h-4 bg-slate-300/70 rounded-full"></div>
+                                <div class="hidden h-4 w-[3px] rounded-full bg-slate-300/70 sm:block"></div>
 
-                                <div class="px-3 py-1 text-xs hidden sm:text-sm font-medium rounded-full sm:inline-block"
-                                    style="color: {{ $featuredArticle->category->text_color }};
-                        background-color: {{ $featuredArticle->category->background_color }};">
+                                <div class="hidden rounded-full px-3 py-1 text-xs font-medium sm:inline-block sm:text-sm"
+                                    style="color: {{ $featuredArticle->category->text_color }}; background-color: {{ $featuredArticle->category->background_color }};">
                                     {{ $featuredArticle->category->name }}
                                 </div>
                             </div>
@@ -143,42 +109,54 @@
             @endif
 
 
-            @if (request()->search)
-                <h2
-                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 max-w-2xl md:max-w-xl">
-                    Hasil Pencarian Artikel
-                </h2>
+            @if (request()->search || request()->category || request()->page)
+                @php
+                    if (request()->search) {
+                        $hLabel = 'Pencarian';
+                        $hTitle = 'Hasil Pencarian';
+                        $hAccent = 'Artikel';
+                    } elseif (request()->category) {
+                        $hLabel = 'Kategori';
+                        $hTitle = 'Artikel Berdasarkan';
+                        $hAccent = 'Kategori';
+                    } else {
+                        $hLabel = 'Jelajahi Artikel';
+                        $hTitle = 'Jelajahi Dunia';
+                        $hAccent = 'Artikel Kami';
+                    }
+                @endphp
 
-                <p
-                    class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
-                    Menampilkan artikel yang relevan dengan kata kunci
-                    "<span class="font-semibold">{{ request('search') }}</span>".
-                </p>
-            @elseif (request()->category)
-                <h2
-                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 max-w-2xl md:max-w-xl">
-                    Artikel Berdasarkan Kategori
-                </h2>
+                <div class="flex gap-2 items-center">
+                    <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
+                        <span class="font-bold text-slate-800 dark:text-white">//</span>
+                        {{ $hLabel }}
+                    </h2>
+                </div>
 
-                <p
-                    class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
-                    Jelajahi kumpulan artikel sesuai preferensi pembacaan Anda.
-                </p>
-            @elseif (request()->page)
-                <h2
-                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-300 max-w-2xl md:max-w-xl">
-                    Jelajahi Dunia Artikel Kami
-                </h2>
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
+                    <h3
+                        class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-3xl mx-auto lg:mx-0">
+                        {{ $hTitle }}
+                        <span class="font-bold text-violet-500 dark:text-violet-300">{{ $hAccent }}</span>
+                    </h3>
 
-                <p
-                    class="text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-400 font-medium mt-6 sm:mt-8 max-w-2xl">
-                    Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.
-                </p>
+                    <p
+                        class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
+                        @if (request()->search)
+                            Menampilkan artikel yang relevan dengan kata kunci
+                            "<span class="font-semibold">{{ request('search') }}</span>".
+                        @elseif (request()->category)
+                            Jelajahi kumpulan artikel sesuai preferensi pembacaan Anda.
+                        @else
+                            Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.
+                        @endif
+                    </p>
+                </div>
             @endif
 
 
             <div
-                class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-2 my-4 md:my-8 w-full relative">
+                class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-2 mt-10 mb-6 md:mt-12 md:mb-8 w-full relative">
                 <div
                     class="flex gap-2 overflow-x-auto scrollbar-hide px-0 py-2 scroll-smooth min-w-0 max-w-full md:max-w-[calc(100%-17rem)]">
                     <a href="{{ route('article.index', request()->except('category')) }}"
@@ -251,7 +229,7 @@
                 </div>
 
                 <div class="w-full mt-4">
-                    {{ $articles->links() }}
+                    {{ $articles->onEachSide(1)->links() }}
                 </div>
             @else
                 <p class="text-center text-slate-600 dark:text-slate-400 font-medium py-24">
