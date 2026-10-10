@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 gsap.registerPlugin(TextPlugin, ScrollTrigger, SplitText);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 document.fonts.ready.then(() => {
     initHeroAnimation();
@@ -272,10 +273,6 @@ function initTypographyParallax() {
     const mm = gsap.matchMedia();
     const navbar = document.querySelector(".fixed.top-0.z-50");
 
-    const getNavbarHeight = () => {
-        return navbar ? navbar.getBoundingClientRect().height : 0;
-    };
-
     let refreshFrame = null;
 
     const resizeObserver = navbar
@@ -322,7 +319,7 @@ function initTypographyParallax() {
                         trigger: section,
                         start: "top top",
                         end: () =>
-                            "+=" + window.innerHeight * (isDesktop ? 3 : 4),
+                            "+=" + window.innerHeight * (isDesktop ? 1.5 : 1.2),
                         pin: true,
                         scrub: 0.5,
                         anticipatePin: 1,
@@ -337,15 +334,8 @@ function initTypographyParallax() {
                     filter: "blur(0px)",
                     ease: "power3.out",
                     duration: 1,
-                    stagger: 0.35,
+                    stagger: 0.15,
                 });
-
-                tl.to(
-                    {},
-                    {
-                        duration: 0.8,
-                    }
-                );
 
                 return () => split.revert();
             }

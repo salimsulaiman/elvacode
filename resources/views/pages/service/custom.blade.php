@@ -47,7 +47,10 @@
         $steps = [
             ['title' => 'Konsultasi', 'desc' => 'Anda ceritakan kebutuhan dan kendala yang ingin diselesaikan.'],
             ['title' => 'Rancangan & Penawaran', 'desc' => 'Kami susun fitur, alur, dan estimasi biaya sebelum mulai.'],
-            ['title' => 'Pengerjaan', 'desc' => 'Website dibuat bertahap, Anda bisa memberi masukan di tengah jalan.'],
+            [
+                'title' => 'Pengerjaan',
+                'desc' => 'Website dikerjakan sesuai tahapan dan kesepakatan awal.',
+            ],
             ['title' => 'Peluncuran', 'desc' => 'Website diuji lalu diluncurkan dan siap dipakai.'],
         ];
 

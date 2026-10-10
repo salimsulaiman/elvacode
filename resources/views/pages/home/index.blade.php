@@ -637,18 +637,17 @@
         </div>
     </section>
     <section data-type-section
-        class="relative isolate overflow-hidden bg-violet-500 min-h-screen flex items-center py-20 sm:py-24 lg:py-32 bg-cover bg-center"
+        class="relative isolate overflow-hidden bg-violet-500 min-h-svh flex items-center py-20 sm:py-24 lg:py-32 bg-cover bg-center"
         style="background-image: url('/assets/images/background-typography.jpg');">
 
-        <div data-type-block class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div data-type-block class="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
             <h2 data-type-text
-                class="font-body text-[3.25rem] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-normal tracking-[-0.04em] sm:tracking-tighter text-balance leading-[0.95] text-white">
-                Build
-                <span class="text-slate-900 font-bold">Websites</span>
-                That Drive
-                <span
-                    class="text-slate-900 font-bold text-[4.5rem] sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[14rem]">
-                    Growth
+                class="font-body text-[16vw] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-normal tracking-[-0.05em] sm:tracking-tighter text-balance leading-[0.9] sm:leading-[0.95] text-white">
+                Thoughtful
+                <span class="text-slate-900 font-bold">Design.</span>
+                Powerful
+                <span class="text-slate-900 font-bold text-[18vw] sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[14rem]">
+                    Websites.
                 </span>
             </h2>
         </div>

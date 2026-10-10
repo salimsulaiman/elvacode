@@ -37,7 +37,7 @@
         $reasons = [
             [
                 'title' => 'Harga Jelas',
-                'desc' => 'Paket mulai dari Rp 650.000. Rincian fitur bisa dilihat sebelum Anda memutuskan.',
+                'desc' => 'Paket mulai dari Rp 1.500.000. Rincian fitur bisa dilihat sebelum Anda memutuskan.',
             ],
             [
                 'title' => 'Domain, Hosting & SSL',
