@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class Portfolio extends Model
 {
@@ -57,6 +59,23 @@ class Portfolio extends Model
                 Storage::disk('public')->delete($portfolio->thumbnail);
             }
         });
+
+        static::saved(function () {
+            static::regenerateSitemap();
+        });
+
+        static::deleted(function () {
+            static::regenerateSitemap();
+        });
+    }
+
+    protected static function regenerateSitemap(): void
+    {
+        try {
+            Artisan::call('app:generate-sitemap');
+        } catch (\Throwable $e) {
+            Log::error('Gagal generate sitemap: ' . $e->getMessage());
+        }
     }
 
     public function category()

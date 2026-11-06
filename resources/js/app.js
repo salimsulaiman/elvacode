@@ -5,12 +5,34 @@ import { gsap } from "gsap";
 import { TextPlugin } from 'gsap/all';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from 'gsap/all';
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 document.addEventListener("DOMContentLoaded", () => {
     feather.replace();
 });
 
-gsap.registerPlugin(TextPlugin, ScrollTrigger, SplitText);
+gsap.registerPlugin(TextPlugin, ScrollTrigger, SplitText, ScrollToPlugin);
+
+function initAnchorScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+            const id = a.getAttribute("href");
+            if (id.length < 2) return;
+
+            const target = document.querySelector(id);
+            if (!target) return;
+
+            e.preventDefault();
+            gsap.to(window, {
+                duration: 1.6,
+                ease: "power2.inOut",
+                scrollTo: { y: target, offsetY: 64, autoKill: true },
+                onComplete: () => history.pushState(null, "", id),
+            });
+        });
+    });
+}
+
 ScrollTrigger.config({ ignoreMobileResize: true });
 
 document.fonts.ready.then(() => {
@@ -23,6 +45,7 @@ document.fonts.ready.then(() => {
     initParallaxItems();
     initBrowserScroll();
     initSlideText();
+    initAnchorScroll();
 
     ScrollTrigger.refresh();
     ScrollTrigger.sort();
@@ -307,6 +330,8 @@ function initTypographyParallax() {
                     type: "words",
                     mask: "words",
                 });
+
+                gsap.set(split.masks, { paddingBottom: "0.15em", marginBottom: "-0.15em" });
 
                 gsap.set(split.words, {
                     yPercent: 110,

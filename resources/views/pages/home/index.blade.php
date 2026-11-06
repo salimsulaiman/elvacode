@@ -36,7 +36,7 @@
                         </p>
 
                         <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-center gap-4 sm:gap-6">
-                            <a href="#create-website"
+                            <a href="#portfolio"
                                 class="rounded-full bg-slate-800 px-5 py-2.5 text-sm sm:text-base font-semibold text-white dark:text-slate-700 dark:bg-white shadow hover:bg-slate-700 dark:hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                 Mulai Jelajahi
                             </a>
@@ -128,7 +128,7 @@
             </div>
         </div>
         @if ($showcase->isNotEmpty())
-            <div class="mt-14 sm:mt-20 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div class="mx-auto mt-14 max-w-7xl sm:mt-20 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
                 <div x-data="{
                     x: 0,
                     half: 0,
@@ -203,10 +203,10 @@
                                 @foreach ($showcase as $portfolio)
                                     <a href="{{ route('portfolio.show', $portfolio->slug) }}" draggable="false"
                                         @if ($isClone) tabindex="-1" @endif
-                                        class="group flex w-[78vw] shrink-0 flex-col overflow-hidden rounded-2xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 sm:w-[22rem] lg:w-[26rem] dark:bg-slate-800/50 dark:hover:bg-violet-600">
+                                        class="group flex w-[78vw] shrink-0 flex-col overflow-hidden rounded-xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 sm:w-[22rem] lg:w-[26rem] dark:bg-slate-800/50 dark:hover:bg-violet-600">
 
                                         <div
-                                            class="aspect-video w-full overflow-hidden rounded-b-2xl bg-slate-200 dark:bg-slate-700">
+                                            class="aspect-video w-full overflow-hidden rounded-b-xl bg-slate-200 dark:bg-slate-700">
                                             <img src="{{ asset('storage/' . $portfolio->thumbnail) }}"
                                                 alt="{{ $isClone ? '' : $portfolio->name }}" loading="lazy"
                                                 draggable="false"
@@ -642,7 +642,7 @@
 
         <div data-type-block class="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
             <h2 data-type-text
-                class="font-body text-[16vw] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-normal tracking-[-0.05em] sm:tracking-tighter text-balance leading-[0.9] sm:leading-[0.95] text-white">
+                class="font-body text-[16vw] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-normal tracking-[-0.05em] sm:tracking-tighter text-balance leading-[1.05] text-white">
                 Thoughtful
                 <span class="text-slate-900 font-bold">Design.</span>
                 Powerful
@@ -783,7 +783,7 @@
 
         </div>
     </section>
-    <section class="section w-full py-24 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
+    <section id="portfolio" class="section scroll-mt-16 w-full py-24 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <div class="flex gap-2 items-center">

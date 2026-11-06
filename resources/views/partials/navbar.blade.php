@@ -95,10 +95,11 @@
                             x-transition:leave="transition ease-in duration-100"
                             x-transition:leave-start="opacity-100 translate-y-0"
                             x-transition:leave-end="opacity-0 translate-y-1"
-                            class="absolute -left-28 top-full z-50 w-[48rem] max-w-[calc(100vw-2rem)] pt-3 2xl:-left-36 2xl:w-[56rem]">
+                            :class="scrolled ? 'pt-12' : 'pt-8'"
+                            class="absolute -left-28 top-full z-50 w-[48rem] max-w-[calc(100vw-2rem)] transition-[padding] duration-300 ease-in-out 2xl:-left-36 2xl:w-[60rem]">
 
                             <div
-                                class="grid grid-cols-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40">
+                                class="grid grid-cols-12 overflow-hidden rounded-2xl bg-white shadow-lg shadow-slate-900/10 ring-1 ring-slate-900/10 dark:bg-slate-900 dark:shadow-black/40 dark:ring-white/10">
 
                                 <div class="col-span-7 p-5 2xl:p-6">
                                     <p
@@ -111,26 +112,24 @@
                                             <li role="none">
                                                 <a href="{{ route($item['route']) }}" role="menuitem"
                                                     @if ($item['active']) aria-current="page" @endif
-                                                    class="group/item flex items-start gap-3 rounded-xl border p-3 transition-colors duration-150 ease-in-out
-                                {{ $item['active']
-                                    ? 'border-violet-200 bg-violet-50/60 dark:border-violet-500/30 dark:bg-violet-500/10'
-                                    : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:border-slate-700 dark:hover:bg-slate-800/60' }}">
+                                                    class="group/item flex items-start gap-3 rounded-xl px-4 py-2.5 transition-colors duration-150 ease-in-out
+                                                    {{ $item['active']
+                                                        ? 'bg-violet-50/60 dark:bg-violet-500/10'
+                                                        : 'hover:bg-slate-50 dark:hover:bg-slate-800/60' }}">
 
                                                     <span
-                                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-colors duration-150 ease-in-out
-                                    {{ $item['active']
-                                        ? 'border-violet-500 bg-violet-500 text-white'
-                                        : 'border-slate-200 bg-white text-slate-600 group-hover/item:border-violet-500 group-hover/item:bg-violet-500 group-hover/item:text-white dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:group-hover/item:border-violet-500 dark:group-hover/item:bg-violet-500 dark:group-hover/item:text-white' }}">
+                                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors duration-150 ease-in-out
+                                                        {{ $item['active']
+                                                            ? 'bg-violet-500 text-white'
+                                                            : 'bg-white text-slate-600 group-hover/item:bg-violet-500 group-hover/item:text-white dark:bg-slate-900 dark:text-slate-300 dark:group-hover/item:bg-violet-500 dark:group-hover/item:text-white' }}">
                                                         <i data-feather="{{ $item['icon'] }}" class="h-4 w-4"></i>
                                                     </span>
 
                                                     <span class="flex min-w-0 flex-col">
-                                                        <span
-                                                            class="text-sm font-semibold text-slate-900 dark:text-white">
+                                                        <span class="text-sm font-semibold text-slate-900 dark:text-white">
                                                             {{ $item['title'] }}
                                                         </span>
-                                                        <span
-                                                            class="mt-0.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                                                        <span class="mt-0.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                                                             {{ $item['desc'] }}
                                                         </span>
                                                     </span>
@@ -140,33 +139,30 @@
                                     </ul>
                                 </div>
 
-                                <div
-                                    class="col-span-5 flex flex-col border-l border-slate-200 p-5 dark:border-slate-800 2xl:p-6">
+                                <div class="col-span-5 flex flex-col bg-violet-600 p-5 2xl:p-6">
                                     <p
-                                        class="px-1 pb-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                                        class="px-1 pb-3 text-[11px] font-semibold uppercase tracking-wider text-violet-200">
                                         Eksplorasi
                                     </p>
 
-                                    <ul class="space-y-1 mb-2" role="menu">
+                                    <ul class="mb-2 space-y-1" role="menu">
                                         @foreach ($exploreItems as $item)
                                             <li role="none">
                                                 <a href="{{ route($item['route']) }}" role="menuitem"
                                                     @if ($item['active']) aria-current="page" @endif
-                                                    class="group/explore flex items-center gap-3 rounded-lg px-4 py-2.5 transition-colors duration-150 ease-in-out hover:bg-slate-100 dark:hover:bg-slate-800 {{ $item['active'] ? 'bg-slate-100 dark:bg-slate-800' : '' }}">
+                                                    class="group/explore flex items-center gap-3 rounded-lg px-4 py-2.5 transition-colors duration-150 ease-in-out hover:bg-white/10 {{ $item['active'] ? 'bg-white/10' : '' }}">
                                                     <span
                                                         class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-150 ease-in-out
-                                    {{ $item['active']
-                                        ? 'bg-violet-500 text-white'
-                                        : 'bg-slate-100 text-slate-600 group-hover/explore:bg-violet-500 group-hover/explore:text-white dark:bg-slate-800 dark:text-slate-300 dark:group-hover/explore:bg-violet-500 dark:group-hover/explore:text-white' }}">
+                                                        {{ $item['active']
+                                                            ? 'bg-white text-violet-600'
+                                                            : 'bg-violet-500 text-white group-hover/explore:bg-white group-hover/explore:text-violet-600' }}">
                                                         <i data-feather="{{ $item['icon'] }}" class="h-4 w-4"></i>
                                                     </span>
                                                     <span class="flex min-w-0 flex-col">
-                                                        <span
-                                                            class="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                                                        <span class="text-sm font-semibold text-white">
                                                             {{ $item['title'] }}
                                                         </span>
-                                                        <span
-                                                            class="text-xs leading-snug text-slate-500 dark:text-slate-400">
+                                                        <span class="text-xs leading-snug text-violet-100">
                                                             {{ $item['desc'] }}
                                                         </span>
                                                     </span>
@@ -175,15 +171,14 @@
                                         @endforeach
                                     </ul>
 
-                                    <div class="mt-auto border-t border-slate-200 px-1 pt-4 dark:border-slate-800">
-                                        <p class="text-sm font-semibold text-slate-900 dark:text-white">Butuh solusi
-                                            lain?</p>
-                                        <p class="mt-0.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                                    <div class="mt-auto border-t border-violet-400/40 px-1 pt-4">
+                                        <p class="text-sm font-semibold text-white">Butuh solusi lain?</p>
+                                        <p class="mt-0.5 text-xs leading-relaxed text-violet-100">
                                             Diskusikan kebutuhan bisnismu bersama kami.
                                         </p>
                                         <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20ingin%20konsultasi%20kebutuhan%20website."
                                             target="_blank" rel="noopener noreferrer"
-                                            class="mt-3 inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-4 py-3 text-xs font-semibold text-slate-700 transition-colors duration-150 ease-in-out hover:border-slate-900 hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:text-slate-200 dark:hover:border-white dark:hover:bg-white dark:hover:text-slate-900">
+                                            class="mt-3 inline-flex items-center gap-1.5 rounded-full border border-violet-300 px-4 py-3 text-xs font-semibold text-white transition-colors duration-150 ease-in-out hover:border-white hover:bg-white hover:text-violet-700">
                                             Konsultasi Gratis
                                             <i data-feather="arrow-up-right" class="h-3.5 w-3.5"></i>
                                         </a>

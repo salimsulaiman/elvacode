@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class Article extends Model
 {
@@ -67,6 +69,23 @@ class Article extends Model
                 Storage::disk('public')->delete($article->thumbnail);
             }
         });
+
+        static::saved(function () {
+            static::regenerateSitemap();
+        });
+
+        static::deleted(function () {
+            static::regenerateSitemap();
+        });
+    }
+
+    protected static function regenerateSitemap(): void
+    {
+        try {
+            Artisan::call('app:generate-sitemap');
+        } catch (\Throwable $e) {
+            Log::error('Gagal generate sitemap: ' . $e->getMessage());
+        }
     }
 
     public function category()
