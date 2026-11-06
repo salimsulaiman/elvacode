@@ -1,6 +1,6 @@
 @extends('components.layouts.app')
 
-@section('title', 'Portofolio - Elvacode')
+@section('title', __('portfolio.meta_title'))
 
 @section('content')
     <section
@@ -10,19 +10,19 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('portfolio.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Portofolio</li>
+                    <li class="text-white font-semibold">{{ __('portfolio.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
             <h1
                 class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
-                Karya
-                <span class="font-bold text-slate-900">Kami</span>
+                {{ __('portfolio.hero_title_1') }}
+                <span class="font-bold text-slate-900">{{ __('portfolio.hero_title_2') }}</span>
             </h1>
         </div>
     </section>
@@ -33,22 +33,20 @@
             <div class="flex gap-2 items-center">
                 <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Portofolio
+                    {{ __('portfolio.label') }}
                 </h2>
             </div>
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
                 <h3
-                    class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-3xl mx-auto lg:mx-0">
-                    Hasil Karya Digital yang Telah
-                    <span class="font-bold text-violet-500 dark:text-violet-300">Kami</span> Bangun
+                    class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-2xl mx-auto lg:mx-0">
+                    {{ __('portfolio.title_1') }}
+                    <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('portfolio.title_2') }}</span> {{ __('portfolio.title_3') }}
                 </h3>
 
                 <p
                     class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                    Berikut adalah beberapa proyek website yang telah kami kerjakan. Setiap proyek dirancang dengan fokus
-                    pada
-                    kebutuhan unik klien.
+                    {{ __('portfolio.desc') }}
                 </p>
             </div>
 
@@ -57,7 +55,7 @@
             @endphp
 
             @if (!request()->category && !request()->page && $featuredPortfolio)
-                <a href="{{ route('portfolio.show', $featuredPortfolio->slug) }}"
+                <a href="{{ lroute('portfolio.show', $featuredPortfolio->slug) }}"
                     class="group mt-12 flex flex-col-reverse overflow-hidden rounded-2xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 sm:mt-16 dark:bg-slate-800/50 dark:hover:bg-slate-700/60">
 
                     <div class="flex flex-col gap-4 p-6 sm:p-8">
@@ -78,7 +76,7 @@
 
                         <span
                             class="mt-2 inline-flex w-fit items-center gap-3 rounded-full bg-slate-900 py-1.5 pl-5 pr-1.5 text-sm font-bold text-white transition-colors duration-300 ease-in-out group-hover:bg-violet-500 group-hover:text-white dark:bg-white dark:text-slate-900 dark:group-hover:bg-violet-500 dark:group-hover:text-white">
-                            Lihat Detail
+                            {{ __('portfolio.see_detail') }}
                             <span
                                 class="flex h-7 w-7 items-center justify-center rounded-full bg-white text-slate-900 transition-colors duration-300 ease-in-out group-hover:bg-white group-hover:text-violet-600 dark:bg-slate-900 dark:text-white dark:group-hover:bg-white dark:group-hover:text-violet-600">
                                 <i data-feather="arrow-up-right"
@@ -100,16 +98,16 @@
             <div
                 class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-2 mt-12 mb-6 md:mt-16 md:mb-8 w-full relative">
                 <div class="flex gap-2 overflow-x-auto scrollbar-hide px-0 py-2 scroll-smooth min-w-0 max-w-full">
-                    <a href="{{ route('portfolio.index', request()->except('category')) }}"
+                    <a href="{{ lroute('portfolio.index', request()->except('category')) }}"
                         class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
                         {{ empty(request()->category)
                             ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
                             : 'bg-slate-100 text-gray-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600' }}">
-                        Semua
+                        {{ __('portfolio.filter_all') }}
                     </a>
 
                     @foreach ($categories as $category)
-                        <a href="{{ route('portfolio.index', array_merge(request()->except('category'), ['category' => $category->slug])) }}"
+                        <a href="{{ lroute('portfolio.index', array_merge(request()->except('category'), ['category' => $category->slug])) }}"
                             class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
                             {{ request()->category === $category->slug
                                 ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
@@ -121,7 +119,7 @@
             </div>
             <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 @foreach ($portfolios as $portfolio)
-                    <a href="{{ route('portfolio.show', $portfolio->slug) }}"
+                    <a href="{{ lroute('portfolio.show', $portfolio->slug) }}"
                         class="group flex flex-col overflow-hidden rounded-2xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 dark:bg-slate-800/50 dark:hover:bg-slate-700/60">
 
                         <div class="aspect-[4/3] w-full overflow-hidden rounded-b-3xl bg-slate-200 dark:bg-slate-700">
@@ -148,7 +146,7 @@
 
                             <span
                                 class="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-semibold text-slate-800 transition-colors duration-300 ease-in-out group-hover:text-violet-300 dark:text-white dark:group-hover:text-violet-300">
-                                Lihat Detail
+                                {{ __('portfolio.see_detail') }}
                                 <i data-feather="arrow-up-right"
                                     class="h-4 w-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i>
                             </span>
@@ -162,7 +160,4 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection

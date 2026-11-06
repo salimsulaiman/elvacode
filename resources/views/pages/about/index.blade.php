@@ -1,6 +1,6 @@
 @extends('components.layouts.app')
 
-@section('title', 'Tentang Kami - Elvacode')
+@section('title', __('about.meta_title'))
 
 @section('content')
     <section
@@ -10,19 +10,19 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('about.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Tentang Kami</li>
+                    <li class="text-white font-semibold">{{ __('about.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
             <h1
-                class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
-                Mengenal Lebih Dekat
-                <span class="font-bold text-slate-900">Elvacode</span>
+                class="font-primary section-title split mt-6 mx-auto max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
+                {{ __('about.hero_title_1') }}
+                <span class="font-bold text-slate-900">{{ __('about.hero_title_2') }}</span>
             </h1>
         </div>
     </section>
@@ -36,22 +36,20 @@
                     <div class="flex gap-2 items-center">
                         <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                             <span class="font-bold text-slate-800 dark:text-white">//</span>
-                            Siapa Kami
+                            {{ __('about.who_we_are_label') }}
                         </h2>
                     </div>
 
                     <h3
                         class="font-primary section-title split mt-6 max-w-3xl text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20">
-                        Website
-                        <span class="font-bold text-violet-500 dark:text-violet-300">Profesional</span>
-                        untuk Bisnis Anda
+                        {{ __('about.who_we_are_title_1') }}
+                        <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('about.who_we_are_title_2') }}</span>
+                        {{ __('about.who_we_are_title_3') }}
                     </h3>
 
                     <p
                         class="section-desc mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed text-justify">
-                        Kami adalah tim yang berfokus pada pembuatan website modern, cepat, dan responsif. Dengan pengalaman
-                        lebih dari 2 tahun, kami menghadirkan solusi digital yang profesional dan efektif untuk mendukung
-                        pertumbuhan bisnis Anda.
+                        {{ __('about.who_we_are_desc') }}
                     </p>
 
                     <div
@@ -73,23 +71,23 @@
                                 <span class="stat-value">0</span><span class="text-violet-500 dark:text-violet-300">%</span>
                             </div>
                             <p class="mt-4 text-sm font-semibold text-slate-800 dark:text-white sm:text-base">
-                                Kepuasan pelanggan
+                                {{ __('about.stats_satisfaction_label') }}
                             </p>
                             <p class="mt-1.5 max-w-xs text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                                Mayoritas klien puas dengan hasil, kualitas, dan layanan kami.
+                                {{ __('about.stats_satisfaction_desc') }}
                             </p>
                         </div>
 
                         <div class="py-8 pl-4 sm:pl-8 lg:py-12 lg:pl-0">
                             <div class="stat-number font-primary text-6xl font-bold leading-none tracking-tighter text-slate-800 dark:text-white sm:text-8xl lg:text-9xl"
-                                data-value="2">
+                                data-value="4">
                                 <span class="stat-value">0</span><span class="text-violet-500 dark:text-violet-300">+</span>
                             </div>
                             <p class="mt-4 text-sm font-semibold text-slate-800 dark:text-white sm:text-base">
-                                Tahun pengalaman
+                                {{ __('about.stats_experience_label') }}
                             </p>
                             <p class="mt-1.5 max-w-xs text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                                Berpengalaman membangun website untuk berbagai jenis bisnis.
+                                {{ __('about.stats_experience_desc') }}
                             </p>
                         </div>
 
@@ -103,32 +101,32 @@
     @php
         $stats = [
             [
-                'value' => 95,
+                'value'  => 95,
                 'suffix' => '%',
-                'label' => 'Kepuasan Klien',
-                'image' => 'happy-client.jpg',
-                'alt' => 'Klien Elvacode yang puas setelah menggunakan layanan',
+                'label'  => __('about.stats_client_label'),
+                'image'  => 'happy-client.jpg',
+                'alt'    => __('about.stats_client_alt'),
             ],
             [
-                'value' => 50,
+                'value'  => 50,
                 'suffix' => '+',
-                'label' => 'Proyek Selesai',
-                'image' => 'finish-project.jpg',
-                'alt' => 'Proyek website Elvacode yang berhasil diselesaikan',
+                'label'  => __('about.stats_project_label'),
+                'image'  => 'finish-project.jpg',
+                'alt'    => __('about.stats_project_alt'),
             ],
             [
-                'value' => 40,
+                'value'  => 40,
                 'suffix' => '+',
-                'label' => 'Ide Terealisasi',
-                'image' => 'realitation-idea.jpg',
-                'alt' => 'Ide klien yang berhasil direalisasikan menjadi website',
+                'label'  => __('about.stats_idea_label'),
+                'image'  => 'realitation-idea.jpg',
+                'alt'    => __('about.stats_idea_alt'),
             ],
             [
-                'value' => 25,
+                'value'  => 25,
                 'suffix' => '+',
-                'label' => 'Bisnis Berkembang',
-                'image' => 'business-growth.jpg',
-                'alt' => 'Bisnis klien yang berkembang setelah memiliki website profesional',
+                'label'  => __('about.stats_business_label'),
+                'image'  => 'business-growth.jpg',
+                'alt'    => __('about.stats_business_alt'),
             ],
         ];
     @endphp
@@ -140,20 +138,19 @@
             <div class="flex gap-2 items-center">
                 <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Pencapaian
+                    {{ __('about.achievement_label') }}
                 </h2>
             </div>
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
                 <h3
                     class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-2xl mx-auto lg:mx-0">
-                    Pencapaian <span class="font-bold text-violet-500 dark:text-violet-300">Elvacode</span>
+                    {{ __('about.achievement_title_1') }} <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('about.achievement_title_2') }}</span>
                 </h3>
 
                 <p
                     class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                    Kami berkomitmen menghadirkan solusi digital yang modern dan fungsional. Statistik berikut menjadi
-                    cerminan dedikasi kami pada setiap proyek.
+                    {{ __('about.achievement_desc') }}
                 </p>
             </div>
 
@@ -187,26 +184,25 @@
             <div class="flex justify-center">
                 <h2 class="font-primary text-sm font-semibold text-slate-400 dark:text-violet-100 uppercase">
                     <span class="font-bold text-white dark:text-white">//</span>
-                    Mari Bekerja Sama
+                    {{ __('about.cta_label') }}
                 </h2>
             </div>
 
             <h3
                 class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-white dark:text-white leading-normal sm:leading-10 md:leading-16">
-                Siap Diskusi Proyek
-                <span class="font-bold text-violet-300 dark:text-white">Website</span> Anda?
+                {{ __('about.cta_title_1') }}
+                <span class="font-bold text-violet-300 dark:text-white">{{ __('about.cta_title_2') }}</span> {{ __('about.cta_title_3') }}
             </h3>
 
             <p
                 class="section-desc mt-6 sm:mt-8 mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-slate-300 dark:text-violet-100 font-medium">
-                Kami membantu mewujudkan website sesuai kebutuhan bisnis Anda, modern, responsif, dan dikelola dengan
-                sepenuh hati.
+                {{ __('about.cta_desc') }}
             </p>
 
             <div class="mt-10 flex justify-center">
-                <a href="{{ route('contact.index') }}"
+                <a href="{{ lroute('contact.index') }}"
                     class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-white py-2 pl-6 pr-2 text-sm font-bold text-slate-900 dark:text-violet-700 transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-100 dark:hover:text-violet-700">
-                    Konsultasi Gratis
+                    {{ __('about.cta_btn') }}
                     <span
                         class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 dark:bg-violet-600 text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600">
                         <i data-feather="arrow-up-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>

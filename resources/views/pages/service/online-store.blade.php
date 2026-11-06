@@ -1,10 +1,8 @@
 @extends('components.layouts.app')
 
-@section('title', 'Website Toko Online - Elvacode')
-@section('meta_description',
-    'Jasa pembuatan website toko online dari Elvacode. Tampilkan produk, terima pesanan, dan
-    kelola toko Anda dalam satu website.')
-@section('og_title', 'Website Toko Online - Elvacode')
+@section('title', __('online_store.meta_title'))
+@section('meta_description', __('online_store.meta_description'))
+@section('og_title', __('online_store.og_title'))
 
 @section('content')
     @php
@@ -24,36 +22,6 @@
         $btnGhostIcon =
             'flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-violet-500 group-hover/cta:text-white';
 
-        $highlights = [
-            [
-                'title' => 'Katalog Produk',
-                'desc' => 'Tampilkan semua produk lengkap dengan foto, harga, dan deskripsi.',
-            ],
-            ['title' => 'Pesanan Mudah', 'desc' => 'Pembeli bisa memilih produk dan memesan tanpa langkah yang rumit.'],
-            ['title' => 'Kelola Sendiri', 'desc' => 'Tambah dan ubah produk kapan saja tanpa perlu bantuan teknis.'],
-        ];
-
-        $forBuyers = [
-            'Katalog produk yang rapi dan mudah dicari',
-            'Halaman detail produk dengan foto dan deskripsi',
-            'Keranjang belanja dan proses pemesanan',
-            'Tampilan nyaman di HP maupun komputer',
-        ];
-
-        $forOwners = [
-            'Tambah, ubah, dan hapus produk sendiri',
-            'Atur harga, stok, dan kategori produk',
-            'Pantau pesanan yang masuk',
-            'Fitur tambahan sesuai kebutuhan toko Anda',
-        ];
-
-        $included = [
-            ['title' => 'Domain', 'desc' => 'Gunakan domain milik Anda'],
-            ['title' => 'Hosting', 'desc' => 'Gunakan hosting pilihan Anda'],
-            ['title' => 'SSL/HTTPS', 'desc' => 'Website lebih aman'],
-            ['title' => 'Setup', 'desc' => 'Kami bantu hingga siap online'],
-        ];
-
         $workLayout = ['', 'md:mt-16', '', 'md:mt-16'];
     @endphp
 
@@ -64,32 +32,31 @@
                 <div class="flex gap-2 items-center justify-center">
                     <h2 class="{{ $eyebrow }}">
                         <span class="{{ $slash }}">//</span>
-                        Website Toko Online
+                        {{ __('online_store.hero_eyebrow') }}
                     </h2>
                 </div>
 
                 <h1
                     class="hero-title split font-primary mt-8 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-balance text-slate-800 dark:text-white leading-[1.08] font-medium">
-                    Jual Produk Anda Lewat
-                    <span class="text-violet-500 dark:text-violet-300 font-bold">Toko Online</span> Milik Sendiri
+                    {{ __('online_store.hero_title_1') }}
+                    <span class="text-violet-500 dark:text-violet-300 font-bold">{{ __('online_store.hero_title_2') }}</span> {{ __('online_store.hero_title_3') }}
                 </h1>
 
                 <div class="hero-subtitle">
                     <p class="{{ $body }} mx-auto mt-8 max-w-xl">
-                        Kami membuatkan website toko online yang rapi, mudah dikelola, dan siap menerima pesanan dari
-                        pelanggan Anda.
+                        {{ __('online_store.hero_desc') }}
                     </p>
 
                     <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-                        <a href="{{ route('contact.index') }}" class="{{ $btnPrimary }}">
-                            Konsultasi Sekarang
+                        <a href="{{ lroute('contact.index') }}" class="{{ $btnPrimary }}">
+                            {{ __('online_store.hero_btn_consult') }}
                             <span class="{{ $btnPrimaryIcon }}">
                                 <i data-feather="arrow-up-right"
                                     class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                             </span>
                         </a>
                         <a href="#selected-work" class="{{ $btnGhost }}">
-                            Lihat Portfolio
+                            {{ __('online_store.hero_btn_portfolio') }}
                             <span class="{{ $btnGhostIcon }}">
                                 <i data-feather="arrow-down" class="h-4 w-4"></i>
                             </span>
@@ -99,7 +66,7 @@
             </div>
 
             <div class="mt-20 grid border-t border-slate-200 dark:border-slate-800 sm:mt-28 md:grid-cols-3">
-                @foreach ($highlights as $item)
+                @foreach (__('online_store.highlights') as $item)
                     <div
                         class="border-b border-slate-200 py-8 dark:border-slate-800 md:border-b-0 md:px-8 md:py-10 {{ $loop->first ? 'md:pl-0' : 'md:border-l' }} {{ $loop->last ? 'md:pr-0' : '' }} md:border-slate-200 md:dark:border-slate-800">
                         <span class="font-primary text-sm font-semibold text-violet-600 dark:text-violet-300">
@@ -122,13 +89,13 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 data-word-reveal
                 class="font-primary max-w-7xl text-3xl sm:text-5xl lg:text-6xl xl:text-8xl font-bold tracking-tight text-balance text-slate-800 dark:text-white leading-[1.12]">
-                Pembeli Tidak Mengenal Toko Anda
-                <span class="text-violet-500 dark:text-violet-300">Sebelum Melihatnya</span> Online
+                {{ __('online_store.trans1_title_1') }}
+                <span class="text-violet-500 dark:text-violet-300">{{ __('online_store.trans1_title_2') }}</span> {{ __('online_store.trans1_title_3') }}
             </h2>
 
             <p
                 class="mt-10 sm:mt-14 max-w-xl text-base sm:text-lg font-medium leading-relaxed text-slate-600 dark:text-slate-300">
-                Toko online yang rapi membuat orang lebih yakin untuk membeli.
+                {{ __('online_store.trans1_desc') }}
             </p>
         </div>
     </section>
@@ -139,23 +106,23 @@
             <div class="flex gap-2 items-center">
                 <h2 class="{{ $eyebrow }}">
                     <span class="{{ $slash }}">//</span>
-                    Yang Kami Tawarkan
+                    {{ __('online_store.offers_eyebrow') }}
                 </h2>
             </div>
 
             <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                Toko yang Nyaman untuk
-                <span class="text-violet-500 dark:text-violet-300">Pembeli</span> dan Mudah untuk Anda.
+                {{ __('online_store.offers_title_1') }}
+                <span class="text-violet-500 dark:text-violet-300">{{ __('online_store.offers_title_2') }}</span> {{ __('online_store.offers_title_3') }}
             </h3>
 
             <div class="mt-16 grid gap-12 sm:mt-20 md:grid-cols-2 md:gap-0">
                 <div class="md:pr-12 lg:pr-20">
                     <h4
                         class="font-primary text-sm font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-300">
-                        Untuk Pembeli
+                        {{ __('online_store.offers_for_buyers_title') }}
                     </h4>
                     <ul class="mt-6 border-t border-slate-300 dark:border-slate-700">
-                        @foreach ($forBuyers as $feature)
+                        @foreach (__('online_store.offers_for_buyers') as $feature)
                             <li class="flex items-start gap-4 border-b border-slate-300 py-5 dark:border-slate-700">
                                 <i data-feather="check"
                                     class="mt-0.5 h-5 w-5 shrink-0 text-violet-500 dark:text-violet-300"></i>
@@ -169,10 +136,10 @@
                 <div class="md:border-l md:border-slate-300 md:pl-12 dark:md:border-slate-700 lg:pl-20">
                     <h4
                         class="font-primary text-sm font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-300">
-                        Untuk Pemilik Toko
+                        {{ __('online_store.offers_for_owners_title') }}
                     </h4>
                     <ul class="mt-6 border-t border-slate-300 dark:border-slate-700">
-                        @foreach ($forOwners as $feature)
+                        @foreach (__('online_store.offers_for_owners') as $feature)
                             <li class="flex items-start gap-4 border-b border-slate-300 py-5 dark:border-slate-700">
                                 <i data-feather="check"
                                     class="mt-0.5 h-5 w-5 shrink-0 text-violet-500 dark:text-violet-300"></i>
@@ -193,25 +160,25 @@
                     <div class="flex gap-2 items-center">
                         <h2 class="{{ $eyebrow }}">
                             <span class="{{ $slash }}">//</span>
-                            Sudah Termasuk
+                            {{ __('online_store.included_eyebrow') }}
                         </h2>
                     </div>
 
                     <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                        Toko Online Siap
-                        <span class="text-violet-500 dark:text-violet-300">Digunakan</span>
+                        {{ __('online_store.included_title_1') }}
+                        <span class="text-violet-500 dark:text-violet-300">{{ __('online_store.included_title_2') }}</span>
                     </h3>
                 </div>
 
-                <a href="{{ route('pricing.index') }}"
+                <a href="{{ lroute('pricing.index') }}"
                     class="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:text-white dark:hover:text-violet-300">
-                    Lihat Paket Harga
+                    {{ __('online_store.included_link') }}
                     <i data-feather="arrow-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                 </a>
             </div>
 
             <div class="mt-16 grid grid-cols-2 sm:mt-20 lg:grid-cols-4">
-                @foreach ($included as $item)
+                @foreach (__('online_store.included') as $item)
                     <div
                         class="border-t border-slate-200 py-8 pr-4 dark:border-slate-800 lg:border-l lg:px-8 {{ $loop->first ? 'lg:border-l-0 lg:pl-0' : '' }}">
                         <h4
@@ -224,8 +191,7 @@
             </div>
 
             <p class="mt-6 max-w-xl text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                Harga toko online menyesuaikan jumlah produk dan fitur yang Anda butuhkan. Konsultasikan dulu, kami
-                beri estimasinya.
+                {{ __('online_store.included_desc') }}
             </p>
         </div>
     </section>
@@ -234,8 +200,8 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 data-word-reveal
                 class="font-primary max-w-5xl text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance text-white dark:text-slate-900 leading-[1.12]">
-                Toko Anda Buka
-                <span class="text-violet-300 dark:text-violet-600">24 Jam,</span> Bahkan Saat Anda Istirahat.
+                {{ __('online_store.trans2_title_1') }}
+                <span class="text-violet-300 dark:text-violet-600">{{ __('online_store.trans2_title_2') }}</span> {{ __('online_store.trans2_title_3') }}
             </h2>
         </div>
     </section>
@@ -249,44 +215,58 @@
                         <div class="flex gap-2 items-center">
                             <h2 class="{{ $eyebrow }}">
                                 <span class="{{ $slash }}">//</span>
-                                Selected Work
+                                {{ __('online_store.port_eyebrow') }}
                             </h2>
                         </div>
 
                         <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                            Toko Online yang Sudah
-                            <span class="text-violet-500 dark:text-violet-300">Kami Buat.</span>
+                            {{ __('online_store.port_title_1') }}
+                            <span class="text-violet-500 dark:text-violet-300">{{ __('online_store.port_title_2') }}</span>
                         </h3>
                     </div>
 
-                    <a href="{{ route('portfolio.index') }}"
+                    <a href="{{ lroute('portfolio.index') }}"
                         class="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:text-white dark:hover:text-violet-300">
-                        Lihat Semua Portofolio
+                        {{ __('online_store.port_link') }}
                         <i data-feather="arrow-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                     </a>
                 </div>
 
-                <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-14 sm:mt-20 md:grid-cols-2">
+                <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-14 sm:mt-20 lg:grid-cols-12">
+
                     @foreach ($onlineStores as $project)
-                        <a href="{{ route('portfolio.show', $project->slug) }}"
-                            class="group block {{ $workLayout[$loop->index % 4] }}">
+
+                        @php
+                            $isWide = in_array($loop->index % 4, [0, 3]);
+                        @endphp
+
+                        <a href="{{ lroute('portfolio.show', $project->slug) }}"
+                            class="group block {{ $isWide ? 'lg:col-span-7' : 'lg:col-span-5' }}">
+
+                            {{-- Project Image --}}
                             <div
-                                class="aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800">
-                                <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->name }}"
+                                class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800 {{ $isWide ? 'aspect-[4/3] lg:aspect-[7/5]' : 'aspect-[4/3] lg:aspect-square' }}">
+
+                                <img src="{{ asset('storage/' . $project->thumbnail) }}"
+                                    alt="{{ $project->name }}"
                                     loading="lazy"
-                                    class="h-full w-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-[1.02]">
+                                    class="h-full w-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-[1.03]">
                             </div>
 
+                            {{-- Project Information --}}
                             <div class="mt-6 flex items-start justify-between gap-6">
+
                                 <div class="min-w-0">
                                     <span
                                         class="text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-300">
                                         {{ $project->category->name }}
                                     </span>
+
                                     <h4
                                         class="font-primary mt-2 line-clamp-1 text-2xl font-semibold text-slate-800 transition-colors duration-150 ease-in-out group-hover:text-violet-600 dark:text-white dark:group-hover:text-violet-300">
                                         {{ $project->name }}
                                     </h4>
+
                                     <p
                                         class="mt-2 line-clamp-2 max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                                         {{ $project->summary }}
@@ -295,12 +275,16 @@
 
                                 <span
                                     class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-800 transition-colors duration-300 ease-in-out group-hover:border-violet-500 group-hover:bg-violet-500 group-hover:text-white dark:border-slate-700 dark:text-white dark:group-hover:border-violet-500">
+
                                     <i data-feather="arrow-up-right"
                                         class="h-4 w-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                                 </span>
+
                             </div>
                         </a>
+
                     @endforeach
+
                 </div>
             </div>
         </section>
@@ -314,17 +298,17 @@
                 <h2
                     class="font-primary text-sm font-semibold uppercase tracking-widest text-slate-400 dark:text-violet-100">
                     <span class="font-bold text-white dark:text-slate-950">//</span>
-                    Siap Punya Toko Online?
+                    {{ __('online_store.cta_eyebrow') }}
                 </h2>
             </div>
 
-            <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20membuat%20website%20toko%20online.%20Bisa%20minta%20info%20lebih%20lanjut?"
+            <a href="https://wa.me/6287835482333?text={{ urlencode(__('online_store.cta_wa_text')) }}"
                 target="_blank" rel="noopener" aria-label="Get in touch lewat WhatsApp"
                 class="group/cta mt-10 flex items-center justify-center gap-4 sm:mt-14 sm:gap-8 lg:gap-12">
 
                 <span
                     class="font-primary text-5xl font-bold leading-none tracking-tighter text-white transition-colors duration-300 ease-in-out group-hover/cta:text-violet-300 dark:text-slate-950 dark:group-hover/cta:text-white sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">
-                    Get in Touch
+                    {{ __('online_store.cta_title') }}
                 </span>
 
                 <span
@@ -335,7 +319,7 @@
             </a>
 
             <p class="mt-10 text-center text-sm font-medium text-slate-400 dark:text-violet-100 sm:mt-14">
-                Ceritakan produk dan kebutuhan toko Anda lewat WhatsApp.
+                {{ __('online_store.cta_desc') }}
             </p>
         </div>
     </section>

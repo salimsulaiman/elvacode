@@ -1,21 +1,51 @@
 @php
-    $isHome = request()->is('/');
-    $serviceActive = request()->is('service*');
+    $isHome = request()->routeIs('*home.index');
+
+    $serviceActive = request()->routeIs(
+        '*service.*',
+        '*pricing.*'
+    );
+
+    $locale = app()->getLocale();
 
     $exploreItems = [
         [
             'route' => 'pricing.index',
             'icon' => 'tag',
-            'title' => 'Harga & Paket',
-            'desc' => 'Pilihan paket dan estimasi biaya',
-            'active' => request()->is('service/pricing*'),
+            'title' => __('menu.pricing_title'),
+            'desc' => __('menu.pricing_desc'),
+            'active' => request()->routeIs('*pricing.*'),
         ],
         [
             'route' => 'portfolio.index',
             'icon' => 'grid',
-            'title' => 'Portofolio',
-            'desc' => 'Contoh proyek website yang dibuat',
-            'active' => request()->is('portfolio*'),
+            'title' => __('menu.portfolio'),
+            'desc' => __('menu.portfolio_desc'),
+            'active' => request()->routeIs('*portfolio*'),
+        ],
+    ];
+
+    $serviceItems = [
+        [
+            'route' => 'service.company-profile',
+            'icon' => 'briefcase',
+            'title' => __('menu.company_profile_title'),
+            'desc' => __('menu.company_profile_desc'),
+            'active' => request()->routeIs('*service.company-profile'),
+        ],
+        [
+            'route' => 'service.online-store',
+            'icon' => 'shopping-bag',
+            'title' => __('menu.online_store_title'),
+            'desc' => __('menu.online_store_desc'),
+            'active' => request()->routeIs('*service.online-store'),
+        ],
+        [
+            'route' => 'service.custom',
+            'icon' => 'code',
+            'title' => __('menu.custom_title'),
+            'desc' => __('menu.custom_desc'),
+            'active' => request()->routeIs('*service.custom'),
         ],
     ];
 
@@ -27,36 +57,20 @@
     $iconBtn =
         'flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900';
 
-    $serviceItems = [
-        [
-            'route' => 'service.company-profile',
-            'icon' => 'briefcase',
-            'title' => 'Company Profile',
-            'desc' => 'Website profesional untuk memperkenalkan bisnis dan membangun kredibilitas',
-            'active' => request()->is('service/company-profile'),
-        ],
-        [
-            'route' => 'service.online-store',
-            'icon' => 'shopping-bag',
-            'title' => 'Toko Online',
-            'desc' => 'Website toko online untuk menjual produk dan menjangkau pelanggan',
-            'active' => request()->is('service/online-store'),
-        ],
-        [
-            'route' => 'service.custom',
-            'icon' => 'code',
-            'title' => 'Website Custom',
-            'desc' => 'Website khusus sesuai kebutuhan bisnis dan alur kerja Anda',
-            'active' => request()->is('service/custom'),
-        ],
-    ];
+   $langItem =
+    'flex h-8 w-9 items-center justify-center rounded-full text-xs font-bold tracking-wide transition-colors duration-150 ease-in-out';
+
+    $langActive = 'bg-violet-600 text-white pointer-events-none';
+
+    $langIdle =
+        'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white';
 @endphp
 
 <div class="font-body w-full z-50 fixed top-0" x-data="themeSwitcher()" x-init="initTheme()">
     <nav class="w-full bg-transparent" x-data="{ open: false, scrolled: false, service: false }" x-init="scrolled = window.scrollY > 10;
     window.addEventListener('scroll', () => {
         scrolled = window.scrollY > 10
-    })" x-cloak aria-label="Navigasi utama">
+    })" x-cloak aria-label="{{ __('menu.nav_label') }}">
 
         <div class="w-full border-b transition-all duration-300 ease-in-out {{ $isHome ? '' : 'border-slate-200 bg-white/90 backdrop-blur-lg dark:border-slate-800 dark:bg-slate-950/90' }}"
             @if ($isHome) :class="scrolled ? 'border-slate-200 bg-white/90 backdrop-blur-lg dark:border-slate-800 dark:bg-slate-950/90' : 'border-transparent bg-transparent'" @endif>
@@ -64,16 +78,16 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ease-in-out {{ $isHome ? '' : 'py-6' }}"
                 @if ($isHome) :class="scrolled ? 'py-8' : 'py-6'" @endif>
 
-                <a href="{{ route('home.index') }}" aria-label="Beranda Elvacode" class="shrink-0">
+                <a href="{{ lroute('home.index') }}" aria-label="{{ __('menu.home_label') }}" class="shrink-0">
                     <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="Elvacode Logo"
                         class="h-5 dark:invert dark:grayscale">
                 </a>
 
                 <ul class="hidden xlg:flex items-center gap-1">
                     <li>
-                        <a href="{{ route('home.index') }}" @if (request()->is('/')) aria-current="page" @endif
-                            class="{{ $linkBase }} {{ request()->is('/') ? $linkActive : $linkIdle }}">
-                            Beranda
+                        <a href="{{ lroute('home.index') }}" @if (request()->routeIs('*home.index')) aria-current="page" @endif
+                            class="{{ $linkBase }} {{ request()->routeIs('*home.index') ? $linkActive : $linkIdle }}">
+                            {{ __('menu.home') }}
                         </a>
                     </li>
 
@@ -82,7 +96,7 @@
                         <button type="button" @click="service = !service" aria-haspopup="true"
                             :aria-expanded="service.toString()"
                             class="{{ $linkBase }} inline-flex items-center gap-1 {{ $serviceActive ? $linkActive : $linkIdle }}">
-                            Layanan
+                            {{ __('menu.services') }}
                             <span class="transition-transform duration-200 ease-in-out"
                                 :class="service ? 'rotate-180' : ''">
                                 <i data-feather="chevron-down" class="h-4 w-4"></i>
@@ -104,15 +118,15 @@
                                 <div class="col-span-7 p-5 2xl:p-6">
                                     <p
                                         class="px-1 pb-3 text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                                        Layanan
+                                        {{ __('menu.services') }}
                                     </p>
 
                                     <ul class="space-y-2" role="menu">
                                         @foreach ($serviceItems as $item)
                                             <li role="none">
-                                                <a href="{{ route($item['route']) }}" role="menuitem"
+                                                <a href="{{ lroute($item['route']) }}" role="menuitem"
                                                     @if ($item['active']) aria-current="page" @endif
-                                                    class="group/item flex items-start gap-3 rounded-xl px-4 py-2.5 transition-colors duration-150 ease-in-out
+                                                    class="group/item flex items-start gap-3 rounded-2xl px-4 py-2.5 transition-colors duration-150 ease-in-out
                                                     {{ $item['active']
                                                         ? 'bg-violet-50/60 dark:bg-violet-500/10'
                                                         : 'hover:bg-slate-50 dark:hover:bg-slate-800/60' }}">
@@ -142,15 +156,16 @@
                                 <div class="col-span-5 flex flex-col bg-violet-600 p-5 2xl:p-6">
                                     <p
                                         class="px-1 pb-3 text-[11px] font-semibold uppercase tracking-wider text-violet-200">
-                                        Eksplorasi
+                                        {{ __('menu.explore') }}
                                     </p>
 
-                                    <ul class="mb-2 space-y-1" role="menu">
+                                    <ul class="mb-2 space-y-2" role="menu">
                                         @foreach ($exploreItems as $item)
                                             <li role="none">
-                                                <a href="{{ route($item['route']) }}" role="menuitem"
+                                                <a href="{{ lroute($item['route']) }}" role="menuitem"
                                                     @if ($item['active']) aria-current="page" @endif
-                                                    class="group/explore flex items-center gap-3 rounded-lg px-4 py-2.5 transition-colors duration-150 ease-in-out hover:bg-white/10 {{ $item['active'] ? 'bg-white/10' : '' }}">
+                                                    class="group/explore flex items-center gap-3 rounded-2xl px-4 py-2.5 transition-colors duration-150 ease-in-out
+                                                        {{ $item['active'] ? 'bg-slate-900/40' : 'hover:bg-white/10' }}">
                                                     <span
                                                         class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-150 ease-in-out
                                                         {{ $item['active']
@@ -159,10 +174,10 @@
                                                         <i data-feather="{{ $item['icon'] }}" class="h-4 w-4"></i>
                                                     </span>
                                                     <span class="flex min-w-0 flex-col">
-                                                        <span class="text-sm font-semibold text-white">
+                                                        <span class="text-sm font-semibold {{ $item['active'] ? 'text-white' : 'text-white' }}">
                                                             {{ $item['title'] }}
                                                         </span>
-                                                        <span class="text-xs leading-snug text-violet-100">
+                                                        <span class="text-xs leading-snug {{ $item['active'] ? 'text-white' : 'text-violet-100' }}">
                                                             {{ $item['desc'] }}
                                                         </span>
                                                     </span>
@@ -172,14 +187,14 @@
                                     </ul>
 
                                     <div class="mt-auto border-t border-violet-400/40 px-1 pt-4">
-                                        <p class="text-sm font-semibold text-white">Butuh solusi lain?</p>
+                                        <p class="text-sm font-semibold text-white">{{ __('menu.other_title') }}</p>
                                         <p class="mt-0.5 text-xs leading-relaxed text-violet-100">
-                                            Diskusikan kebutuhan bisnismu bersama kami.
+                                            {{ __('menu.other_desc') }}
                                         </p>
-                                        <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20ingin%20konsultasi%20kebutuhan%20website."
+                                        <a href="https://wa.me/6287835482333?text={{ rawurlencode(__('menu.wa_consult')) }}"
                                             target="_blank" rel="noopener noreferrer"
                                             class="mt-3 inline-flex items-center gap-1.5 rounded-full border border-violet-300 px-4 py-3 text-xs font-semibold text-white transition-colors duration-150 ease-in-out hover:border-white hover:bg-white hover:text-violet-700">
-                                            Konsultasi Gratis
+                                            {{ __('menu.free_consult') }}
                                             <i data-feather="arrow-up-right" class="h-3.5 w-3.5"></i>
                                         </a>
                                     </div>
@@ -189,42 +204,58 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('portfolio.index') }}"
-                            @if (request()->is('portfolio*')) aria-current="page" @endif
-                            class="{{ $linkBase }} {{ request()->is('portfolio*') ? $linkActive : $linkIdle }}">
-                            Portofolio
+                        <a href="{{ lroute('portfolio.index') }}"
+                            @if (request()->routeIs('*portfolio.*')) aria-current="page" @endif
+                            class="{{ $linkBase }} {{ request()->routeIs('*portfolio.*') ? $linkActive : $linkIdle }}">
+                            {{ __('menu.portfolio') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('about.index') }}"
-                            @if (request()->is('about')) aria-current="page" @endif
-                            class="{{ $linkBase }} {{ request()->is('about') ? $linkActive : $linkIdle }}">
-                            Tentang Kami
+                        <a href="{{ lroute('about.index') }}"
+                            @if (request()->routeIs('*about.*')) aria-current="page" @endif
+                            class="{{ $linkBase }} {{ request()->routeIs('*about.*') ? $linkActive : $linkIdle }}">
+                            {{ __('menu.about') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('article.index') }}"
-                            @if (request()->is('article*')) aria-current="page" @endif
-                            class="{{ $linkBase }} {{ request()->is('article*') ? $linkActive : $linkIdle }}">
-                            Artikel
+                        <a href="{{ lroute('article.index') }}"
+                            @if (request()->routeIs('*article.*')) aria-current="page" @endif
+                            class="{{ $linkBase }} {{ request()->routeIs('*article.*') ? $linkActive : $linkIdle }}">
+                            {{ __('menu.article') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('contact.index') }}"
-                            @if (request()->is('contact')) aria-current="page" @endif
-                            class="{{ $linkBase }} {{ request()->is('contact') ? $linkActive : $linkIdle }}">
-                            Kontak
+                        <a href="{{ lroute('contact.index') }}"
+                            @if (request()->routeIs('*contact.*')) aria-current="page" @endif
+                            class="{{ $linkBase }} {{ request()->routeIs('*contact.*') ? $linkActive : $linkIdle }}">
+                            {{ __('menu.contact') }}
                         </a>
                     </li>
                 </ul>
 
                 <div class="flex items-center gap-3">
-                    <button type="button" @click="openSearch = true" aria-label="Buka pencarian"
+                    <button type="button" @click="openSearch = true" aria-label="{{ __('menu.open_search') }}"
                         class="{{ $iconBtn }} hidden xlg:flex">
                         <i data-feather="search" class="h-4 w-4"></i>
                     </button>
 
-                    <button type="button" @click="toggleTheme" aria-label="Ganti tema tampilan"
+                   <div role="group" aria-label="{{ __('menu.language') }}"
+                        class="hidden lg:inline-flex h-10 items-center rounded-full border border-slate-300 bg-slate-100 p-1 dark:border-slate-700 dark:bg-slate-900">
+
+                        <a href="{{ switch_locale_url('id') }}" lang="id" hreflang="id"
+                            @if ($locale === 'id') aria-current="true" @endif
+                            class="{{ $langItem }} {{ $locale === 'id' ? $langActive : $langIdle }}">
+                            ID
+                        </a>
+
+                        <a href="{{ switch_locale_url('en') }}" lang="en" hreflang="en"
+                            @if ($locale === 'en') aria-current="true" @endif
+                            class="{{ $langItem }} {{ $locale === 'en' ? $langActive : $langIdle }}">
+                            EN
+                        </a>
+                    </div>
+
+                    <button type="button" @click="toggleTheme" aria-label="{{ __('menu.toggle_theme') }}"
                         class="{{ $iconBtn }}">
                         <svg x-show="theme === 'light'" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
@@ -246,10 +277,10 @@
                         </svg>
                     </button>
 
-                    <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                    <a href="https://wa.me/6287835482333?text={{ rawurlencode(__('menu.wa_contact')) }}"
                         target="_blank" rel="noopener noreferrer"
                         class="group/cta hidden xlg:inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 dark:bg-white py-1.5 pl-5 pr-1.5 text-sm font-bold text-white dark:text-slate-900 transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-500 dark:hover:text-white">
-                        Hubungi Kami
+                        {{ __('menu.contact_us') }}
                         <span
                             class="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600 dark:group-hover/cta:bg-white dark:group-hover/cta:text-violet-600">
                             <i data-feather="arrow-up-right"
@@ -257,7 +288,7 @@
                         </span>
                     </a>
 
-                    <button type="button" @click="open = !open" aria-label="Toggle menu navigasi"
+                    <button type="button" @click="open = !open" aria-label="{{ __('menu.toggle_menu') }}"
                         :aria-expanded="open.toString()" class="{{ $iconBtn }} xlg:hidden">
                         <span x-show="!open"><i data-feather="menu" class="h-4 w-4"></i></span>
                         <span x-show="open" x-cloak><i data-feather="x" class="h-4 w-4"></i></span>

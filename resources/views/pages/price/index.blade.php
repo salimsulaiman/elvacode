@@ -1,10 +1,8 @@
 @extends('components.layouts.app')
 
-@section('title', 'Harga Paket - Elvacode')
-@section('meta_description',
-    'Paket pembuatan website dari Elvacode mulai Rp 650.000. Sudah termasuk domain, hosting,
-    dan SSL. Pilih paket Essential, Professional, atau Premium sesuai kebutuhan bisnis Anda.')
-@section('og_title', 'Harga Paket Website - Elvacode')
+@section('title', __('price.meta_title'))
+@section('meta_description', __('price.meta_description'))
+@section('og_title', __('price.og_title'))
 
 @section('content')
     @php
@@ -16,111 +14,41 @@
 
         $plans = [
             [
-                'name' => 'Essential',
-                'price' => 650000,
-                'original' => 1000000,
+                'name'      => __('price.plans.essential.name'),
+                'price'     => 650000,
+                'original'  => 1000000,
                 'highlight' => false,
-                'features' => [
-                    'Cocok untuk: Personal Website, Startup, Bisnis Kecil',
-                    'Tampilan Responsive',
-                    '4 Halaman Statis',
-                    'Free Domain (web.id / my.id)',
-                    'Free Hosting 1 Tahun',
-                    '1x Revisi Desain',
-                    'SSL/HTTPS Secure',
-                    'Gratis Logo Sederhana',
-                    'Panduan Penggunaan Website',
-                ],
+                'features'  => __('price.plans.essential.features'),
             ],
             [
-                'name' => 'Professional',
-                'price' => 1500000,
-                'original' => 2500000,
+                'name'      => __('price.plans.professional.name'),
+                'price'     => 1500000,
+                'original'  => 2500000,
                 'highlight' => true,
-                'features' => [
-                    'Cocok untuk: Portfolio Website, Bisnis Menengah',
-                    'Tampilan Responsive',
-                    '5 - 10 Halaman Statis',
-                    'Free Domain (web.id / my.id / .com)',
-                    'Free Hosting 1 Tahun',
-                    '2x Revisi Desain',
-                    'SSL/HTTPS Secure',
-                    'Free Maintenance 1 Tahun',
-                    'Optimasi Kecepatan Dasar',
-                    'Gratis Logo Sederhana',
-                ],
+                'features'  => __('price.plans.professional.features'),
             ],
             [
-                'name' => 'Premium',
-                'price' => 3000000,
-                'original' => 5000000,
+                'name'      => __('price.plans.premium.name'),
+                'price'     => 3000000,
+                'original'  => 5000000,
                 'highlight' => false,
-                'features' => [
-                    'Cocok untuk: Company Profile Lengkap, Bisnis Berkembang',
-                    'Tampilan Responsive',
-                    '10 - 15 Halaman Statis',
-                    'Free Domain (web.id / my.id / .com / .id)',
-                    'Free Hosting 1 Tahun',
-                    '3x Revisi Desain',
-                    'SSL/HTTPS Secure',
-                    'Gratis Email Bisnis',
-                    'Free Maintenance 1 Tahun',
-                    'Optimasi SEO Dasar',
-                    'Optimasi Kecepatan Lanjutan',
-                    'Integrasi WhatsApp & Google Maps',
-                    'Gratis Logo Profesional',
-                    'Garansi 3 Bulan',
-                ],
+                'features'  => __('price.plans.premium.features'),
             ],
         ];
 
-        $enterpriseTags = [
-            'Website E-commerce',
-            'Custom Design',
-            'Custom Feature',
-            'Domain .co.id',
-            'Email Bisnis',
-            'Garansi 6 Bulan',
-        ];
-
-        $allIncluded = [
-            ['title' => 'Responsive', 'desc' => 'Tampil rapi di HP, tablet, dan komputer'],
-            ['title' => 'Domain', 'desc' => 'Gratis 1 tahun'],
-            ['title' => 'Hosting', 'desc' => 'Gratis 1 tahun'],
-            ['title' => 'SSL/HTTPS', 'desc' => 'Website aman diakses'],
-        ];
-
+        $enterpriseTags = __('price.enterprise_tags');
+        $allIncluded    = __('price.all_included');
+        
         $compare = [
-            ['label' => 'Jumlah halaman', 'values' => ['4', '5 - 10', '10 - 15']],
-            ['label' => 'Revisi desain', 'values' => ['1x', '2x', '3x']],
-            ['label' => 'Maintenance gratis', 'values' => ['-', '1 tahun', '1 tahun']],
-            ['label' => 'Email bisnis', 'values' => ['-', '-', 'Ya']],
-            ['label' => 'Optimasi', 'values' => ['-', 'Kecepatan dasar', 'SEO & kecepatan lanjutan']],
-            ['label' => 'Garansi', 'values' => ['-', '-', '3 bulan']],
+            ['label' => __('price.compare_labels.page_count'), 'values' => __('price.compare_values.page_count')],
+            ['label' => __('price.compare_labels.revision'), 'values' => __('price.compare_values.revision')],
+            ['label' => __('price.compare_labels.maintenance'), 'values' => __('price.compare_values.maintenance')],
+            ['label' => __('price.compare_labels.email'), 'values' => __('price.compare_values.email')],
+            ['label' => __('price.compare_labels.optimization'), 'values' => __('price.compare_values.optimization')],
+            ['label' => __('price.compare_labels.warranty'), 'values' => __('price.compare_values.warranty')],
         ];
 
-        $faqs = [
-            [
-                'q' => 'Apakah harga sudah termasuk domain dan hosting?',
-                'a' =>
-                    'Ya. Semua paket sudah termasuk domain dan hosting gratis selama 1 tahun, lengkap dengan SSL/HTTPS.',
-            ],
-            [
-                'q' => 'Apa bedanya revisi desain dengan maintenance?',
-                'a' =>
-                    'Revisi desain adalah perubahan tampilan selama proses pembuatan website. Maintenance adalah perawatan website setelah selesai, tersedia gratis 1 tahun pada paket Professional dan Premium.',
-            ],
-            [
-                'q' => 'Bagaimana kalau kebutuhan saya tidak ada di paket ini?',
-                'a' =>
-                    'Untuk toko online atau website dengan fitur khusus, kami buatkan penawaran tersendiri lewat paket Enterprise. Hubungi kami dan ceritakan kebutuhannya.',
-            ],
-            [
-                'q' => 'Bagaimana cara memesan?',
-                'a' =>
-                    'Klik tombol "Dapatkan Paket" pada paket yang Anda pilih. Anda akan diarahkan ke WhatsApp untuk berdiskusi langsung dengan kami.',
-            ],
-        ];
+        $faqs = __('price.faqs');
     @endphp
 
     <section
@@ -130,23 +58,23 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('price.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Harga Paket</li>
+                    <li class="text-white font-semibold">{{ __('price.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
             <h1
                 class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
-                Harga Paket
-                <span class="font-bold text-slate-900">Website</span>
+                {{ __('price.hero_title_1') }}
+                <span class="font-bold text-slate-900">{{ __('price.hero_title_2') }}</span>
             </h1>
 
             <p class="section-desc mx-auto mt-6 max-w-xl text-sm sm:text-base font-medium leading-relaxed text-violet-100">
-                Harga jelas, tanpa biaya tersembunyi. Pilih paket sesuai kebutuhan bisnis Anda.
+                {{ __('price.hero_desc') }}
             </p>
         </div>
     </section>
@@ -158,18 +86,18 @@
             <div class="flex gap-2 items-center">
                 <h2 class="{{ $eyebrow }}">
                     <span class="{{ $slash }}">//</span>
-                    Pilih Paket
+                    {{ __('price.label_pricing') }}
                 </h2>
             </div>
 
             <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
                 <h3 class="{{ $heading }} max-w-3xl">
-                    Paket Transparan &amp;
-                    <span class="text-violet-500 dark:text-violet-300">Fleksibel.</span>
+                    {{ __('price.pricing_title_1') }}
+                    <span class="text-violet-500 dark:text-violet-300">{{ __('price.pricing_title_2') }}</span>
                 </h3>
 
                 <p class="section-desc {{ $body }} w-full lg:w-5/12 lg:max-w-md">
-                    Dari website sederhana sampai solusi lengkap. Harga di bawah adalah harga promo yang sedang berlaku.
+                    {{ __('price.pricing_desc') }}
                 </p>
             </div>
 
@@ -189,7 +117,7 @@
                         @if ($hl)
                             <span
                                 class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-violet-500 px-4 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-md">
-                                Paling Laris
+                                {{ __('price.badge_best_seller') }}
                             </span>
                         @endif
 
@@ -210,7 +138,7 @@
                                     <span
                                         class="rounded-full bg-violet-500 px-2 py-0.5 text-xs font-bold text-white transition-colors duration-150 ease-in-out
                                         {{ $hl ? '' : 'group-hover:bg-white group-hover:text-violet-600' }}">
-                                        Hemat {{ $discount }}%
+                                        {{ __('price.badge_save') }} {{ $discount }}%
                                     </span>
                                 </div>
                                 <h3
@@ -235,7 +163,7 @@
                             {{ $hl
                                 ? 'border border-violet-500 bg-violet-500 text-white hover:border-violet-600 hover:bg-violet-600'
                                 : 'border border-slate-400 text-slate-700 hover:bg-white hover:text-violet-600 group-hover:border-white group-hover:text-white dark:text-slate-200' }}">
-                            Dapatkan Paket
+                            {{ __('price.btn_get_plan') }}
                         </a>
                     </div>
                 @endforeach
@@ -246,13 +174,13 @@
 
                 <div class="lg:w-1/3">
                     <span class="text-xs font-semibold uppercase tracking-widest text-violet-300 dark:text-violet-600">
-                        Opsional
+                        {{ __('price.enterprise_label') }}
                     </span>
                     <h4 class="mt-1 font-primary text-xl font-bold text-white dark:text-slate-900">
-                        Enterprise
+                        {{ __('price.enterprise_title') }}
                     </h4>
                     <p class="mt-1 text-sm text-slate-300 dark:text-slate-600">
-                        Website custom sesuai kebutuhan spesifik bisnis Anda. Harga menyesuaikan lingkup pekerjaan.
+                        {{ __('price.enterprise_desc') }}
                     </p>
                 </div>
 
@@ -268,7 +196,7 @@
                 <a href="https://wa.me/6287835482333?text=Halo%2C%20saya%20ingin%20konsultasi%20website%20custom%20Paket%20Enterprise"
                     target="_blank" rel="noopener"
                     class="group/cta inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-bold text-slate-900 transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:bg-slate-900 dark:text-white dark:hover:bg-violet-500">
-                    Konsultasi Gratis
+                    {{ __('price.btn_consultation') }}
                     <span
                         class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600 dark:bg-white dark:text-slate-900">
                         <i data-feather="arrow-up-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
@@ -284,13 +212,13 @@
             <div class="flex gap-2 items-center">
                 <h2 class="{{ $eyebrow }}">
                     <span class="{{ $slash }}">//</span>
-                    Di Semua Paket
+                    {{ __('price.features_label') }}
                 </h2>
             </div>
 
             <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                Yang Selalu Anda
-                <span class="text-violet-500 dark:text-violet-300">Dapatkan.</span>
+                {{ __('price.features_title_1') }}
+                <span class="text-violet-500 dark:text-violet-300">{{ __('price.features_title_2') }}</span>
             </h3>
 
             <div class="mt-16 grid grid-cols-2 sm:mt-20 lg:grid-cols-4">
@@ -313,13 +241,13 @@
             <div class="flex gap-2 items-center">
                 <h2 class="{{ $eyebrow }}">
                     <span class="{{ $slash }}">//</span>
-                    Perbandingan
+                    {{ __('price.compare_label') }}
                 </h2>
             </div>
 
             <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                Bedanya Paket
-                <span class="text-violet-500 dark:text-violet-300">Sekilas.</span>
+                {{ __('price.compare_title_1') }}
+                <span class="text-violet-500 dark:text-violet-300">{{ __('price.compare_title_2') }}</span>
             </h3>
 
             <div class="mt-16 overflow-x-auto sm:mt-20">
@@ -363,19 +291,19 @@
                     <div class="flex gap-2 items-center">
                         <h2 class="{{ $eyebrow }}">
                             <span class="{{ $slash }}">//</span>
-                            FAQ
+                            {{ __('price.faq_label') }}
                         </h2>
                     </div>
 
                     <h3 class="{{ $heading }} mt-6">
-                        Pertanyaan Seputar
-                        <span class="text-violet-500 dark:text-violet-300">Paket.</span>
+                        {{ __('price.faq_title_1') }}
+                        <span class="text-violet-500 dark:text-violet-300">{{ __('price.faq_title_2') }}</span>
                     </h3>
 
                     <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20ingin%20bertanya%20tentang%20paket%20website."
                         target="_blank" rel="noopener"
                         class="group/link mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:text-white dark:hover:text-violet-300">
-                        Tanya via WhatsApp
+                        {{ __('price.btn_ask_wa') }}
                         <i data-feather="arrow-up-right"
                             class="h-4 w-4 transition-transform duration-150 ease-in-out group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"></i>
                     </a>
@@ -431,7 +359,7 @@
                 <h2
                     class="font-primary text-sm font-semibold uppercase tracking-widest text-slate-400 dark:text-violet-100">
                     <span class="font-bold text-white dark:text-slate-950">//</span>
-                    Belum Yakin Pilih yang Mana?
+                    {{ __('price.cta_label') }}
                 </h2>
             </div>
 
@@ -441,7 +369,7 @@
 
                 <span
                     class="font-primary text-5xl font-bold leading-none tracking-tighter text-white transition-colors duration-300 ease-in-out group-hover/cta:text-violet-300 dark:text-slate-950 dark:group-hover/cta:text-white sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">
-                    Get in Touch
+                    {{ __('price.cta_title') }}
                 </span>
 
                 <span
@@ -452,7 +380,7 @@
             </a>
 
             <p class="mt-10 text-center text-sm font-medium text-slate-400 dark:text-violet-100 sm:mt-14">
-                Ceritakan kebutuhan Anda lewat WhatsApp. Kami bantu pilihkan paket yang paling sesuai.
+                {{ __('price.cta_desc') }}
             </p>
         </div>
     </section>

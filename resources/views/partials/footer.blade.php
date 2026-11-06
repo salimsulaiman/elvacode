@@ -5,13 +5,13 @@
         <div class="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-12 lg:gap-8">
 
             <div class="col-span-2 lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
-                <a href="{{ url('/') }}" aria-label="Elvacode">
-                    <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="Logo Elvacode" class="w-36 dark:invert">
+                <a href="{{ lroute('home.index') }}" aria-label="Elvacode">
+                    <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="{{ __('footer.logo_alt') }}"
+                        class="w-36 dark:invert">
                 </a>
 
                 <p class="mt-6 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    Kami membantu bisnis Anda hadir secara digital dengan website profesional, cepat, dan modern yang
-                    mendukung pertumbuhan usaha.
+                    {{ __('footer.description') }}
                 </p>
 
                 <div class="mt-8 flex items-center gap-3">
@@ -24,7 +24,7 @@
                         class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900">
                         <i class="fa fa-facebook text-lg"></i>
                     </a>
-                    <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                    <a href="https://wa.me/6287835482333?text={{ rawurlencode(__('footer.wa_contact')) }}"
                         target="_blank" rel="noopener" aria-label="WhatsApp"
                         class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900">
                         <i class="fa fa-whatsapp text-lg"></i>
@@ -35,31 +35,31 @@
             <div class="lg:col-span-2 lg:col-start-6">
                 <h4 class="font-primary text-sm font-semibold uppercase text-slate-500 dark:text-slate-400">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Layanan
+                    {{ __('footer.services') }}
                 </h4>
                 <ul class="mt-6 space-y-3 text-sm">
                     <li>
-                        <a href="#"
+                        <a href="{{ lroute('service.company-profile') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Pembuatan Website
+                            {{ __('footer.website_making') }}
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ lroute('service.online-store') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Toko Online
+                            {{ __('footer.online_store') }}
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ lroute('service.company-profile') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Company Profile
+                            {{ __('footer.company_profile') }}
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ lroute('service.custom') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Custom Development
+                            {{ __('footer.custom_dev') }}
                         </a>
                     </li>
                 </ul>
@@ -68,25 +68,25 @@
             <div class="lg:col-span-2">
                 <h4 class="font-primary text-sm font-semibold uppercase text-slate-500 dark:text-slate-400">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Perusahaan
+                    {{ __('footer.company') }}
                 </h4>
                 <ul class="mt-6 space-y-3 text-sm">
                     <li>
-                        <a href="{{ route('about.index') }}"
+                        <a href="{{ lroute('about.index') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Tentang Kami
+                            {{ __('footer.about') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('portfolio.index') }}"
+                        <a href="{{ lroute('portfolio.index') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Portofolio
+                            {{ __('footer.portfolio') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('article.index') }}"
+                        <a href="{{ lroute('article.index') }}"
                             class="font-medium text-slate-600 dark:text-slate-400 transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Artikel & Insight
+                            {{ __('footer.article') }}
                         </a>
                     </li>
                 </ul>
@@ -95,12 +95,12 @@
             <div class="col-span-2 sm:col-span-1 lg:col-span-3">
                 <h4 class="font-primary text-sm font-semibold uppercase text-slate-500 dark:text-slate-400">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Kontak
+                    {{ __('footer.contact') }}
                 </h4>
                 <ul class="mt-6 space-y-4 text-sm">
                     <li class="flex items-start gap-3 text-slate-600 dark:text-slate-400">
                         <i data-feather="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-slate-800 dark:text-white"></i>
-                        <span class="font-medium">Tegal, Jawa Tengah, Indonesia</span>
+                        <span class="font-medium">{{ __('footer.location') }}</span>
                     </li>
                     <li>
                         <a href="mailto:admin@elvacode.com"
@@ -123,16 +123,16 @@
         <div
             class="mt-14 sm:mt-16 flex flex-col-reverse items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-800 pt-6 text-sm text-slate-500 dark:text-slate-400 md:flex-row">
             <p class="text-center md:text-left">
-                &copy; {{ date('Y') }} Elvacode. All rights reserved.
+                &copy; {{ date('Y') }} Elvacode. {{ __('footer.copyright') }}
             </p>
             <div class="flex items-center gap-6">
-                <a href="{{ route('privacy-policy.index') }}"
+                <a href="{{ lroute('privacy-policy.index') }}"
                     class="font-medium transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                    Kebijakan Privasi
+                    {{ __('footer.privacy') }}
                 </a>
-                <a href="{{ route('terms-and-conditions.index') }}"
+                <a href="{{ lroute('terms-and-conditions.index') }}"
                     class="font-medium transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                    Syarat & Ketentuan
+                    {{ __('footer.terms') }}
                 </a>
             </div>
         </div>

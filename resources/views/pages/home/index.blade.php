@@ -1,6 +1,5 @@
 @extends('components.layouts.app')
 
-
 @section('content')
     <section
         class="w-full bg-white dark:bg-slate-950 relative isolate h-auto md:h-screen overflow-hidden transition-colors duration-300 ease-in-out bg-cover">
@@ -17,32 +16,31 @@
                         <div class="flex gap-2 items-center">
                             <span class="text-sm font-semibold text-slate-800 dark:text-slate-400 uppercase">
                                 <span class="font-bold text-slate-800 dark:text-white">//</span>
-                                Website Solutions
+                                {{ __('home.hero_eyebrow') }}
                             </span>
                         </div>
                         <h1
                             class="font-primary hero-title split text-3xl sm:text-4xl md:text-7xl font-bold sm:font-normal tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-18 max-w-3xl mx-auto lg:mx-0 mt-6">
-                            Solusi
+                            {{ __('home.hero_title_1') }}
                             <span class="font-bold text-violet-500 dark:text-violet-300">
-                                Website
+                                {{ __('home.hero_title_2') }}
                             </span>
-                            Profesional untuk Bisnis Anda
+                            {{ __('home.hero_title_3') }}
                         </h1>
 
                         <p
                             class="hero-subtitle text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 max-w-lg mx-auto lg:mx-0 text-justify">
-                            Kami menyediakan jasa pembuatan website dengan harga terjangkau, dirancang dengan strategi
-                            yang tepat agar sesuai dengan kebutuhan bisnis Anda.
+                            {{ __('home.hero_desc') }}
                         </p>
 
                         <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-center gap-4 sm:gap-6">
                             <a href="#portfolio"
                                 class="rounded-full bg-slate-800 px-5 py-2.5 text-sm sm:text-base font-semibold text-white dark:text-slate-700 dark:bg-white shadow hover:bg-slate-700 dark:hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-                                Mulai Jelajahi
+                                {{ __('home.hero_btn_start') }}
                             </a>
-                            <a href="{{ route('pricing.index') }}"
+                            <a href="{{ lroute('pricing.index') }}"
                                 class="text-sm sm:text-base font-semibold text-violet-900 hover:text-violet-700 dark:text-slate-300 dark:hover:text-slate-200">
-                                Lihat Paket<span aria-hidden="true"> →</span>
+                                {{ __('home.hero_btn_plan') }}<span aria-hidden="true"> →</span>
                             </a>
                         </div>
                     </div>
@@ -55,8 +53,8 @@
             </div>
         </div>
     </section>
-    <div class="relative max-w-7xl mx-auto overflow-hidden py-6 bg-slate-100 dark:bg-slate-800">
 
+    <div class="relative max-w-7xl mx-auto overflow-hidden py-6 bg-slate-100 dark:bg-slate-800">
         <div
             class="pointer-events-none absolute left-0 top-0 h-full w-64 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10">
         </div>
@@ -66,7 +64,6 @@
 
         <div class="relative overflow-hidden">
             <div class="flex w-max min-w-full flex-nowrap animate-marquee gap-20 hover:[animation-play-state:paused]">
-
                 <img src="{{ asset('assets/logos/project/elvacourse-logo.png') }}"
                     class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
                 <img src="{{ asset('assets/logos/project/jatiunggul-logo.png') }}"
@@ -92,13 +89,12 @@
                     class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
                 <img src="{{ asset('assets/logos/project/morvix-logo.png') }}"
                     class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-
             </div>
         </div>
     </div>
+
     @php
         $showcase = $portfolios->take(8)->values();
-
         while ($showcase->isNotEmpty() && $showcase->count() < 6) {
             $showcase = $showcase->concat($showcase)->values();
         }
@@ -112,18 +108,20 @@
                 <div class="flex gap-2 items-center justify-center">
                     <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                         <span class="font-bold text-slate-800 dark:text-white">//</span>
-                        Bangun Website Impian
+                        {{ __('home.showcase_eyebrow') }}
                     </h2>
                 </div>
 
                 <h3
                     class="font-primary section-title split mt-6 max-w-3xl text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20">
-                    Wujudkan Website <span class="font-bold text-violet-500 dark:text-violet-300">Profesional</span> Anda
+                    {{ __('home.showcase_title_1') }} 
+                    <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('home.showcase_title_2') }}</span> 
+                    {{ __('home.showcase_title_3') }}
                 </h3>
 
                 <p
                     class="section-desc mt-6 sm:mt-8 max-w-xl text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
-                    Kami membantu membangun website modern yang sesuai dengan kebutuhan bisnis Anda.
+                    {{ __('home.showcase_desc') }}
                 </p>
             </div>
         </div>
@@ -201,12 +199,12 @@
                             <div class="flex shrink-0 gap-6 pr-6"
                                 @if ($isClone) aria-hidden="true" @endif>
                                 @foreach ($showcase as $portfolio)
-                                    <a href="{{ route('portfolio.show', $portfolio->slug) }}" draggable="false"
+                                    <a href="{{ lroute('portfolio.show', $portfolio->slug) }}" draggable="false"
                                         @if ($isClone) tabindex="-1" @endif
                                         class="group flex w-[78vw] shrink-0 flex-col overflow-hidden rounded-xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 sm:w-[22rem] lg:w-[26rem] dark:bg-slate-800/50 dark:hover:bg-violet-600">
 
                                         <div
-                                            class="aspect-video w-full overflow-hidden rounded-b-xl bg-slate-200 dark:bg-slate-700">
+                                            class="aspect-video w-full overflow-hidden rounded-b-2xl bg-slate-200 dark:bg-slate-700">
                                             <img src="{{ asset('storage/' . $portfolio->thumbnail) }}"
                                                 alt="{{ $isClone ? '' : $portfolio->name }}" loading="lazy"
                                                 draggable="false"
@@ -238,9 +236,9 @@
             </div>
         @endif
     </section>
+
     <section
-        class="w-full py-0 md:py-32 relative transition-colors duration-300 ease-in-out
-         bg-slate-50 dark:bg-slate-800">
+        class="w-full py-0 md:py-32 relative transition-colors duration-300 ease-in-out bg-slate-50 dark:bg-slate-800">
         <div
             class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 py-12 sm:py-16 lg:py-24 rounded-none md:rounded-2xl shadow-xl bg-slate-950 dark:bg-white relative lg:absolute top-0 md:-top-24 lg:-top-48 left-1/2 -translate-x-1/2 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12 lg:gap-20 text-center md:text-left justify-items-center md:justify-items-start transition-colors duration-300 ease-in-out border border-slate-900 dark:border-slate-100">
 
@@ -248,14 +246,12 @@
                 <img src="{{ asset('assets/logos/elvacode-logo.webp') }}" alt="Logo Elvacode"
                     class="w-28 sm:w-32 mx-auto md:mx-0 mb-6 invert dark:invert-0 transition duration-300">
                 <h2 class="font-primary text-white dark:text-slate-800 font-bold text-lg sm:text-xl lg:text-2xl">
-                    Membangun
-                    <span class="text-violet-300 dark:text-violet-500 font-extrabold">Website</span>,
-                    Mengembangkan
-                    <span class="text-violet-300 dark:text-violet-500 font-extrabold">Bisnis</span>
+                    {{ __('home.about_title_1') }}
+                    <span class="text-violet-300 dark:text-violet-500 font-extrabold">{{ __('home.about_title_2') }}</span>{{ __('home.about_title_3') }}
+                    <span class="text-violet-300 dark:text-violet-500 font-extrabold">{{ __('home.about_title_4') }}</span>
                 </h2>
                 <p class="text-sm sm:text-base text-slate-300 dark:text-slate-700">
-                    Elvacode berkomitmen menghadirkan website berkualitas yang terbukti membantu bisnis tumbuh dan meraih
-                    kepercayaan pelanggan
+                    {{ __('home.about_desc') }}
                 </p>
             </div>
 
@@ -276,7 +272,7 @@
                     </div>
                     <p
                         class="ms-0 sm:ms-12 text-slate-300 dark:text-slate-800 font-semibold text-xs sm:text-sm text-center md:text-left">
-                        Kepuasan Klien
+                        {{ __('home.stat_1') }}
                     </p>
                 </div>
 
@@ -294,7 +290,7 @@
                     </div>
                     <p
                         class="ms-0 sm:ms-12 text-slate-300 dark:text-slate-800 font-semibold text-xs sm:text-sm text-center md:text-left">
-                        Proyek Selesai
+                        {{ __('home.stat_2') }}
                     </p>
                 </div>
 
@@ -312,7 +308,7 @@
                     </div>
                     <p
                         class="ms-0 sm:ms-12 text-slate-300 dark:text-slate-800 font-semibold text-xs sm:text-sm text-center md:text-left">
-                        Ide Terealisasi
+                        {{ __('home.stat_3') }}
                     </p>
                 </div>
 
@@ -330,13 +326,12 @@
                     </div>
                     <p
                         class="ms-0 sm:ms-12 text-slate-300 dark:text-slate-800 font-semibold text-xs sm:text-sm text-center md:text-left">
-                        Bisnis Berkembang
+                        {{ __('home.stat_4') }}
                     </p>
                 </div>
 
             </div>
         </div>
-
 
         <div class="section w-full max-w-7xl mx-auto relative px-6 lg:px-8 mt-8 md:-mt-12 lg:mt-48 pt-8 pb-20 group">
             <div class="w-full flex flex-col lg:flex-row-reverse gap-20 justify-between items-center">
@@ -344,75 +339,37 @@
                     <div class="flex gap-2 items-center">
                         <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                             <span class="font-bold text-slate-800 dark:text-white">//</span>
-                            Kenapa Harus Kami
+                            {{ __('home.why_eyebrow') }}
                         </h2>
                     </div>
 
                     <h3
                         class="font-primary section-title split text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20 mx-auto lg:mx-0 mt-6">
-                        Partner Website <span class="text-violet-500 dark:text-violet-300 font-bold">Profesional</span>
+                        {{ __('home.why_title_1') }} <span class="text-violet-500 dark:text-violet-300 font-bold">{{ __('home.why_title_2') }}</span>
                     </h3>
 
                     <p
                         class="section-desc text-sm sm:text-base text-slate-700 dark:text-white font-medium mt-6 sm:mt-8 text-justify">
-                        Kami membangun website <span class="text-violet-500 dark:text-violet-300 font-bold">modern</span>
-                        dan <span class="text-violet-500 dark:text-violet-300 font-bold">responsive</span> yang disesuaikan
-                        dengan kebutuhan bisnis Anda.
-
-                        Dengan proses yang jelas dan harga yang transparan, kami menghadirkan solusi website yang
-                        profesional dan fungsional.
-
+                        {!! __('home.why_desc_1') !!}
+                        <br><br>
+                        {{ __('home.why_desc_2') }}
                     </p>
 
                     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-500 shrink-0">
-                                <i data-feather="monitor" class="w-6 h-6 text-violet-700 dark:text-white"></i>
+                        @foreach (__('home.why_features') as $feature)
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-500 shrink-0">
+                                    <i data-feather="{{ $feature['icon'] }}" class="w-6 h-6 text-violet-700 dark:text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-slate-800 dark:text-white">{{ $feature['title'] }}</h3>
+                                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                                        {{ $feature['desc'] }}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-slate-800 dark:text-white">Desain Modern</h3>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm">
-                                    Website elegan, responsif, dan sesuai kebutuhan bisnis.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-500 shrink-0">
-                                <i data-feather="shield" class="w-6 h-6 text-violet-700 dark:text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-slate-800 dark:text-white">Keamanan Terjamin</h3>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm">
-                                    Sistem aman, terlindungi, dan menjaga data bisnis Anda.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-500 shrink-0">
-                                <i data-feather="trending-up" class="w-6 h-6 text-violet-700 dark:text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-slate-800 dark:text-white">Optimasi Bisnis</h3>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm">
-                                    Website optimal untuk meningkatkan visibilitas dan konversi.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-500 shrink-0">
-                                <i data-feather="clock" class="w-6 h-6 text-violet-700 dark:text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-slate-800 dark:text-white">Support Cepat</h3>
-                                <p class="text-slate-600 dark:text-slate-400 text-sm">
-                                    Tim support responsif untuk membantu kebutuhan bisnis Anda.
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                 </div>
@@ -433,103 +390,32 @@
             </div>
         </div>
     </section>
+
     <section id="pricing" aria-label="Paket Harga Website Elvacode"
         class="section w-full bg-white dark:bg-slate-900 group/section transition-colors duration-300 ease-in-out relative z-20">
         <div class="max-w-7xl mx-auto py-32 px-6 lg:px-8">
             <div class="flex gap-2 items-center">
                 <h2 class="text-sm font-semibold text-slate-600 dark:text-slate-400 uppercase">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Harga Terbaik Kami Tawarkan
+                    {{ __('home.pricing_eyebrow') }}
                 </h2>
             </div>
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6 mb-20">
                 <h3
                     class="font-primary section-title split lg:flex-1 max-w-2xl text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 mx-auto lg:mx-0">
-                    Pilih <span class="text-violet-500 dark:text-violet-300 font-bold">Paket</span> Website Sesuai
-                    Kebutuhan
-                    Anda
+                    {{ __('home.pricing_title_1') }} <span class="text-violet-500 dark:text-violet-300 font-bold">{{ __('home.pricing_title_2') }}</span>
+                    {{ __('home.pricing_title_3') }}
                 </h3>
 
                 <p
                     class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                    Paket fleksibel sesuai kebutuhan Anda, dari solusi sederhana hingga website profesional.
+                    {{ __('home.pricing_desc') }}
                 </p>
             </div>
 
-            @php
-                $plans = [
-                    [
-                        'name' => 'Essential',
-                        'price' => 650000,
-                        'original' => 1000000,
-                        'highlight' => false,
-                        'features' => [
-                            'Cocok untuk: Personal Website, Startup, Bisnis Kecil',
-                            'Tampilan Responsive',
-                            '4 Halaman Statis',
-                            'Free Domain (web.id / my.id)',
-                            'Free Hosting 1 Tahun',
-                            '1x Revisi Desain',
-                            'SSL/HTTPS Secure',
-                            'Gratis Logo Sederhana',
-                            'Panduan Penggunaan Website',
-                        ],
-                    ],
-                    [
-                        'name' => 'Professional',
-                        'price' => 1500000,
-                        'original' => 2500000,
-                        'highlight' => true,
-                        'features' => [
-                            'Cocok untuk: Portfolio Website, Bisnis Menengah',
-                            'Tampilan Responsive',
-                            '5 - 10 Halaman Statis',
-                            'Free Domain (web.id / my.id / .com)',
-                            'Free Hosting 1 Tahun',
-                            '2x Revisi Desain',
-                            'SSL/HTTPS Secure',
-                            'Free Maintenance 1 Tahun',
-                            'Optimasi Kecepatan Dasar',
-                            'Gratis Logo Sederhana',
-                        ],
-                    ],
-                    [
-                        'name' => 'Premium',
-                        'price' => 3000000,
-                        'original' => 5000000,
-                        'highlight' => false,
-                        'features' => [
-                            'Cocok untuk: Company Profile Lengkap, Bisnis Berkembang',
-                            'Tampilan Responsive',
-                            '10 - 15 Halaman Statis',
-                            'Free Domain (web.id / my.id / .com / .id)',
-                            'Free Hosting 1 Tahun',
-                            '3x Revisi Desain',
-                            'SSL/HTTPS Secure',
-                            'Gratis Email Bisnis',
-                            'Free Maintenance 1 Tahun',
-                            'Optimasi SEO Dasar',
-                            'Optimasi Kecepatan Lanjutan',
-                            'Integrasi WhatsApp & Google Maps',
-                            'Gratis Logo Profesional',
-                            'Garansi 3 Bulan',
-                        ],
-                    ],
-                ];
-
-                $enterpriseTags = [
-                    'Website E-commerce',
-                    'Custom Design',
-                    'Custom Feature',
-                    'Domain .co.id',
-                    'Email Bisnis',
-                    'Garansi 6 Bulan',
-                ];
-            @endphp
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 items-stretch">
-                @foreach ($plans as $plan)
+                @foreach (__('home.plans') as $plan)
                     @php
                         $hl = $plan['highlight'];
                         $discount = round((($plan['original'] - $plan['price']) / $plan['original']) * 100);
@@ -544,7 +430,7 @@
                         @if ($hl)
                             <span
                                 class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-violet-500 px-4 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-md">
-                                Paling Laris
+                                {{ __('home.popular_badge') }}
                             </span>
                         @endif
 
@@ -569,7 +455,7 @@
                                     {{ $hl
                                         ? 'bg-violet-500 text-white'
                                         : 'bg-violet-500 text-white group-hover:bg-white group-hover:text-violet-600' }}">
-                                        Hemat {{ $discount }}%
+                                        {{ __('home.save') }} {{ $discount }}%
                                     </span>
                                 </div>
                                 <h3
@@ -588,13 +474,13 @@
                             </ul>
                         </div>
 
-                        <a href="https://wa.me/6287835482333?text=Halo%2C%20saya%20ingin%20menggunakan%20jasa%20Web%20Development%20Paket%20{{ urlencode($plan['name']) }}"
+                        <a href="https://wa.me/6287835482333?text={{ urlencode(__('home.wa_plan_text') . ' ' . $plan['name']) }}"
                             target="_blank"
                             class="mt-8 font-bold w-full text-center p-2 rounded-full transition-colors duration-150 ease-in-out
                         {{ $hl
                             ? 'bg-violet-500 text-white border border-violet-500 hover:bg-violet-600 hover:border-violet-600'
                             : 'text-slate-700 dark:text-slate-200 border border-slate-400 group-hover:border-white group-hover:text-white hover:bg-white hover:text-violet-600' }}">
-                            Dapatkan Paket
+                            {{ __('home.get_plan') }}
                         </a>
                     </div>
                 @endforeach
@@ -605,16 +491,15 @@
 
                 <div class="lg:w-1/3">
                     <h4 class="mt-1 text-xl font-bold text-white dark:text-slate-900">
-                        Enterprise
+                        {{ __('home.enterprise_title') }}
                     </h4>
                     <p class="mt-1 text-sm text-slate-300 dark:text-slate-600">
-                        <span class="text-violet-300 dark:text-violet-500 font-bold">Website custom</span> sesuai kebutuhan
-                        spesifik bisnis Anda. Harga menyesuaikan lingkup pekerjaan.
+                        {!! __('home.enterprise_desc') !!}
                     </p>
                 </div>
 
                 <div class="flex flex-wrap gap-2 lg:flex-1">
-                    @foreach ($enterpriseTags as $tag)
+                    @foreach (__('home.enterprise_tags') as $tag)
                         <span
                             class="rounded-full border border-slate-700 dark:border-slate-300 px-3 py-1 text-xs font-medium text-slate-300 dark:text-slate-700">
                             {{ $tag }}
@@ -622,10 +507,10 @@
                     @endforeach
                 </div>
 
-                <a href="https://wa.me/6287835482333?text=Halo%2C%20saya%20ingin%20konsultasi%20website%20custom%20Paket%20Enterprise"
+                <a href="https://wa.me/6287835482333?text={{ urlencode(__('home.wa_enterprise')) }}"
                     target="_blank"
                     class="group/cta shrink-0 inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-slate-900 py-2 pl-6 pr-2 text-sm font-bold text-slate-900 dark:text-white transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-500">
-                    Konsultasi Gratis
+                    {{ __('home.enterprise_btn') }}
                     <span
                         class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600">
                         <i data-feather="arrow-up-right"
@@ -636,6 +521,7 @@
 
         </div>
     </section>
+
     <section data-type-section
         class="relative isolate overflow-hidden bg-violet-500 min-h-svh flex items-center py-20 sm:py-24 lg:py-32 bg-cover bg-center"
         style="background-image: url('/assets/images/background-typography.jpg');">
@@ -643,101 +529,41 @@
         <div data-type-block class="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
             <h2 data-type-text
                 class="font-body text-[16vw] sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-normal tracking-[-0.05em] sm:tracking-tighter text-balance leading-[1.05] text-white">
-                Thoughtful
-                <span class="text-slate-900 font-bold">Design.</span>
-                Powerful
+                {{ __('home.typo_1') }}
+                <span class="text-slate-900 font-bold">{{ __('home.typo_2') }}</span>
+                {{ __('home.typo_3') }}
                 <span class="text-slate-900 font-bold text-[18vw] sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[14rem]">
-                    Websites.
+                    {{ __('home.typo_4') }}
                 </span>
             </h2>
         </div>
     </section>
+
     <section class="section py-24 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <div class="flex gap-2 items-center">
                 <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Layanan Kami
+                    {{ __('home.services_eyebrow') }}
                 </h2>
             </div>
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
                 <h3
                     class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16 max-w-3xl mx-auto lg:mx-0">
-                    Layanan <span class="font-bold text-violet-500 dark:text-violet-300">Website</span> untuk Semua
-                    Kebutuhan
+                    {{ __('home.services_title_1') }} <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('home.services_title_2') }}</span>
+                    {{ __('home.services_title_3') }}
                 </h3>
 
                 <p
                     class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                    Dari company profile hingga sistem custom, kami bantu wujudkan website modern dan responsif.
+                    {{ __('home.services_desc') }}
                 </p>
             </div>
 
-            @php
-                $services = [
-                    [
-                        'icon' => 'briefcase',
-                        'title' => 'Company Profile',
-                        'desc' => 'Website elegan untuk memperkuat citra dan kredibilitas bisnis Anda.',
-                        'span' => 'lg:col-span-2',
-                        'invert' => true,
-                    ],
-                    [
-                        'icon' => 'shopping-cart',
-                        'title' => 'Toko Online',
-                        'desc' => 'Solusi e-commerce modern untuk meningkatkan penjualan bisnis Anda.',
-                        'span' => 'lg:col-span-1',
-                        'invert' => false,
-                    ],
-                    [
-                        'icon' => 'layers',
-                        'title' => 'Website Instansi',
-                        'desc' => 'Cocok untuk instansi pemerintah, sekolah, maupun organisasi non-profit.',
-                        'span' => 'lg:col-span-1',
-                        'invert' => false,
-                    ],
-                    [
-                        'icon' => 'code',
-                        'title' => 'Custom Website',
-                        'desc' => 'Website dengan fitur fleksibel yang dirancang sesuai kebutuhan bisnis Anda.',
-                        'span' => 'lg:col-span-1',
-                        'invert' => false,
-                    ],
-                    [
-                        'icon' => 'user',
-                        'title' => 'Portfolio & Personal',
-                        'desc' => 'Tampilkan karya dan profil profesional Anda dengan desain yang berkesan.',
-                        'span' => 'lg:col-span-1',
-                        'invert' => false,
-                    ],
-                    [
-                        'icon' => 'book-open',
-                        'title' => 'Website Sekolah',
-                        'desc' => 'Informasi akademik, berita, dan pendaftaran siswa dalam satu platform.',
-                        'span' => 'lg:col-span-2',
-                        'invert' => true,
-                    ],
-                    [
-                        'icon' => 'monitor',
-                        'title' => 'Landing Page',
-                        'desc' => 'Halaman tunggal yang fokus pada konversi untuk promosi dan kampanye.',
-                        'span' => 'lg:col-span-2',
-                        'invert' => true,
-                    ],
-                    [
-                        'icon' => 'settings',
-                        'title' => 'Sistem Informasi',
-                        'desc' => 'Aplikasi web untuk mengelola data, laporan, dan operasional bisnis.',
-                        'span' => 'lg:col-span-2',
-                        'invert' => false,
-                    ],
-                ];
-            @endphp
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16">
-                @foreach ($services as $service)
+                @foreach (__('home.services') as $service)
                     @php
                         $inv = $service['invert'];
                         $wide = str_contains($service['span'], 'col-span-2');
@@ -783,32 +609,32 @@
 
         </div>
     </section>
+
     <section id="portfolio" class="section scroll-mt-16 w-full py-24 bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <div class="flex gap-2 items-center">
                 <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Portofolio
+                    {{ __('home.portfolio_eyebrow') }}
                 </h2>
             </div>
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
                 <h3
                     class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20 max-w-3xl mx-auto lg:mx-0">
-                    Proyek yang Telah <span class="font-bold text-violet-500 dark:text-violet-300">Kami</span> Kerjakan
+                    {{ __('home.portfolio_title_1') }} <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('home.portfolio_title_2') }}</span> {{ __('home.portfolio_title_3') }}
                 </h3>
 
                 <div class="w-full lg:w-5/12 lg:max-w-md flex flex-col gap-5">
                     <p
                         class="section-desc text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                        Beragam website dan aplikasi yang kami bangun dengan fokus pada desain modern, performa optimal,
-                        dan kebutuhan bisnis klien.
+                        {{ __('home.portfolio_desc') }}
                     </p>
 
-                    <a href="{{ route('portfolio.index') }}"
+                    <a href="{{ lroute('portfolio.index') }}"
                         class="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 dark:text-white transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                        Jelajahi Portofolio
+                        {{ __('home.portfolio_link') }}
                         <i data-feather="arrow-right"
                             class="h-4 w-4 transition-transform duration-150 ease-in-out group-hover/link:translate-x-1"></i>
                     </a>
@@ -817,7 +643,7 @@
 
             <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
                 @foreach ($portfolios as $portfolio)
-                    <a href="{{ route('portfolio.show', $portfolio->slug) }}"
+                    <a href="{{ lroute('portfolio.show', $portfolio->slug) }}"
                         class="group relative block h-[400px] sm:h-[440px] overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-800/50 p-6 transition-colors duration-300 ease-in-out hover:bg-slate-900 dark:hover:bg-white">
 
                         <h4
@@ -856,68 +682,30 @@
 
         </div>
     </section>
+
     <section class="section py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <div class="flex gap-2 items-center">
                 <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                     <span class="font-bold text-slate-800 dark:text-white">//</span>
-                    Testimonial
+                    {{ __('home.testi_eyebrow') }}
                 </h2>
             </div>
 
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6 mb-24">
                 <h3
                     class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20 max-w-3xl mx-auto lg:mx-0">
-                    Apa Kata <span class="font-bold text-violet-500 dark:text-violet-300">Mereka</span> Tentang Kami
+                    {{ __('home.testi_title_1') }} <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('home.testi_title_2') }}</span> {{ __('home.testi_title_3') }}
                 </h3>
 
                 <p
                     class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                    Mereka puas dengan website modern yang mudah digunakan dan mendukung pertumbuhan bisnis.
+                    {{ __('home.testi_desc') }}
                 </p>
             </div>
 
             @php
-                $testimonials = [
-                    [
-                        'name' => 'Salim Sulaiman',
-                        'username' => '@salimsulaiman',
-                        'message' =>
-                            'Website yang dibuat sangat profesional, responsif, dan sesuai kebutuhan bisnis saya. Desainnya modern, mudah digunakan, serta membantu meningkatkan kepercayaan pelanggan terhadap brand kami.',
-                    ],
-                    [
-                        'name' => 'Aisyah Putri',
-                        'username' => '@aisyahputri',
-                        'message' =>
-                            'Timnya cepat tanggap dan hasil pekerjaannya benar-benar memuaskan. Proses komunikasi juga lancar, sehingga ide saya bisa diterjemahkan dengan baik menjadi website yang elegan dan fungsional.',
-                    ],
-                    [
-                        'name' => 'Budi Santoso',
-                        'username' => '@budisantoso',
-                        'message' =>
-                            'Website yang mereka buat responsif, mudah digunakan, dan sangat membantu meningkatkan penjualan online saya. Dengan tampilan yang profesional, pelanggan jadi lebih percaya dan nyaman berbelanja.',
-                    ],
-                    [
-                        'name' => 'Citra Dewi',
-                        'username' => '@citradewi',
-                        'message' =>
-                            'Layanan yang diberikan sangat ramah dan hasil desain website terlihat elegan. Saya merasa terbantu karena website ini memudahkan pelanggan dalam mengakses informasi produk dan layanan kami.',
-                    ],
-                    [
-                        'name' => 'Rizky Maulana',
-                        'username' => '@rizkymaulana',
-                        'message' =>
-                            'Website yang dibuat tidak hanya cepat dan modern, tetapi juga benar-benar sesuai dengan ekspektasi saya. Kehadiran website ini membantu saya mengembangkan bisnis ke pasar yang lebih luas.',
-                    ],
-                    [
-                        'name' => 'Dewi Lestari',
-                        'username' => '@dewilestari',
-                        'message' =>
-                            'Proses pengerjaan website dijelaskan dengan sangat detail dan hasil akhirnya luar biasa profesional. Saya merasa tenang karena seluruh kebutuhan bisnis saya bisa diakomodasi dengan baik melalui website ini.',
-                    ],
-                ];
-
                 if (!function_exists('censorText')) {
                     function censorText($text)
                     {
@@ -954,7 +742,7 @@
 
                 <div x-ref="track" @scroll.passive="update()"
                     class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                    @foreach ($testimonials as $testimonial)
+                    @foreach (__('home.testimonials') as $testimonial)
                         <figure
                             class="snap-start shrink-0 w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] flex flex-col justify-between gap-8 border-l border-slate-300 dark:border-slate-800 pl-6">
 
@@ -997,12 +785,12 @@
 
                     <div class="flex items-center gap-2">
                         <button type="button" @click="scrollByItem(-1)" :disabled="!canPrev"
-                            aria-label="Testimonial sebelumnya"
+                            aria-label="{{ __('home.testi_prev') }}"
                             class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:text-white hover:border-slate-900 dark:hover:bg-white dark:hover:text-slate-900 dark:hover:border-white disabled:opacity-30 disabled:pointer-events-none">
                             <i data-feather="arrow-left" class="h-4 w-4"></i>
                         </button>
                         <button type="button" @click="scrollByItem(1)" :disabled="!canNext"
-                            aria-label="Testimonial berikutnya"
+                            aria-label="{{ __('home.testi_next') }}"
                             class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:text-white hover:border-slate-900 dark:hover:bg-white dark:hover:text-slate-900 dark:hover:border-white disabled:opacity-30 disabled:pointer-events-none">
                             <i data-feather="arrow-right" class="h-4 w-4"></i>
                         </button>
@@ -1020,26 +808,25 @@
                 <div class="flex gap-2 items-center">
                     <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                         <span class="font-bold text-slate-800 dark:text-white">//</span>
-                        Artikel
+                        {{ __('home.article_eyebrow') }}
                     </h2>
                 </div>
 
                 <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16 mt-6">
                     <h3
                         class="font-primary section-title split lg:flex-1 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-20 max-w-3xl mx-auto lg:mx-0">
-                        Artikel <span class="font-bold text-violet-500 dark:text-violet-300">Terbaru</span> dari Kami
+                        {{ __('home.article_title_1') }} <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('home.article_title_2') }}</span> {{ __('home.article_title_3') }}
                     </h3>
 
                     <div class="w-full lg:w-5/12 lg:max-w-md flex flex-col gap-5">
                         <p
                             class="section-desc text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
-                            Wawasan, tips, dan kabar terbaru seputar pengembangan website, aplikasi, dan teknologi untuk
-                            mendukung pertumbuhan bisnis kamu.
+                            {{ __('home.article_desc') }}
                         </p>
 
-                        <a href="{{ route('article.index') }}"
+                        <a href="{{ lroute('article.index') }}"
                             class="group/link inline-flex w-fit items-center gap-2 text-sm font-semibold text-slate-800 dark:text-white transition-colors duration-150 ease-in-out hover:text-violet-600 dark:hover:text-violet-300">
-                            Lihat Semua Artikel
+                            {{ __('home.article_link') }}
                             <i data-feather="arrow-right"
                                 class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                         </a>
@@ -1048,7 +835,7 @@
 
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
                     @foreach ($articles as $article)
-                        <a href="{{ route('article.show', $article->slug) }}"
+                        <a href="{{ lroute('article.show', $article->slug) }}"
                             class="group flex flex-col overflow-hidden rounded-2xl bg-slate-50 transition-colors duration-300 ease-in-out hover:bg-slate-900 dark:bg-slate-800/50 dark:hover:bg-slate-700/60">
 
                             <div
@@ -1061,7 +848,7 @@
 
                                 <span
                                     class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 backdrop-blur-sm dark:bg-slate-900/80 dark:text-white">
-                                    {{ $article->category->name ?? 'Artikel' }}
+                                    {{ $article->category->name ?? __('home.article_fallback_cat') }}
                                 </span>
                             </div>
 
@@ -1087,13 +874,13 @@
                                     <div class="flex min-w-0 items-center gap-3">
                                         <span
                                             class="line-clamp-1 text-sm font-semibold text-slate-700 transition-colors duration-300 ease-in-out group-hover:text-white dark:text-slate-200">
-                                            {{ $article->author->name ?? 'Admin' }}
+                                            {{ $article->author->name ?? __('home.article_fallback_author') }}
                                         </span>
                                     </div>
 
                                     <span
                                         class="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-slate-800 transition-colors duration-300 ease-in-out group-hover:text-violet-300 dark:text-white">
-                                        Baca
+                                        {{ __('home.article_read') }}
                                         <i data-feather="arrow-up-right"
                                             class="h-4 w-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"></i>
                                     </span>
@@ -1106,6 +893,7 @@
             </div>
         </section>
     @endif
+
     <section
         class="section relative isolate overflow-hidden py-24 sm:py-32 bg-slate-950 dark:bg-violet-500 transition-colors duration-500">
         <div class="mx-auto max-w-7xl text-center px-6">
@@ -1116,26 +904,25 @@
             <div class="flex justify-center">
                 <h2 class="text-sm font-semibold text-slate-400 dark:text-violet-100 uppercase">
                     <span class="font-bold text-white dark:text-slate-950">//</span>
-                    Mulai Sekarang
+                    {{ __('home.cta_eyebrow') }}
                 </h2>
             </div>
 
             <h3
                 class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white dark:text-white leading-normal sm:leading-10 md:leading-20">
-                Tingkatkan Bisnis Anda dengan Website
-                <span class="font-bold text-violet-300 dark:text-slate-950">Profesional</span>
+                {{ __('home.cta_title_1') }}
+                <span class="font-bold text-violet-300 dark:text-slate-950">{{ __('home.cta_title_2') }}</span>
             </h3>
 
             <p
                 class="section-desc mt-6 sm:mt-8 mx-auto max-w-xl text-sm sm:text-base leading-relaxed text-slate-300 dark:text-violet-50 font-medium">
-                Bersama <span class="font-semibold text-white dark:text-slate-950">Elvacode</span>, hadirkan website
-                modern, cepat, dan elegan yang siap meningkatkan kehadiran digital Anda.
+                {{ __('home.cta_desc_1') }} <span class="font-semibold text-white dark:text-slate-950">{{ __('home.cta_desc_2') }}</span>{{ __('home.cta_desc_3') }}
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="{{ route('contact.index') }}"
+                <a href="{{ lroute('contact.index') }}"
                     class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-white dark:bg-slate-950 py-2 pl-6 pr-2 text-sm font-bold text-slate-900 dark:text-white transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-white dark:hover:text-violet-600">
-                    Konsultasi Gratis
+                    {{ __('home.cta_btn_consult') }}
                     <span
                         class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600 dark:group-hover/cta:bg-violet-500 dark:group-hover/cta:text-white">
                         <i data-feather="arrow-up-right"
@@ -1143,9 +930,9 @@
                     </span>
                 </a>
 
-                <a href="{{ route('portfolio.index') }}"
+                <a href="{{ lroute('portfolio.index') }}"
                     class="group/cta w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-slate-600 dark:border-white/60 py-2 pl-6 pr-2 text-sm font-bold text-white dark:text-white transition-colors duration-150 ease-in-out hover:border-violet-400 hover:text-violet-300 dark:hover:border-white dark:hover:bg-white dark:hover:text-violet-600">
-                    Lihat Portofolio
+                    {{ __('home.cta_btn_portfolio') }}
                     <span
                         class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 dark:bg-violet-400 text-white dark:text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-violet-500 group-hover/cta:text-white dark:group-hover/cta:bg-violet-500">
                         <i data-feather="arrow-right" class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>

@@ -6,8 +6,6 @@
 @section('og_image', asset('storage/' . $article->thumbnail))
 @section('twitter_image', asset('storage/' . $article->thumbnail))
 
-
-
 @section('content')
     <section
         class="section font-body relative w-full bg-violet-600 pt-36 sm:pt-44 pb-16 sm:pb-24 border-b border-violet-400/40">
@@ -16,19 +14,19 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('article_detail.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
                     <li>
-                        <a href="{{ route('article.index') }}"
+                        <a href="{{ lroute('article.index') }}"
                             class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Artikel
+                            {{ __('article_detail.breadcrumb_article') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Detail Artikel</li>
+                    <li class="text-white font-semibold">{{ __('article_detail.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
@@ -56,7 +54,7 @@
                         <div class="flex items-center gap-2">
                             <img src="{{ asset('assets/logos/icon-elvacode-2.png') }}" alt="Elvacode Icon"
                                 class="w-5 h-5 object-contain">
-                            <h4 class="text-slate-600 dark:text-slate-400">Tim Elvacode</h4>
+                            <h4 class="text-slate-600 dark:text-slate-400">{{ __('article_detail.author_prefix') }}</h4>
                         </div>
 
                         <!-- Separator -->
@@ -78,9 +76,9 @@
                         </div>
                     </div>
                     <div class="flex gap-2 items-center mt-3 flex-wrap">
-                        <h5 class="text-slate-600 dark:text-slate-400 text-xs">Shared with</h5>
+                        <h5 class="text-slate-600 dark:text-slate-400 text-xs">{{ __('article_detail.shared_with') }}</h5>
                         <div class="flex gap-2 items-center">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('article.show', $article->slug)) }}"
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(lroute('article.show', $article->slug)) }}"
                                 class="group" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
                                     viewBox="0 0 50 50"
@@ -90,7 +88,7 @@
                                     </path>
                                 </svg>
                             </a>
-                            <a href="https://x.com/intent/tweet?text={{ urlencode($article->title) }}&url={{ urlencode(route('article.show', $article->slug)) }}"
+                            <a href="https://x.com/intent/tweet?text={{ urlencode($article->title) }}&url={{ urlencode(lroute('article.show', $article->slug)) }}"
                                 class="group" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="fill-gray-500 group-hover:fill-gray-700 transition-colors duration-300"
@@ -99,7 +97,7 @@
                                         d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                                 </svg>
                             </a>
-                            <a href="https://wa.me/?text={{ urlencode($article->title . ' ' . route('article.show', $article->slug)) }}"
+                            <a href="https://wa.me/?text={{ urlencode($article->title . ' ' . lroute('article.show', $article->slug)) }}"
                                 class="group" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
                                     viewBox="0 0 50 50"
@@ -119,8 +117,8 @@
                 <aside class="lg:col-span-1">
                     <div class="flex flex-col gap-10 lg:sticky lg:top-28">
                         <div class="w-full">
-                            <form action="{{ route('article.index') }}" method="GET" class="relative">
-                                <input type="text" name="search" placeholder="Cari artikel..."
+                            <form action="{{ lroute('article.index') }}" method="GET" class="relative">
+                                <input type="text" name="search" placeholder="{{ __('article_detail.search_placeholder') }}"
                                     class="w-full rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"
                                     value="{{ request('search') }}">
                                 <button type="submit" aria-label="Cari"
@@ -133,12 +131,12 @@
                         <div class="w-full">
                             <h3 class="font-primary text-sm font-semibold uppercase text-slate-500 dark:text-slate-300">
                                 <span class="font-bold text-slate-800 dark:text-white">//</span>
-                                Postingan Lainnya
+                                {{ __('article_detail.other_posts_label') }}
                             </h3>
 
                             <div class="mt-6 grid grid-cols-1 gap-6">
                                 @foreach ($otherArticles as $otherArticle)
-                                    <a href="{{ route('article.show', $otherArticle->slug) }}"
+                                    <a href="{{ lroute('article.show', $otherArticle->slug) }}"
                                         class="group flex w-full flex-col gap-3">
                                         <div
                                             class="aspect-video w-full overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-800">
@@ -166,7 +164,4 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection

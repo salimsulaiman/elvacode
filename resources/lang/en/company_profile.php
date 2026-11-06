@@ -1,0 +1,84 @@
+<?php
+
+return [
+    'meta_title'         => 'Company Profile Website - Elvacode',
+    'meta_description'   => 'Company profile website creation service by Elvacode. Introduce your business, build customer trust, and make it easy for them to contact you.',
+    'og_title'           => 'Company Profile Website - Elvacode',
+    'mockup_alt'         => 'Company profile website example',
+
+    'hero_eyebrow'       => 'Company Profile Website',
+    'hero_title_1'       => 'Present Your Business',
+    'hero_title_2'       => 'As Professionally',
+    'hero_title_3'       => 'As the Services You Provide.',
+    'hero_desc'          => 'A professional website to introduce your business and help potential customers contact you.',
+    'hero_btn_consult'   => 'Consult Now',
+    'hero_btn_portfolio' => 'View Portfolio',
+
+    'trans1_title_1'     => 'Your Website is Often the',
+    'trans1_title_2'     => 'First Impression',
+    'trans1_title_3'     => 'for Potential Customers.',
+    'trans1_desc'        => 'Make sure that first impression reflects the quality of your business.',
+
+    'stat_title_1'       => 'B2B Purchases Can',
+    'stat_title_2'       => 'Start Before',
+    'stat_title_3'       => 'Potential Buyers Contact You.',
+    'stat_desc_1'        => 'This means potential customers',
+    'stat_desc_2'        => 'do their own research via your website',
+    'stat_desc_3'        => 'first. Your website needs to',
+    'stat_desc_4'        => 'answer their questions',
+    'stat_desc_5'        => 'before they decide to reach out.',
+
+    'offers_eyebrow'     => 'What We Offer',
+    'offers_title_1'     => 'Everything About Your Business in',
+    'offers_title_2'     => 'One',
+    'offers_title_3'     => 'Website.',
+    'offers_desc'        => 'We create complete, clean, and mobile-friendly company profile websites. Potential customers can learn about your business without having to ask you one by one.',
+    'offers'             => [
+        ['title' => 'About the Business', 'desc' => 'Tell them who you are and what you do.'],
+        ['title' => 'Services', 'desc' => 'Showcase the products or services you offer.'],
+        ['title' => 'Portfolio', 'desc' => 'Show your past work and experience.'],
+        ['title' => 'Testimonials', 'desc' => 'Display reviews from clients you have worked with.'],
+        ['title' => 'Contact', 'desc' => 'Provide an easy way for customers to reach you.'],
+    ],
+
+    'why_eyebrow'        => 'Why Elvacode',
+    'why_title_1'        => 'Already Included in the',
+    'why_title_2'        => 'Package.',
+    'why_link'           => 'View Pricing Packages',
+    'reasons'            => [
+        ['title' => 'Transparent Pricing', 'desc' => 'Packages start from Rp 1,500,000. You can review feature details before deciding.'],
+        ['title' => 'Domain, Hosting & SSL', 'desc' => 'Free domain and hosting for 1 year, including SSL for secure website access.'],
+        ['title' => 'Design Revisions', 'desc' => '1 to 3 revisions, depending on the package you choose.'],
+        ['title' => 'Free Maintenance', 'desc' => 'Free for 1 year on Professional and Premium packages.'],
+    ],
+
+    'trans2_title_1'     => 'A Good Website Explains Your Business',
+    'trans2_title_2'     => 'Before You Even Speak.',
+
+    'port_eyebrow'       => 'Selected Work',
+    'port_title_1'       => 'Websites We Have',
+    'port_title_2'       => 'Created.',
+    'port_link'          => 'View All Portfolios',
+
+    'faq_eyebrow'        => 'FAQ',
+    'faq_title_1'        => 'Frequently',
+    'faq_title_2'        => 'Asked',
+    'faq_title_3'        => 'Questions.',
+    'faq_desc'           => 'Some common questions we receive before starting a website project.',
+    'faq_link'           => 'Ask via WhatsApp',
+    'faq_wa_text'        => 'Hello Elvacode, I would like to ask about the company profile website.',
+    'faqs'               => [
+        ['q' => 'How much does it cost to build a company profile website?', 'a' => 'For a more complete and professional company profile website, needs usually fall into the Professional or Premium Package, with estimated prices starting from Rp 1,500,000. Prices can be adjusted based on the number of pages and required features.'],
+        ['q' => 'What is included in the package?', 'a' => 'The package includes a free domain and hosting for 1 year, SSL/HTTPS, responsive design on mobile and desktop, and design revisions. The number of pages, features, and revisions vary per package.'],
+        ['q' => 'How long does the development take?', 'a' => 'It depends on the number of pages, features, and the completeness of the materials you provide. The estimated timeline will be discussed during the consultation before the project starts.'],
+        ['q' => 'What do I need to prepare?', 'a' => 'Just basic information about your business, such as name, description, list of services, logo, photos, and contact information. If it’s not complete yet, we’ll guide you during the consultation.'],
+        ['q' => 'Can the design be tailored to my business?', 'a' => 'Yes. The layout, colors, typography, and page structure are tailored to your business character, not just a template with replaced names and contents.'],
+        ['q' => 'What if I want to make changes after the website is done?', 'a' => 'You can use your design revision quota according to your package. For Professional and Premium packages, free maintenance is also available for 1 year.'],
+        ['q' => 'How do I start?', 'a' => 'Contact us via WhatsApp or the contact form, tell us your business needs, and we will help you choose the most suitable package and features.'],
+    ],
+
+    'cta_eyebrow'        => 'Ready to Get a Website for Your Business?',
+    'cta_title'          => 'Get in Touch',
+    'cta_desc'           => 'Tell us your needs via WhatsApp. We will help you choose the most suitable package.',
+    'cta_wa_text'        => 'Hello Elvacode, I am interested in creating a company profile website. Can I get more info?',
+];

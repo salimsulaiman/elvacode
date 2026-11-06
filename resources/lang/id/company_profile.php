@@ -1,0 +1,84 @@
+<?php
+
+return [
+    'meta_title'         => 'Website Company Profile - Elvacode',
+    'meta_description'   => 'Jasa pembuatan website company profile dari Elvacode. Perkenalkan bisnis Anda, bangun kepercayaan pelanggan, dan mudahkan mereka menghubungi Anda.',
+    'og_title'           => 'Website Company Profile - Elvacode',
+    'mockup_alt'         => 'Contoh website company profile',
+
+    'hero_eyebrow'       => 'Website Company Profile',
+    'hero_title_1'       => 'Tampilkan Bisnis Anda',
+    'hero_title_2'       => 'Seprofesional',
+    'hero_title_3'       => 'Layanan yang Anda Berikan.',
+    'hero_desc'          => 'Website profesional untuk memperkenalkan bisnis dan membantu calon pelanggan menghubungi Anda.',
+    'hero_btn_consult'   => 'Konsultasi Sekarang',
+    'hero_btn_portfolio' => 'Lihat Portfolio',
+
+    'trans1_title_1'     => 'Website Anda Sering Menjadi',
+    'trans1_title_2'     => 'Kesan Pertama',
+    'trans1_title_3'     => 'bagi Calon Pelanggan.',
+    'trans1_desc'        => 'Pastikan kesan pertama itu mencerminkan kualitas bisnis Anda.',
+
+    'stat_title_1'       => 'Pembelian B2B Bisa',
+    'stat_title_2'       => 'Dimulai Sebelum',
+    'stat_title_3'       => 'Calon Pembeli Menghubungi Anda.',
+    'stat_desc_1'        => 'Artinya, calon pelanggan',
+    'stat_desc_2'        => 'mencari tahu sendiri lewat website',
+    'stat_desc_3'        => 'lebih dulu. Website Anda perlu',
+    'stat_desc_4'        => 'menjawab pertanyaan mereka',
+    'stat_desc_5'        => 'sebelum mereka memutuskan menghubungi.',
+
+    'offers_eyebrow'     => 'Yang Kami Tawarkan',
+    'offers_title_1'     => 'Semua Tentang Bisnis Anda dalam',
+    'offers_title_2'     => 'Satu',
+    'offers_title_3'     => 'Website.',
+    'offers_desc'        => 'Kami membuatkan website company profile lengkap, rapi, dan nyaman dibuka dari HP maupun komputer. Calon pelanggan jadi tahu bisnis Anda tanpa harus bertanya satu per satu.',
+    'offers'             => [
+        ['title' => 'Tentang Bisnis', 'desc' => 'Ceritakan siapa Anda dan apa yang Anda kerjakan.'],
+        ['title' => 'Layanan', 'desc' => 'Tampilkan produk atau jasa yang Anda tawarkan.'],
+        ['title' => 'Portfolio', 'desc' => 'Tunjukkan hasil kerja dan pengalaman Anda.'],
+        ['title' => 'Testimoni', 'desc' => 'Perlihatkan pendapat pelanggan yang pernah bekerja sama.'],
+        ['title' => 'Kontak', 'desc' => 'Beri jalan mudah bagi pelanggan untuk menghubungi Anda.'],
+    ],
+
+    'why_eyebrow'        => 'Kenapa Elvacode',
+    'why_title_1'        => 'Sudah Termasuk dalam',
+    'why_title_2'        => 'Paket.',
+    'why_link'           => 'Lihat Paket Harga',
+    'reasons'            => [
+        ['title' => 'Harga Jelas', 'desc' => 'Paket mulai dari Rp 1.500.000. Rincian fitur bisa dilihat sebelum Anda memutuskan.'],
+        ['title' => 'Domain, Hosting & SSL', 'desc' => 'Domain dan hosting gratis 1 tahun, sudah termasuk SSL agar website aman diakses.'],
+        ['title' => 'Revisi Desain', 'desc' => 'Revisi 1 sampai 3 kali, sesuai paket yang Anda pilih.'],
+        ['title' => 'Maintenance Gratis', 'desc' => 'Gratis 1 tahun untuk paket Professional dan Premium.'],
+    ],
+
+    'trans2_title_1'     => 'Website yang Baik Menjelaskan Bisnis Anda',
+    'trans2_title_2'     => 'Sebelum Anda Sempat Bicara.',
+
+    'port_eyebrow'       => 'Selected Work',
+    'port_title_1'       => 'Website yang Sudah',
+    'port_title_2'       => 'Kami Buat.',
+    'port_link'          => 'Lihat Semua Portofolio',
+
+    'faq_eyebrow'        => 'FAQ',
+    'faq_title_1'        => 'Pertanyaan yang',
+    'faq_title_2'        => 'Sering',
+    'faq_title_3'        => 'Ditanyakan.',
+    'faq_desc'           => 'Beberapa pertanyaan yang sering kami terima sebelum memulai pembuatan website.',
+    'faq_link'           => 'Tanya via WhatsApp',
+    'faq_wa_text'        => 'Halo Elvacode, saya ingin bertanya tentang website company profile.',
+    'faqs'               => [
+        ['q' => 'Berapa biaya membuat website company profile?', 'a' => 'Untuk website company profile yang lebih lengkap dan profesional, biasanya kebutuhan masuk ke Paket Professional atau Premium, dengan estimasi harga mulai dari Rp 1.500.000. Harga dapat disesuaikan dengan jumlah halaman dan fitur yang dibutuhkan.'],
+        ['q' => 'Apa saja yang sudah termasuk dalam paket?', 'a' => 'Paket mencakup domain dan hosting gratis selama 1 tahun, SSL/HTTPS, tampilan responsif di HP dan komputer, serta revisi desain. Jumlah halaman, fitur, dan revisi berbeda di setiap paket.'],
+        ['q' => 'Berapa lama pengerjaannya?', 'a' => 'Tergantung jumlah halaman, fitur, dan kelengkapan materi yang Anda siapkan. Perkiraan waktu pengerjaan kami sampaikan saat konsultasi sebelum proyek dimulai.'],
+        ['q' => 'Apa yang perlu saya siapkan?', 'a' => 'Cukup informasi dasar bisnis Anda, seperti nama, deskripsi, daftar layanan, logo, foto, dan informasi kontak. Jika belum lengkap, kami bantu arahkan saat konsultasi.'],
+        ['q' => 'Apakah desainnya bisa disesuaikan dengan bisnis saya?', 'a' => 'Bisa. Tampilan, warna, tipografi, dan susunan halaman disesuaikan dengan karakter bisnis Anda, bukan sekadar template yang diganti nama dan isinya.'],
+        ['q' => 'Bagaimana kalau ada yang ingin diubah setelah website jadi?', 'a' => 'Anda bisa menggunakan jatah revisi desain sesuai paket. Untuk paket Professional dan Premium, tersedia juga maintenance gratis selama 1 tahun.'],
+        ['q' => 'Bagaimana cara memulai?', 'a' => 'Hubungi kami lewat WhatsApp atau formulir kontak, ceritakan kebutuhan bisnis Anda, lalu kami bantu menentukan paket dan fitur yang paling sesuai.'],
+    ],
+
+    'cta_eyebrow'        => 'Siap Punya Website untuk Bisnis Anda?',
+    'cta_title'          => 'Get in Touch',
+    'cta_desc'           => 'Ceritakan kebutuhan Anda lewat WhatsApp. Kami bantu pilihkan paket yang paling sesuai.',
+    'cta_wa_text'        => 'Halo Elvacode, saya tertarik membuat website company profile. Bisa minta info lebih lanjut?',
+];

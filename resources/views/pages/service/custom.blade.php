@@ -1,10 +1,8 @@
 @extends('components.layouts.app')
 
-@section('title', 'Website Custom - Elvacode')
-@section('meta_description',
-    'Jasa pembuatan website custom dari Elvacode. Sistem informasi, aplikasi web, dan fitur
-    khusus yang dirancang sesuai cara kerja bisnis Anda.')
-@section('og_title', 'Website Custom - Elvacode')
+@section('title', __('custom_website.meta_title'))
+@section('meta_description', __('custom_website.meta_description'))
+@section('og_title', __('custom_website.og_title'))
 
 @section('content')
     @php
@@ -21,45 +19,6 @@
             'group/cta inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-slate-300 dark:border-slate-700 py-2 pl-6 pr-2 text-sm font-bold text-slate-800 dark:text-white transition-colors duration-150 ease-in-out hover:border-violet-500 hover:text-violet-600 dark:hover:border-violet-400 dark:hover:text-violet-300';
         $btnGhostIcon =
             'flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-violet-500 group-hover/cta:text-white';
-
-        $examples = [
-            'Sistem informasi sekolah atau instansi',
-            'Aplikasi pemesanan dan reservasi',
-            'Dashboard data dan laporan',
-            'Portal anggota dengan login',
-        ];
-
-        $offers = [
-            [
-                'title' => 'Sistem Informasi',
-                'desc' => 'Kelola data, laporan, dan operasional bisnis dalam satu sistem.',
-            ],
-            ['title' => 'Aplikasi Web', 'desc' => 'Aplikasi yang bisa dibuka lewat browser, tanpa instal apa pun.'],
-            [
-                'title' => 'Dashboard & Laporan',
-                'desc' => 'Data Anda tampil jelas dalam tabel dan grafik yang mudah dibaca.',
-            ],
-            ['title' => 'Login & Hak Akses', 'desc' => 'Atur siapa yang boleh melihat dan mengubah data tertentu.'],
-            ['title' => 'Integrasi', 'desc' => 'Hubungkan website dengan layanan lain yang sudah Anda pakai.'],
-            ['title' => 'Fitur Khusus', 'desc' => 'Fitur yang tidak ada di template, dibuat sesuai alur kerja Anda.'],
-        ];
-
-        $steps = [
-            ['title' => 'Konsultasi', 'desc' => 'Anda ceritakan kebutuhan dan kendala yang ingin diselesaikan.'],
-            ['title' => 'Rancangan & Penawaran', 'desc' => 'Kami susun fitur, alur, dan estimasi biaya sebelum mulai.'],
-            [
-                'title' => 'Pengerjaan',
-                'desc' => 'Website dikerjakan sesuai tahapan dan kesepakatan awal.',
-            ],
-            ['title' => 'Peluncuran', 'desc' => 'Website diuji lalu diluncurkan dan siap dipakai.'],
-        ];
-
-        $included = [
-            ['title' => 'Custom Design', 'desc' => 'Tampilan dibuat khusus'],
-            ['title' => 'Garansi', 'desc' => '6 bulan'],
-            ['title' => 'Domain & Hosting', 'desc' => 'Gratis 1 tahun'],
-            ['title' => 'Maintenance', 'desc' => 'Gratis 1 tahun'],
-        ];
     @endphp
 
     <section
@@ -68,34 +27,33 @@
             <div class="flex gap-2 items-center">
                 <h2 class="{{ $eyebrow }}">
                     <span class="{{ $slash }}">//</span>
-                    Website Custom
+                    {{ __('custom_website.hero_eyebrow') }}
                 </h2>
             </div>
 
             <h1
-                class="hero-title split font-primary mt-8 max-w-5xl text-4xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight text-balance text-slate-800 dark:text-white leading-[1.05] font-medium">
-                Website yang Dibuat Sesuai
-                <span class="text-violet-500 dark:text-violet-300 font-bold">Cara Kerja</span> Bisnis Anda.
+                class="hero-title split font-primary mt-8 max-w-6xl text-4xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight text-balance text-slate-800 dark:text-white leading-[1.05] font-medium">
+                {{ __('custom_website.hero_title_1') }}
+                <span class="text-violet-500 dark:text-violet-300 font-bold">{{ __('custom_website.hero_title_2') }}</span> {{ __('custom_website.hero_title_3') }}
             </h1>
 
             <div
                 class="mt-16 grid gap-12 border-t border-slate-200 pt-10 dark:border-slate-800 lg:grid-cols-12 lg:gap-16 sm:mt-24">
                 <div class="hero-subtitle lg:col-span-6">
                     <p class="{{ $body }} max-w-md">
-                        Butuh fitur yang tidak ada di template? Kami rancang dan bangun dari nol, sesuai kebutuhan dan
-                        alur kerja Anda.
+                        {{ __('custom_website.hero_desc') }}
                     </p>
 
                     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a href="{{ route('contact.index') }}" class="{{ $btnPrimary }}">
-                            Konsultasi Sekarang
+                        <a href="{{ lroute('contact.index') }}" class="{{ $btnPrimary }}">
+                            {{ __('custom_website.hero_btn_consult') }}
                             <span class="{{ $btnPrimaryIcon }}">
                                 <i data-feather="arrow-up-right"
                                     class="h-4 w-4 transition-transform duration-150 ease-in-out"></i>
                             </span>
                         </a>
                         <a href="#yang-kami-buat" class="{{ $btnGhost }}">
-                            Lihat Layanan
+                            {{ __('custom_website.hero_btn_portfolio') }}
                             <span class="{{ $btnGhostIcon }}">
                                 <i data-feather="arrow-down" class="h-4 w-4"></i>
                             </span>
@@ -106,10 +64,10 @@
                 <div class="lg:col-span-5 lg:col-start-8" data-parallax="20">
                     <h3
                         class="font-primary text-sm font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-300">
-                        Contoh yang Bisa Dibuat
+                        {{ __('custom_website.examples_eyebrow') }}
                     </h3>
                     <ul class="mt-4 border-t border-slate-300 dark:border-slate-700">
-                        @foreach ($examples as $example)
+                        @foreach (__('custom_website.examples') as $example)
                             <li
                                 class="flex items-center gap-4 border-b border-slate-300 py-4 text-base font-medium text-slate-800 dark:border-slate-700 dark:text-white">
                                 <span class="font-primary text-sm font-semibold text-violet-600 dark:text-violet-300">
@@ -132,23 +90,24 @@
                     <div class="flex gap-2 items-center">
                         <h2 class="{{ $eyebrow }}">
                             <span class="{{ $slash }}">//</span>
-                            Yang Kami Buat
+                            {{ __('custom_website.offers_eyebrow') }}
                         </h2>
                     </div>
 
                     <h3 class="{{ $heading }} mt-6">
-                        Dari Sistem Sederhana sampai
-                        <span class="text-violet-500 dark:text-violet-300">Aplikasi</span> Lengkap.
+                        {{ __('custom_website.offers_title_1') }}
+                        <span class="text-violet-500 dark:text-violet-300">{{ __('custom_website.offers_title_2') }}</span>
+                        {{ __('custom_website.offers_title_3') }}
                     </h3>
                 </div>
 
                 <p class="section-desc {{ $body }} lg:col-span-4 lg:col-start-9">
-                    Setiap proyek dimulai dari masalah yang ingin Anda selesaikan, bukan dari template.
+                    {{ __('custom_website.offers_desc') }}
                 </p>
             </div>
 
             <div class="mt-16 grid gap-x-10 gap-y-12 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($offers as $offer)
+                @foreach (__('custom_website.offers') as $offer)
                     <div
                         class="group border-t border-slate-300 pt-6 transition-colors duration-300 ease-in-out hover:border-violet-500 dark:border-slate-700 dark:hover:border-violet-400">
                         <span class="font-primary text-sm font-semibold text-violet-600 dark:text-violet-300">
@@ -171,11 +130,11 @@
         class="font-body overflow-hidden bg-slate-900 dark:bg-white py-24 sm:py-32 lg:py-40 transition-colors duration-500">
         <div data-slide="right"
             class="w-max whitespace-nowrap font-primary text-6xl font-bold leading-none tracking-tighter text-white dark:text-slate-900 sm:text-8xl lg:text-[10rem] xl:text-[12rem]">
-            Built Around You
+            {{ __('custom_website.slide_text_1') }}
         </div>
         <div data-slide="left"
             class="mt-4 w-max whitespace-nowrap font-primary text-6xl font-bold leading-none tracking-tighter text-violet-300 dark:text-violet-600 sm:mt-6 sm:text-8xl lg:text-[10rem] xl:text-[12rem]">
-            Made To Fit
+            {{ __('custom_website.slide_text_2') }}
         </div>
     </section>
 
@@ -184,17 +143,17 @@
             <div class="flex gap-2 items-center">
                 <h2 class="{{ $eyebrow }}">
                     <span class="{{ $slash }}">//</span>
-                    Cara Kerja
+                    {{ __('custom_website.process_eyebrow') }}
                 </h2>
             </div>
 
             <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                Empat Langkah dari Ide sampai
-                <span class="text-violet-500 dark:text-violet-300">Jadi.</span>
+                {{ __('custom_website.process_title_1') }}
+                <span class="text-violet-500 dark:text-violet-300">{{ __('custom_website.process_title_2') }}</span>
             </h3>
 
             <ol class="mt-16 grid gap-10 sm:mt-20 lg:grid-cols-4 lg:gap-8">
-                @foreach ($steps as $step)
+                @foreach (__('custom_website.steps') as $step)
                     <li
                         class="relative border-l border-slate-300 pb-2 pl-8 dark:border-slate-700 lg:border-l-0 lg:border-t lg:pl-0 lg:pt-8">
                         <span
@@ -222,19 +181,19 @@
                     <div class="flex gap-2 items-center">
                         <h2 class="{{ $eyebrow }}">
                             <span class="{{ $slash }}">//</span>
-                            Sudah Termasuk
+                            {{ __('custom_website.included_eyebrow') }}
                         </h2>
                     </div>
 
                     <h3 class="{{ $heading }} mt-6 max-w-3xl">
-                        Bukan Hanya Fitur, Tapi
-                        <span class="text-violet-500 dark:text-violet-300">Dukungannya.</span>
+                        {{ __('custom_website.included_title_1') }}
+                        <span class="text-violet-500 dark:text-violet-300">{{ __('custom_website.included_title_2') }}</span>
                     </h3>
                 </div>
             </div>
 
             <div class="mt-16 grid grid-cols-2 sm:mt-20 lg:grid-cols-4">
-                @foreach ($included as $item)
+                @foreach (__('custom_website.included') as $item)
                     <div
                         class="border-t border-slate-300 py-8 pr-4 dark:border-slate-700 lg:border-l lg:px-8 {{ $loop->first ? 'lg:border-l-0 lg:pl-0' : '' }}">
                         <h4
@@ -247,8 +206,7 @@
             </div>
 
             <p class="mt-6 max-w-xl text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                Harga website custom menyesuaikan fitur dan tingkat kerumitannya. Konsultasikan dulu, kami beri
-                estimasinya sebelum pengerjaan dimulai.
+                {{ __('custom_website.included_desc') }}
             </p>
         </div>
     </section>
@@ -261,17 +219,17 @@
                 <h2
                     class="font-primary text-sm font-semibold uppercase tracking-widest text-slate-400 dark:text-violet-100">
                     <span class="font-bold text-white dark:text-slate-950">//</span>
-                    Punya Kebutuhan Khusus?
+                    {{ __('custom_website.cta_eyebrow') }}
                 </h2>
             </div>
 
-            <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20membuat%20website%20custom.%20Bisa%20minta%20info%20lebih%20lanjut?"
+            <a href="https://wa.me/6287835482333?text={{ urlencode(__('custom_website.cta_wa_text')) }}"
                 target="_blank" rel="noopener" aria-label="Get in touch lewat WhatsApp"
                 class="group/cta mt-10 flex items-center justify-center gap-4 sm:mt-14 sm:gap-8 lg:gap-12">
 
                 <span
                     class="font-primary text-5xl font-bold leading-none tracking-tighter text-white transition-colors duration-300 ease-in-out group-hover/cta:text-violet-300 dark:text-slate-950 dark:group-hover/cta:text-white sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]">
-                    Get in Touch
+                    {{ __('custom_website.cta_title') }}
                 </span>
 
                 <span
@@ -282,7 +240,7 @@
             </a>
 
             <p class="mt-10 text-center text-sm font-medium text-slate-400 dark:text-violet-100 sm:mt-14">
-                Ceritakan kebutuhan Anda lewat WhatsApp. Kami bantu menilai apa yang perlu dibuat.
+                {{ __('custom_website.cta_desc') }}
             </p>
         </div>
     </section>

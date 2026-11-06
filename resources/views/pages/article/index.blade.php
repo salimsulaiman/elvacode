@@ -1,6 +1,6 @@
 @extends('components.layouts.app')
 
-@section('title', 'Artikel - Elvacode')
+@section('title', __('article.meta_title'))
 
 @section('content')
     <section
@@ -10,19 +10,19 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('article.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Artikel</li>
+                    <li class="text-white font-semibold">{{ __('article.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
             <h1
                 class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
-                Artikel &amp;
-                <span class="font-bold text-slate-900">Insight</span>
+                {{ __('article.hero_title_1') }}
+                <span class="font-bold text-slate-900">{{ __('article.hero_title_2') }}</span>
             </h1>
         </div>
     </section>
@@ -32,12 +32,10 @@
         <div class="max-w-7xl py-16 sm:py-24 mx-auto px-6 lg:px-8">
             @if (!request()->category && !request()->search && !request()->page)
                 @php
-                    $introLabel = $featuredArticle ? 'Sorotan Utama' : 'Jelajahi Artikel';
-                    $introTitle = $featuredArticle ? 'Sorotan Utama dari' : 'Jelajahi Dunia';
-                    $introAccent = $featuredArticle ? 'Elvacode' : 'Artikel Kami';
-                    $introDesc = $featuredArticle
-                        ? 'Temukan artikel pilihan unggulan yang mencerminkan standar kualitas dan arah pemikiran digital kami.'
-                        : 'Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.';
+                    $introLabel = $featuredArticle ? __('article.intro_label_featured') : __('article.intro_label_default');
+                    $introTitle = $featuredArticle ? __('article.intro_title_featured') : __('article.intro_title_default');
+                    $introAccent = $featuredArticle ? __('article.intro_accent_featured') : __('article.intro_accent_default');
+                    $introDesc = $featuredArticle ? __('article.intro_desc_featured') : __('article.intro_desc_default');
                 @endphp
 
                 <div class="flex gap-2 items-center">
@@ -60,7 +58,7 @@
                     </p>
                 </div>
                 @if ($featuredArticle)
-                    <a href="{{ route('article.show', $featuredArticle->slug) }}"
+                    <a href="{{ lroute('article.show', $featuredArticle->slug) }}"
                         class="group relative mt-12 block w-full aspect-[4/5] sm:aspect-video md:aspect-[16/7] overflow-hidden rounded-2xl">
                         <img src="{{ asset('storage/' . $featuredArticle->thumbnail) }}" alt="{{ $featuredArticle->title }}"
                             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -81,7 +79,7 @@
                                 <div class="flex items-center gap-2">
                                     <img src="{{ asset('assets/logos/icon-elvacode-2.png') }}" alt="Elvacode Icon"
                                         class="h-5 w-5 object-contain">
-                                    <span class="text-slate-200">Tim Elvacode</span>
+                                    <span class="text-slate-200">{{ __('article.team_label') }}</span>
                                 </div>
 
                                 <div class="hidden h-4 w-[3px] rounded-full bg-slate-300/70 sm:block"></div>
@@ -112,17 +110,17 @@
             @if (request()->search || request()->category || request()->page)
                 @php
                     if (request()->search) {
-                        $hLabel = 'Pencarian';
-                        $hTitle = 'Hasil Pencarian';
-                        $hAccent = 'Artikel';
+                        $hLabel = __('article.search_label');
+                        $hTitle = __('article.search_title');
+                        $hAccent = __('article.search_accent');
                     } elseif (request()->category) {
-                        $hLabel = 'Kategori';
-                        $hTitle = 'Artikel Berdasarkan';
-                        $hAccent = 'Kategori';
+                        $hLabel = __('article.category_label');
+                        $hTitle = __('article.category_title');
+                        $hAccent = __('article.category_accent');
                     } else {
-                        $hLabel = 'Jelajahi Artikel';
-                        $hTitle = 'Jelajahi Dunia';
-                        $hAccent = 'Artikel Kami';
+                        $hLabel = __('article.intro_label_default');
+                        $hTitle = __('article.intro_title_default');
+                        $hAccent = __('article.intro_accent_default');
                     }
                 @endphp
 
@@ -143,12 +141,12 @@
                     <p
                         class="section-desc w-full lg:w-5/12 lg:max-w-md text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium text-justify lg:text-left">
                         @if (request()->search)
-                            Menampilkan artikel yang relevan dengan kata kunci
+                            {{ __('article.search_desc_prefix') }}
                             "<span class="font-semibold">{{ request('search') }}</span>".
                         @elseif (request()->category)
-                            Jelajahi kumpulan artikel sesuai preferensi pembacaan Anda.
+                            {{ __('article.category_desc') }}
                         @else
-                            Temukan berbagai artikel menarik yang menginspirasi dan memperkaya wawasan Anda.
+                            {{ __('article.intro_desc_default') }}
                         @endif
                     </p>
                 </div>
@@ -159,16 +157,16 @@
                 class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-2 mt-10 mb-6 md:mt-12 md:mb-8 w-full relative">
                 <div
                     class="flex gap-2 overflow-x-auto scrollbar-hide px-0 py-2 scroll-smooth min-w-0 max-w-full md:max-w-[calc(100%-17rem)]">
-                    <a href="{{ route('article.index', request()->except('category')) }}"
+                    <a href="{{ lroute('article.index', request()->except('category')) }}"
                         class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
                         {{ empty(request()->category)
                             ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
                             : 'bg-slate-100 text-gray-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600' }}">
-                        Semua
+                        {{ __('article.filter_all') }}
                     </a>
 
                     @foreach ($categories as $category)
-                        <a href="{{ route('article.index', array_merge(request()->except('category'), ['category' => $category->slug])) }}"
+                        <a href="{{ lroute('article.index', array_merge(request()->except('category'), ['category' => $category->slug])) }}"
                             class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
                             {{ request()->category === $category->slug
                                 ? 'bg-violet-600 text-white hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 dark:text-white'
@@ -179,9 +177,9 @@
                 </div>
 
                 <!-- Form search -->
-                <form action="{{ route('article.index') }}" method="GET"
+                <form action="{{ lroute('article.index') }}" method="GET"
                     class="relative w-full md:w-64 mt-2 md:mt-0 flex-shrink-0">
-                    <input type="text" name="search" placeholder="Cari artikel..."
+                    <input type="text" name="search" placeholder="{{ __('article.search_placeholder') }}"
                         class="w-full rounded-full border border-slate-300 dark:border-slate-600 
                   bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 
                   px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"
@@ -196,7 +194,7 @@
             @if ($articles->count() > 0)
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     @foreach ($articles as $article)
-                        <a href="{{ route('article.show', $article->slug) }}"
+                        <a href="{{ lroute('article.show', $article->slug) }}"
                             class="w-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl duration-300 ease-in-out">
                             <div class="w-full flex flex-col gap-3 group">
                                 <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-700">
@@ -204,7 +202,7 @@
                                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300 ease-in-out">
                                 </div>
                                 <h5 class="text-xs w-fit rounded-full text-slate-600 dark:text-slate-300">
-                                    Tim {{ $article->author->name }}
+                                    {{ __('article.author_prefix') }} {{ $article->author->name }}
                                 </h5>
                                 <h4
                                     class="text-base font-semibold text-slate-800 dark:text-slate-200 group-hover:text-violet-900 dark:group-hover:text-violet-300 line-clamp-2">
@@ -233,7 +231,7 @@
                 </div>
             @else
                 <p class="text-center text-slate-600 dark:text-slate-400 font-medium py-24">
-                    Artikel tidak ditemukan.
+                    {{ __('article.not_found') }}
                 </p>
             @endif
 
@@ -242,8 +240,5 @@
             @endif
         </div>
     </section>
-
-
-
 
 @endsection

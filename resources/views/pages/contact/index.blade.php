@@ -1,6 +1,6 @@
 @extends('components.layouts.app')
 
-@section('title', 'Hubungi Kami - Elvacode')
+@section('title', __('contact.meta_title'))
 
 @section('content')
     <section
@@ -10,19 +10,20 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}"
+                            class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('contact.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Kontak</li>
+                    <li class="text-white font-semibold">{{ __('contact.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
             <h1
                 class="font-primary section-title split mt-6 mx-auto max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-semibold tracking-tight text-balance text-white leading-[1.1]">
-                Hubungi
-                <span class="font-bold text-slate-900">Kami</span>
+                {{ __('contact.hero_title_1') }}
+                <span class="font-bold text-slate-900">{{ __('contact.hero_title_2') }}</span>
             </h1>
         </div>
     </section>
@@ -35,20 +36,20 @@
                 <div class="flex gap-2 items-center">
                     <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                         <span class="font-bold text-slate-800 dark:text-white">//</span>
-                        Kontak
+                        {{ __('contact.label') }}
                     </h2>
                 </div>
 
                 <h3
                     class="font-primary section-title split mt-6 text-3xl sm:text-4xl md:text-5xl font-bold sm:font-semibold tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-16">
-                    Punya Pertanyaan?
-                    <span class="font-bold text-violet-500 dark:text-violet-300">Kami</span> Siap Membantu
+                    {{ __('contact.title_1') }}
+                    <span class="font-bold text-violet-500 dark:text-violet-300">{{ __('contact.title_2') }}</span>
+                    {{ __('contact.title_3') }}
                 </h3>
 
                 <p
                     class="section-desc mt-6 sm:mt-8 max-w-xl text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
-                    Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan seputar layanan, proses
-                    pemesanan, atau hal lainnya.
+                    {{ __('contact.desc') }}
                 </p>
 
                 <ul class="mt-10 flex flex-col gap-5 text-sm sm:text-base">
@@ -58,7 +59,7 @@
                             <i data-feather="map-pin" class="h-4 w-4"></i>
                         </span>
                         <span class="pt-2 font-medium text-slate-700 dark:text-slate-300">
-                            Tegal, Jawa Tengah, Indonesia
+                            {{ __('contact.location') }}
                         </span>
                     </li>
                     <li class="flex items-start gap-4">
@@ -92,7 +93,7 @@
                         class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900">
                         <i class="fa fa-facebook text-lg"></i>
                     </a>
-                    <a href="https://wa.me/6287835482333?text=Halo%20Elvacode,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website.%20Bisa%20minta%20info%20lebih%20lanjut?"
+                    <a href="https://wa.me/6287835482333?text={{ rawurlencode(__('contact.wa_text')) }}"
                         target="_blank" rel="noopener" aria-label="WhatsApp"
                         class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900">
                         <i class="fa fa-whatsapp text-lg"></i>
@@ -101,23 +102,25 @@
             </div>
 
             <div class="w-full lg:w-1/2">
-                <form action="{{ route('contact.send') }}" method="POST"
+                <form id="contactForm" action="{{ lroute('contact.send') }}" method="POST"
                     class="flex flex-col gap-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-6 sm:p-8">
                     @csrf
 
                     <div class="flex flex-col lg:flex-row gap-5 w-full">
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="name"
-                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">Nama</label>
-                            <input type="text" id="name" name="name" placeholder="Nama Anda"
+                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('contact.name') }}</label>
+                            <input type="text" id="name" name="name"
+                                placeholder="{{ __('contact.name_placeholder') }}"
                                 class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30 transition-colors duration-150"
                                 value="{{ old('name') }}">
                         </div>
 
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="email"
-                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Email Anda"
+                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('contact.email') }}</label>
+                            <input type="email" id="email" name="email"
+                                placeholder="{{ __('contact.email_placeholder') }}"
                                 class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30 transition-colors duration-150"
                                 value="{{ old('email') }}">
                         </div>
@@ -126,16 +129,18 @@
                     <div class="flex flex-col lg:flex-row gap-5 w-full">
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="address"
-                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">Alamat</label>
-                            <input type="text" id="address" name="address" placeholder="Alamat Anda"
+                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('contact.address') }}</label>
+                            <input type="text" id="address" name="address"
+                                placeholder="{{ __('contact.address_placeholder') }}"
                                 class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30 transition-colors duration-150"
                                 value="{{ old('address') }}">
                         </div>
 
                         <div class="flex-1 flex flex-col gap-2">
                             <label for="phone"
-                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">Telepon</label>
-                            <input type="text" id="phone" name="phone" placeholder="Nomor Telepon"
+                                class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('contact.phone') }}</label>
+                            <input type="text" id="phone" name="phone"
+                                placeholder="{{ __('contact.phone_placeholder') }}"
                                 class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30 transition-colors duration-150"
                                 value="{{ old('phone') }}">
                         </div>
@@ -143,16 +148,18 @@
 
                     <div class="flex flex-col gap-2 w-full">
                         <label for="subject"
-                            class="text-sm font-semibold text-slate-700 dark:text-slate-300">Subjek</label>
-                        <input type="text" id="subject" name="subject" placeholder="Subjek Pesan"
+                            class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('contact.subject') }}</label>
+                        <input type="text" id="subject" name="subject"
+                            placeholder="{{ __('contact.subject_placeholder') }}"
                             class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30 transition-colors duration-150"
                             value="{{ old('subject') }}">
                     </div>
 
                     <div class="flex flex-col gap-2 w-full">
                         <label for="message"
-                            class="text-sm font-semibold text-slate-700 dark:text-slate-300">Pesan</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda"
+                            class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('contact.message') }}</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="{{ __('contact.message_placeholder') }}"
                             class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/30 transition-colors duration-150">{{ old('message') }}</textarea>
                     </div>
 
@@ -176,7 +183,7 @@
 
                     <button type="submit"
                         class="group/cta mt-2 w-full sm:w-fit inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 dark:bg-white py-2 pl-6 pr-2 text-sm font-bold text-white dark:text-slate-900 transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-500 dark:hover:text-white">
-                        Kirim Pesan
+                        {{ __('contact.submit') }}
                         <span
                             class="flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-150 ease-in-out group-hover/cta:bg-white group-hover/cta:text-violet-600 dark:group-hover/cta:bg-white dark:group-hover/cta:text-violet-600">
                             <i data-feather="arrow-up-right"
@@ -192,13 +199,21 @@
 @section('script')
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site') }}"></script>
     <script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute('{{ config('services.recaptcha.site') }}', {
-                    action: 'submit'
-                })
-                .then(function(token) {
-                    document.getElementById('recaptchaResponse').value = token;
-                });
+        // Token reCAPTCHA kedaluwarsa setelah 2 menit, jadi dibuat ulang saat form disubmit
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute('{{ config('services.recaptcha.site') }}', {
+                        action: 'submit'
+                    })
+                    .then(function(token) {
+                        document.getElementById('recaptchaResponse').value = token;
+                        contactForm.submit();
+                    });
+            });
         });
     </script>
 @endsection

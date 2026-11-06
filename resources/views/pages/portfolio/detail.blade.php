@@ -11,19 +11,19 @@
             <nav aria-label="Breadcrumb">
                 <ol class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium text-violet-100">
                     <li>
-                        <a href="/" class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Home
+                        <a href="{{ lroute('home.index') }}" class="transition-colors duration-150 ease-in-out hover:text-white">
+                            {{ __('portfolio_detail.breadcrumb_home') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
                     <li>
-                        <a href="{{ route('portfolio.index') }}"
+                        <a href="{{ lroute('portfolio.index') }}"
                             class="transition-colors duration-150 ease-in-out hover:text-white">
-                            Portofolio
+                            {{ __('portfolio_detail.breadcrumb_portfolio') }}
                         </a>
                     </li>
                     <li aria-hidden="true">/</li>
-                    <li class="text-white font-semibold">Detail Portofolio</li>
+                    <li class="text-white font-semibold">{{ __('portfolio_detail.breadcrumb_current') }}</li>
                 </ol>
             </nav>
 
@@ -55,7 +55,7 @@
                     <div class="mt-10 flex gap-2 items-center">
                         <h2 class="font-primary text-sm font-semibold text-slate-500 dark:text-slate-300 uppercase">
                             <span class="font-bold text-slate-800 dark:text-white">//</span>
-                            Tentang Proyek
+                            {{ __('portfolio_detail.about_project') }}
                         </h2>
                     </div>
 
@@ -77,12 +77,12 @@
                     <div>
                         <h3 class="font-primary text-sm font-semibold uppercase text-slate-500 dark:text-slate-300">
                             <span class="font-bold text-slate-800 dark:text-white">//</span>
-                            Proyek Lainnya
+                            {{ __('portfolio_detail.other_projects') }}
                         </h3>
 
                         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
                             @foreach ($otherPortfolios as $otherPortfolio)
-                                <a href="{{ route('portfolio.show', $otherPortfolio->slug) }}"
+                                <a href="{{ lroute('portfolio.show', $otherPortfolio->slug) }}"
                                     class="group flex w-full flex-col gap-3">
                                     <div
                                         class="aspect-video w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-200 dark:bg-slate-800">
@@ -105,7 +105,4 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection
