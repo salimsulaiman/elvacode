@@ -66,7 +66,7 @@ return [
     'faq_title_3'        => 'Questions.',
     'faq_desc'           => 'Some common questions we receive before starting a website project.',
     'faq_link'           => 'Ask via WhatsApp',
-    'faq_wa_text'        => 'Hello Elvacode, I would like to ask about the company profile website.',
+    'faq_wa_text'        => 'Halo Elvacode, saya ingin bertanya tentang website company profile.',
     'faqs'               => [
         ['q' => 'How much does it cost to build a company profile website?', 'a' => 'For a more complete and professional company profile website, needs usually fall into the Professional or Premium Package, with estimated prices starting from Rp 1,500,000. Prices can be adjusted based on the number of pages and required features.'],
         ['q' => 'What is included in the package?', 'a' => 'The package includes a free domain and hosting for 1 year, SSL/HTTPS, responsive design on mobile and desktop, and design revisions. The number of pages, features, and revisions vary per package.'],
@@ -80,5 +80,6 @@ return [
     'cta_eyebrow'        => 'Ready to Get a Website for Your Business?',
     'cta_title'          => 'Get in Touch',
     'cta_desc'           => 'Tell us your needs via WhatsApp. We will help you choose the most suitable package.',
-    'cta_wa_text'        => 'Hello Elvacode, I am interested in creating a company profile website. Can I get more info?',
+    'cta_wa_text'        => 'Halo Elvacode, saya tertarik membuat website company profile. Bisa minta info lebih lanjut?',
+    'wa_consult'         => 'Halo Elvacode, saya ingin berkonsultasi tentang website company profile.',
 ];

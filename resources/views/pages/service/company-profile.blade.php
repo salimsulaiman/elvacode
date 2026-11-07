@@ -51,7 +51,9 @@
                     </p>
 
                     <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                        <a href="{{ lroute('contact.index') }}" class="{{ $btnPrimary }} w-full sm:w-auto justify-center">
+                        <a href="https://wa.me/6287835482333?text={{ rawurlencode(__('company_profile.wa_consult')) }}"
+                            target="_blank" rel="noopener noreferrer"
+                            class="{{ $btnPrimary }} w-full sm:w-auto justify-center">
                             {{ __('company_profile.hero_btn_consult') }}
                             <span class="{{ $btnPrimaryIcon }}">
                                 <i data-feather="arrow-up-right"

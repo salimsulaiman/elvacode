@@ -89,7 +89,7 @@
                         class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900">
                         <i class="fa fa-instagram text-lg"></i>
                     </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"
+                    <a href="https://www.facebook.com/profile.php?id=61590548582500" target="_blank" rel="noopener" aria-label="Facebook"
                         class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors duration-150 ease-in-out hover:bg-slate-900 hover:border-slate-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-slate-900">
                         <i class="fa fa-facebook text-lg"></i>
                     </a>

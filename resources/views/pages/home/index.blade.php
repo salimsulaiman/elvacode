@@ -2,17 +2,17 @@
 
 @section('content')
     <section
-        class="w-full bg-white dark:bg-slate-950 relative isolate h-auto md:h-screen overflow-hidden transition-colors duration-300 ease-in-out bg-cover">
-        <div class="absolute inset-0 right-0 -top-40 -z-10 overflow-hidden">
+        class="w-full bg-white dark:bg-slate-950 relative isolate h-auto md:h-screen min-h-[600px] overflow-hidden transition-colors duration-300 ease-in-out bg-cover flex items-center">
+        <div class="absolute inset-0 right-0 -top-40 -z-10 overflow-hidden pointer-events-none">
             <div
                 class="w-[600px] h-[600px] bg-gradient-to-tr from-pink-300 via-indigo-400 to-white opacity-20 blur-2xl rounded-full">
             </div>
         </div>
         <div
-            class="max-w-7xl h-full flex flex-col items-center justify-center mx-auto relative pt-14 px-6 lg:px-8 section hero-section">
-            <div class="w-full py-16 sm:py-36 lg:py-40 relative z-20">
+            class="max-w-7xl w-full mx-auto relative px-6 lg:px-8 section hero-section pt-24 sm:pt-32 lg:pt-0">
+            <div class="w-full relative z-20 pb-12 sm:pb-16 lg:pb-0">
                 <div class="w-full flex flex-col lg:flex-row gap-10 lg:gap-16 justify-between items-center">
-                    <div class="lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div class="lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-left mt-8 lg:mt-0">
                         <div class="flex gap-2 items-center">
                             <span class="text-sm font-semibold text-slate-800 dark:text-slate-400 uppercase">
                                 <span class="font-bold text-slate-800 dark:text-white">//</span>
@@ -20,7 +20,7 @@
                             </span>
                         </div>
                         <h1
-                            class="font-primary hero-title split text-3xl sm:text-4xl md:text-7xl font-bold sm:font-normal tracking-tight text-balance text-slate-800 dark:text-white leading-normal sm:leading-10 md:leading-18 max-w-3xl mx-auto lg:mx-0 mt-6">
+                            class="font-primary hero-title split text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold sm:font-normal tracking-tight text-balance text-slate-800 dark:text-white leading-tight sm:leading-[1.1] md:leading-[1.1] max-w-3xl mx-auto lg:mx-0 mt-4 sm:mt-6">
                             {{ __('home.hero_title_1') }}
                             <span class="font-bold text-violet-500 dark:text-violet-300">
                                 {{ __('home.hero_title_2') }}
@@ -29,24 +29,24 @@
                         </h1>
 
                         <p
-                            class="hero-subtitle text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 max-w-lg mx-auto lg:mx-0 text-justify">
+                            class="hero-subtitle text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium mt-6 sm:mt-8 max-w-lg mx-auto lg:mx-0 text-center lg:text-justify leading-relaxed">
                             {{ __('home.hero_desc') }}
                         </p>
 
-                        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-center gap-4 sm:gap-6">
+                        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-center gap-4 sm:gap-6 w-full sm:w-auto">
                             <a href="#portfolio"
-                                class="rounded-full bg-slate-800 px-5 py-2.5 text-sm sm:text-base font-semibold text-white dark:text-slate-700 dark:bg-white shadow hover:bg-slate-700 dark:hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                                class="w-full sm:w-auto text-center rounded-full bg-slate-800 px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-white dark:text-slate-900 dark:bg-white shadow hover:bg-slate-700 dark:hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 transition-colors">
                                 {{ __('home.hero_btn_start') }}
                             </a>
                             <a href="{{ lroute('pricing.index') }}"
-                                class="text-sm sm:text-base font-semibold text-violet-900 hover:text-violet-700 dark:text-slate-300 dark:hover:text-slate-200">
-                                {{ __('home.hero_btn_plan') }}<span aria-hidden="true"> →</span>
+                                class="w-full sm:w-auto text-center text-sm sm:text-base font-semibold text-violet-900 hover:text-violet-700 dark:text-slate-300 dark:hover:text-slate-200 transition-colors">
+                                {{ __('home.hero_btn_plan') }}<span aria-hidden="true" class="ml-1">→</span>
                             </a>
                         </div>
                     </div>
-                    <div class="w-full lg:w-5/12 relative mt-4 sm:mt-12 lg:mt-0 bottom-0">
+                    <div class="w-full lg:w-5/12 relative mt-8 sm:mt-12 lg:mt-0 flex justify-center lg:block">
                         <img src="{{ asset('assets/images/hero-image.png') }}" alt="Hero Image"
-                            class="w-full relative bottom-0 right-0 scale-100 mx-auto lg:absolute lg:-bottom-48 lg:-right-44 lg:scale-200">
+                            class="w-4/5 sm:w-2/3 md:w-1/2 lg:w-full max-w-md lg:max-w-none relative lg:absolute lg:-bottom-48 lg:-right-44 lg:scale-200 object-contain">
                     </div>
 
                 </div>

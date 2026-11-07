@@ -16,7 +16,7 @@ return [
     'desc'       => 'Feel free to reach out if you have questions about our services, the ordering process, or anything else.',
     'location'   => 'Tegal, Central Java, Indonesia',
 
-    'wa_text'    => 'Hello Elvacode, I am interested in your website development services. Could I get more information?',
+    'wa_text'    => 'Halo Elvacode, saya tertarik dengan jasa pembuatan website. Bisa minta info lebih lanjut?',
 
     'name'                => 'Name',
     'name_placeholder'    => 'Your name',

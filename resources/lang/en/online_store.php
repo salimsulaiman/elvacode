@@ -67,5 +67,6 @@ return [
     'cta_eyebrow'        => 'Ready to Have an Online Store?',
     'cta_title'          => 'Get in Touch',
     'cta_desc'           => 'Tell us about your products and store needs via WhatsApp.',
-    'cta_wa_text'        => 'Hello Elvacode, I am interested in creating an online store website. Can I get more info?',
+    'cta_wa_text'        => 'Halo Elvacode, saya tertarik membuat website toko online. Bisa minta info lebih lanjut?',
+
 ];

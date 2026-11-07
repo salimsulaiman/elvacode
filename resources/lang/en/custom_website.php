@@ -62,5 +62,5 @@ return [
     'cta_eyebrow'        => 'Have Special Requirements?',
     'cta_title'          => 'Get in Touch',
     'cta_desc'           => 'Tell us your needs via WhatsApp. We will help assess what needs to be built.',
-    'cta_wa_text'        => 'Hello Elvacode, I am interested in creating a custom website. Can I get more info?',
+    'cta_wa_text'        => 'Halo Elvacode, saya tertarik membuat website custom. Bisa minta info lebih lanjut?',
 ];

@@ -81,4 +81,5 @@ return [
     'cta_title'          => 'Get in Touch',
     'cta_desc'           => 'Ceritakan kebutuhan Anda lewat WhatsApp. Kami bantu pilihkan paket yang paling sesuai.',
     'cta_wa_text'        => 'Halo Elvacode, saya tertarik membuat website company profile. Bisa minta info lebih lanjut?',
+    'wa_consult'         => 'Halo Elvacode, saya ingin berkonsultasi tentang website company profile.',
 ];

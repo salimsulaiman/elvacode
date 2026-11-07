@@ -224,13 +224,6 @@
                             {{ __('menu.article') }}
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ lroute('contact.index') }}"
-                            @if (request()->routeIs('*contact.*')) aria-current="page" @endif
-                            class="{{ $linkBase }} {{ request()->routeIs('*contact.*') ? $linkActive : $linkIdle }}">
-                            {{ __('menu.contact') }}
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="flex items-center gap-3">
@@ -277,8 +270,8 @@
                         </svg>
                     </button>
 
-                    <a href="https://wa.me/6287835482333?text={{ rawurlencode(__('menu.wa_contact')) }}"
-                        target="_blank" rel="noopener noreferrer"
+                    <a href="{{ lroute('contact.index') }}"
+                        @if (request()->routeIs('*contact.*')) aria-current="page" @endif
                         class="group/cta hidden xlg:inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 dark:bg-white py-1.5 pl-5 pr-1.5 text-sm font-bold text-white dark:text-slate-900 transition-colors duration-150 ease-in-out hover:bg-violet-500 hover:text-white dark:hover:bg-violet-500 dark:hover:text-white">
                         {{ __('menu.contact_us') }}
                         <span
