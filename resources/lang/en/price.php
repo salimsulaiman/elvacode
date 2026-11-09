@@ -21,7 +21,7 @@ return [
     'badge_save'           => 'Save',
     'btn_get_plan'         => 'Get Plan',
     
-    'enterprise_label'     => 'Optional',
+    'enterprise_label'     => 'Custom',
     'enterprise_title'     => 'Enterprise',
     'enterprise_desc'      => 'Custom websites for your specific business needs. Pricing adjusts to the scope of work.',
     'btn_consultation'     => 'Free Consultation',
@@ -89,7 +89,6 @@ return [
                 'Advanced Speed Optimization',
                 'WhatsApp & Google Maps Integration',
                 'Free Professional Logo',
-                '3 Months Warranty',
             ],
         ],
     ],
@@ -100,7 +99,7 @@ return [
         'Custom Features',
         '.co.id Domain',
         'Business Email',
-        '6 Months Warranty',
+        '3 Months Warranty',
     ],
     
     'all_included' => [

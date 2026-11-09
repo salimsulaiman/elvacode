@@ -70,7 +70,7 @@ return [
     'plans'           => [
         [
             'name'      => 'Essential',
-            'price'     => 650000,
+            'price'     => 700000,
             'original'  => 1000000,
             'highlight' => false,
             'features'  => [
@@ -122,7 +122,6 @@ return [
                 'Optimasi Kecepatan Lanjutan',
                 'Integrasi WhatsApp & Google Maps',
                 'Gratis Logo Profesional',
-                'Garansi 3 Bulan',
             ],
         ],
     ],
@@ -134,7 +133,7 @@ return [
         'Custom Feature',
         'Domain .co.id',
         'Email Bisnis',
-        'Garansi 6 Bulan',
+        'Garansi 3 Bulan',
     ],
     'enterprise_btn'   => 'Konsultasi Gratis',
     'wa_enterprise'    => 'Halo, saya ingin konsultasi website custom Paket Enterprise',

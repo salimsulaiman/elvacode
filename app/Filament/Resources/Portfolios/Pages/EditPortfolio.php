@@ -16,4 +16,14 @@ class EditPortfolio extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function afterSave(): void
+    {
+        $this->record->refresh();
+
+        $this->refreshFormData([
+            'thumbnail',
+            'preview_image',
+        ]);
+    }
 }

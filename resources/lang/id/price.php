@@ -21,7 +21,7 @@ return [
     'badge_save'           => 'Hemat',
     'btn_get_plan'         => 'Dapatkan Paket',
     
-    'enterprise_label'     => 'Opsional',
+    'enterprise_label'     => 'Custom',
     'enterprise_title'     => 'Enterprise',
     'enterprise_desc'      => 'Website custom sesuai kebutuhan spesifik bisnis Anda. Harga menyesuaikan lingkup pekerjaan.',
     'btn_consultation'     => 'Konsultasi Gratis',
@@ -90,7 +90,6 @@ return [
                 'Optimasi Kecepatan Lanjutan',
                 'Integrasi WhatsApp & Google Maps',
                 'Gratis Logo Profesional',
-                'Garansi 3 Bulan',
             ],
         ],
     ],
@@ -101,7 +100,7 @@ return [
         'Custom Feature',
         'Domain .co.id',
         'Email Bisnis',
-        'Garansi 6 Bulan',
+        'Garansi 3 Bulan',
     ],
     
     'all_included' => [

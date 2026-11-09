@@ -70,7 +70,7 @@ return [
     'plans'           => [
         [
             'name'      => 'Essential',
-            'price'     => 650000,
+            'price'     => 700000,
             'original'  => 1000000,
             'highlight' => false,
             'features'  => [
@@ -122,7 +122,6 @@ return [
                 'Advanced Speed Optimization',
                 'WhatsApp & Google Maps Integration',
                 'Free Professional Logo',
-                '3 Months Warranty',
             ],
         ],
     ],
@@ -134,7 +133,7 @@ return [
         'Custom Features',
         '.co.id Domain',
         'Business Email',
-        '6-Month Warranty',
+        '3-Month Warranty',
     ],
     'enterprise_btn'   => 'Free Consultation',
     'wa_enterprise'    => 'Hello, I would like a free consultation for the Enterprise Custom Website',

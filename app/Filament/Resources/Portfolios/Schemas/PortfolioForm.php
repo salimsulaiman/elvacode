@@ -24,17 +24,30 @@ class PortfolioForm
                 FileUpload::make('thumbnail')
                     ->label('Thumbnail')
                     ->image()
-                    ->directory('portfolio_thumbnails')
+                    ->acceptedFileTypes([
+                        'image/jpeg',
+                        'image/png',
+                        'image/webp',
+                    ])
+                    ->maxSize(10240)
+                    ->directory('portfolio_uploads')
                     ->disk('public')
+                    ->visibility('public')
                     ->required(),
 
                 FileUpload::make('preview_image')
                     ->label('Preview Website (Gambar Panjang)')
                     ->helperText('Screenshot full-page website, bentuk memanjang ke bawah.')
                     ->image()
-                    ->directory('portfolio_previews')
+                    ->acceptedFileTypes([
+                        'image/jpeg',
+                        'image/png',
+                        'image/webp',
+                    ])
+                    ->maxSize(10240)
+                    ->directory('portfolio_uploads')
                     ->disk('public')
-                    ->maxSize(10240), // 10 MB
+                    ->visibility('public'),
 
                 Textarea::make('summary')
                     ->label('Summary')
