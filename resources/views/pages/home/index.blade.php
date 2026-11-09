@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="w-full lg:w-5/12 relative mt-8 sm:mt-12 lg:mt-0 flex justify-center lg:block">
-                        <img src="{{ asset('assets/images/hero-image.png') }}" alt="Hero Image"
+                        <img src="{{ asset('assets/images/hero-image.webp') }}" alt="Hero Image"
                             class="w-4/5 sm:w-2/3 md:w-1/2 lg:w-full max-w-md lg:max-w-none relative lg:absolute lg:-bottom-48 lg:-right-44 lg:scale-200 object-contain">
                     </div>
 
@@ -378,11 +378,11 @@
            sm:max-w-[520px] md:mt-6 md:max-w-[600px]
            lg:mt-0 lg:w-5/12 lg:max-w-none">
 
-                    <img data-layer="back" src="{{ asset('assets/images/laptop.png') }}"
+                    <img data-layer="back" src="{{ asset('assets/images/laptop.webp') }}"
                         alt="Contoh website - tampilan belakang" loading="lazy" decoding="async"
                         class="absolute left-0 top-0 w-[80%] h-auto will-change-transform select-none pointer-events-none">
 
-                    <img data-layer="front" src="{{ asset('assets/images/laptop-v2.png') }}"
+                    <img data-layer="front" src="{{ asset('assets/images/laptop-v2.webp') }}"
                         alt="Contoh website - tampilan depan" loading="lazy" decoding="async"
                         class="absolute -bottom-10 right-0 w-[80%] h-auto will-change-transform select-none pointer-events-none">
                 </div>

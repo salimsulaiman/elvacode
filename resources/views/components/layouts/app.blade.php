@@ -37,6 +37,13 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link
+        rel="preload"
+        href="{{ asset('fonts/PlusJakartaSans-VariableFont_wght.woff2') }}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    />
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
