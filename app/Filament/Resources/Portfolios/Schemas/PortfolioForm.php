@@ -28,6 +28,14 @@ class PortfolioForm
                     ->disk('public')
                     ->required(),
 
+                FileUpload::make('preview_image')
+                    ->label('Preview Website (Gambar Panjang)')
+                    ->helperText('Screenshot full-page website, bentuk memanjang ke bawah.')
+                    ->image()
+                    ->directory('portfolio_previews')
+                    ->disk('public')
+                    ->maxSize(10240), // 10 MB
+
                 Textarea::make('summary')
                     ->label('Summary')
                     ->required()

@@ -3,14 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Portfolio extends Model
 {
-    protected $fillable = ['name', 'slug', 'thumbnail', 'summary', 'content', 'category_id'];
+    protected $fillable = [
+        'name',
+        'slug',
+        'thumbnail',
+        'preview_image',
+        'summary',
+        'content',
+        'category_id',
+    ];
 
     protected static function booted()
     {
@@ -45,18 +53,24 @@ class Portfolio extends Model
             }
         });
 
-        static::updating(function (Portfolio $article) {
-            if ($article->isDirty('thumbnail')) {
-                $oldThumbnail = $article->getOriginal('thumbnail');
-                if ($oldThumbnail) {
-                    Storage::disk('public')->delete($oldThumbnail);
+        // Hapus file lama saat thumbnail / preview_image diganti
+        static::updating(function (Portfolio $portfolio) {
+            foreach (['thumbnail', 'preview_image'] as $field) {
+                if ($portfolio->isDirty($field)) {
+                    $old = $portfolio->getOriginal($field);
+                    if ($old) {
+                        Storage::disk('public')->delete($old);
+                    }
                 }
             }
         });
 
+        // Hapus semua file saat portfolio dihapus
         static::deleting(function (Portfolio $portfolio) {
-            if ($portfolio->thumbnail) {
-                Storage::disk('public')->delete($portfolio->thumbnail);
+            foreach (['thumbnail', 'preview_image'] as $field) {
+                if ($portfolio->{$field}) {
+                    Storage::disk('public')->delete($portfolio->{$field});
+                }
             }
         });
 

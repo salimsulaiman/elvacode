@@ -1,7 +1,7 @@
 @extends('components.layouts.app')
 
 @section('title', $portfolio->name . ' - Elvacode')
-@section('meta_description', $portfolio->summary ?? Str::limit(strip_tags($portfolio->summary), 160))
+@section('meta_description', Str::limit(strip_tags($portfolio->summary), 160))
 
 @section('content')
     <section
@@ -33,6 +33,26 @@
             </h1>
         </div>
     </section>
+    @if ($portfolio->preview_image)
+        @php
+            $mockRatio = 'h-[calc(100svh-9rem)] sm:h-[calc(100svh-10rem)] md:h-[calc(100svh-12rem)]';
+        @endphp
+
+        <section class="font-body relative bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-8 sm:pt-16 md:pt-24">
+                <div class="w-full" data-browser-scroll>
+                    <div data-browser-frame class="mx-auto w-full md:w-[82%]">
+                        <x-browser-mockup
+                            :src="asset('storage/' . $portfolio->preview_image)"
+                            :alt="__('portfolio_detail.preview_alt', ['name' => $portfolio->name])"
+                            :url="$portfolio->name"
+                            :ratio="$mockRatio"
+                            :scroll="true" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <section class="font-body relative isolate bg-white dark:bg-slate-900 transition-colors duration-300 ease-in-out">
 
         <div class="max-w-7xl py-16 sm:py-24 mx-auto px-6 lg:px-8">
