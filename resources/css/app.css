@@ -96,6 +96,45 @@
     line-height: 1.4 !important;
 }
 
+/* Custom scrollbar: thin, hidden until the element is being scrolled */
+:root {
+    --scrollbar-thumb: rgb(148 163 184 / 0.8); /* slate-400 */
+}
+
+.dark {
+    --scrollbar-thumb: rgb(71 85 105 / 0.9); /* slate-600 */
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+*.is-scrolling {
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* Fallback for browsers without scrollbar-color (older Safari/Chromium) */
+@supports not (scrollbar-color: auto) {
+    *::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 9999px;
+    }
+
+    *.is-scrolling::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-thumb);
+    }
+}
+
 .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

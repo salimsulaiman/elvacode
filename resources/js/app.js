@@ -559,3 +559,24 @@ function initSlideText() {
         });
     });
 }
+
+// Show the custom scrollbar only while the user is scrolling
+(() => {
+    const timers = new WeakMap();
+
+    document.addEventListener(
+        'scroll',
+        (e) => {
+            const el = e.target === document ? document.documentElement : e.target;
+            if (!(el instanceof Element)) return;
+
+            el.classList.add('is-scrolling');
+            clearTimeout(timers.get(el));
+            timers.set(
+                el,
+                setTimeout(() => el.classList.remove('is-scrolling'), 800)
+            );
+        },
+        { capture: true, passive: true }
+    );
+})();

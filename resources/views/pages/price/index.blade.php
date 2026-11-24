@@ -15,7 +15,7 @@
         $plans = [
             [
                 'name'      => __('price.plans.essential.name'),
-                'price'     => 650000,
+                'price'     => 700000,
                 'original'  => 1000000,
                 'highlight' => false,
                 'features'  => __('price.plans.essential.features'),

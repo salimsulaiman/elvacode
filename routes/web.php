@@ -8,6 +8,7 @@ use App\Http\Controllers\HowToOrderController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermsAndConditionsController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,8 @@ $routes = function () {
 
     Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
     Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.show');
+
+    Route::get('/search/suggest', [SearchController::class, 'suggest'])->name('search.suggest');
 
     Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
     Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');

@@ -52,7 +52,7 @@ class GenerateSitemap extends Command
         }
 
         // Artikel dinamis
-        Article::where('status', 'published')->get()->each(function ($article) use ($sitemap) {
+        Article::published()->get()->each(function ($article) use ($sitemap) {
             $sitemap->add(
                 // Url::create("/article/{$article->slug}")
                 Url::create(config('app.url') . "/article/{$article->slug}")
@@ -72,9 +72,13 @@ class GenerateSitemap extends Command
             );
         });
 
-        // $sitemap->writeToFile(public_path('sitemap.xml'));
-        $sitemap->writeToFile(base_path('../public_html/sitemap.xml'));
+        // Production: ../public_html (hosting). Lokal: public/
+        $path = is_dir(base_path('../public_html'))
+            ? base_path('../public_html/sitemap.xml')
+            : public_path('sitemap.xml');
 
-        $this->info('Sitemap berhasil dibuat di public/sitemap.xml');
+        $sitemap->writeToFile($path);
+
+        $this->info("Sitemap berhasil dibuat di {$path}");
     }
 }

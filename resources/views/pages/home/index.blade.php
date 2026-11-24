@@ -63,32 +63,27 @@
         </div>
 
         <div class="relative overflow-hidden">
+            @php
+                $projects = [
+                    ['file' => 'elvacourse-logo.png', 'name' => 'Elvacourse'],
+                    ['file' => 'jatiunggul-logo.png', 'name' => 'Jati Unggul'],
+                    ['file' => 'obsidea-logo.png',    'name' => 'Obsidea'],
+                    ['file' => 'taleify-logo.png',    'name' => 'Taleify'],
+                    ['file' => 'velobike-logo.png',   'name' => 'Velobike'],
+                    ['file' => 'morvix-logo.png',     'name' => 'Morvix'],
+                ];
+            @endphp
             <div class="flex w-max min-w-full flex-nowrap animate-marquee gap-20 hover:[animation-play-state:paused]">
-                <img src="{{ asset('assets/logos/project/elvacourse-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/jatiunggul-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/obsidea-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/taleify-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/velobike-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/morvix-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-
-                <img src="{{ asset('assets/logos/project/elvacourse-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/jatiunggul-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/obsidea-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/taleify-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/velobike-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
-                <img src="{{ asset('assets/logos/project/morvix-logo.png') }}"
-                    class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
+                @foreach ($projects as $project)
+                    <img src="{{ asset('assets/logos/project/' . $project['file']) }}"
+                        alt="Logo {{ $project['name'] }}"
+                        class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
+                @endforeach
+                @foreach ($projects as $project)
+                    <img src="{{ asset('assets/logos/project/' . $project['file']) }}"
+                        alt="" aria-hidden="true"
+                        class="h-12 shrink-0 opacity-70 hover:opacity-100 transition dark:invert" />
+                @endforeach
             </div>
         </div>
     </div>

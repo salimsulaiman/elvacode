@@ -1,56 +1,374 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-    <loc>http://elvacode.com</loc>
+    <loc>http://elvacode.test:8080</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/about</loc>
+    <loc>http://elvacode.test:8080/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/service/pricing</loc>
+    <loc>http://elvacode.test:8080/service/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/service/order-guide</loc>
+    <loc>http://elvacode.test:8080/service/order-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/contact</loc>
+    <loc>http://elvacode.test:8080/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/privacy-policy</loc>
+    <loc>http://elvacode.test:8080/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/article/membangun-platform-e-learning-dengan-fitur-interaktif</loc>
-    <lastmod>2025-09-12T08:17:43+00:00</lastmod>
+    <loc>http://elvacode.test:8080/article/mengapa-bisnis-anda-membutuhkan-website-profesional-di-era-digital</loc>
+    <lastmod>2026-11-06T14:05:52+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/article/mengapa-bisnis-anda-membutuhkan-website-profesional-di-era-digital</loc>
-    <lastmod>2025-09-12T08:20:11+00:00</lastmod>
+    <loc>http://elvacode.test:8080/article/mengapa-seo-penting-untuk-bisnis-online-anda-di-2025</loc>
+    <lastmod>2026-03-28T15:06:54+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/portfolio/jati-unggul-permai</loc>
-    <lastmod>2025-09-12T04:23:35+00:00</lastmod>
+    <loc>http://elvacode.test:8080/article/bagaimana-website-membantu-meningkatkan-kepercayaan-pelanggan</loc>
+    <lastmod>2026-03-27T19:57:40+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/5-ciri-website-profesional-yang-membuat-bisnismu-terlihat-kredibel</loc>
+    <lastmod>2026-03-23T17:40:24+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-purwokerto-profesional</loc>
+    <lastmod>2026-10-08T22:20:11+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/mobile-friendly-bukan-pilihan-tapi-keharusan-cara-cek-responsivitas-website</loc>
+    <lastmod>2026-03-27T14:13:57+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/apa-beda-uiux-dan-bagaimana-penerapannya-dalam-desain-website-modern</loc>
+    <lastmod>2026-03-26T07:48:57+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-tegal-profesional-solusi-digitalisasi-umkm-instansi-dan-company-profile</loc>
+    <lastmod>2026-03-26T23:21:25+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/website-lambat-bikin-rugi-rahasia-kecepatan-website-yang-disukai-google</loc>
+    <lastmod>2026-03-28T11:32:56+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-tegal-profesional</loc>
+    <lastmod>2026-03-29T15:52:49+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/mengapa-kecepatan-website-adalah-aset-bisnis-kunci-dampak-pada-seo-konversi-dan-reputasi-merek</loc>
+    <lastmod>2026-03-27T11:35:11+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/mengapa-desain-responsif-mutlak-diperlukan-fondasi-ux-seo-mobile-dan-masa-depan-bisnis-anda</loc>
+    <lastmod>2026-03-28T08:58:56+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/memilih-framework-javascript-yang-tepat-panduan-strategis-react-vue-dan-angular-untuk-proyek-skala-bisnis</loc>
+    <lastmod>2026-03-28T00:01:12+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/kekuatan-gambar-dan-video-mengapa-pemasaran-konten-visual-wajib-ada-dalam-strategi-pemasaran-digital-anda</loc>
+    <lastmod>2026-03-23T01:55:11+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-umkm-brebes</loc>
+    <lastmod>2026-03-28T17:50:01+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/apa-itu-cms-wordpress-vs-headless-cms-bisnis</loc>
+    <lastmod>2026-03-24T00:25:01+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/perbandingan-ssr-vs-csr-untuk-seo</loc>
+    <lastmod>2026-03-26T11:57:06+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/mengenal-kode-warna-hex-rgb-hsl-apa-bedanya</loc>
+    <lastmod>2026-03-28T16:39:23+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-pembuatan-landing-page-tegal-meningkatkan-penjualan</loc>
+    <lastmod>2026-03-28T20:31:58+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/biaya-pembuatan-website-profesional-indonesia</loc>
+    <lastmod>2026-03-29T17:23:28+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-jakarta-murah-profesional-umkm</loc>
+    <lastmod>2026-03-29T17:24:58+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-purwokerto-murah</loc>
+    <lastmod>2026-03-29T01:00:44+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/cara-memilih-nama-domain-branding-bisnis</loc>
+    <lastmod>2026-03-26T07:14:18+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/apa-itu-hosting-dan-domain-panduan-pemula</loc>
+    <lastmod>2026-03-26T08:48:26+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/pentingnya-struktur-database-website</loc>
+    <lastmod>2026-03-28T08:18:21+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-custom-profesional</loc>
+    <lastmod>2026-03-24T21:07:37+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/laravel-vs-wordpress-pilihan-terbaik-website</loc>
+    <lastmod>2026-03-26T03:36:49+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/pentingnya-navigasi-website-simpel</loc>
+    <lastmod>2026-03-28T06:28:10+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/mengenal-semantic-html-dan-seo</loc>
+    <lastmod>2026-03-26T14:01:38+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-bali-profesional</loc>
+    <lastmod>2026-03-27T06:11:39+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/apa-itu-website-dan-manfaatnya</loc>
+    <lastmod>2026-11-06T12:42:23+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/panduan-local-seo-google-maps</loc>
+    <lastmod>2026-03-26T22:48:45+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/akankah-ai-menggantikan-pekerjaan-manusia</loc>
+    <lastmod>2026-03-25T07:58:18+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/pentingnya-perlindungan-data-pribadi</loc>
+    <lastmod>2026-03-27T11:47:46+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/apa-itu-cloud-computing-dan-manfaatnya</loc>
+    <lastmod>2026-03-28T03:28:21+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/perbedaan-landing-page-dan-website</loc>
+    <lastmod>2026-03-26T00:41:28+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/pentingnya-website-mobile-friendly</loc>
+    <lastmod>2026-03-28T07:47:46+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/panduan-lengkap-ssl-https-keamanan-website</loc>
+    <lastmod>2026-03-29T18:05:58+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-pembuatan-landing-page-murah</loc>
+    <lastmod>2026-03-28T16:52:13+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/apa-itu-pwa-dan-manfaatnya-bisnis</loc>
+    <lastmod>2026-03-29T00:11:40+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-landing-page-murah-profesional</loc>
+    <lastmod>2026-03-29T17:24:58+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-website-company-profile-murah-profesional</loc>
+    <lastmod>2026-03-28T14:11:51+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/teknologi-warna-digital-hex-rgb</loc>
+    <lastmod>2026-11-06T11:19:37+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/tanda-website-harus-redesign</loc>
+    <lastmod>2026-03-29T17:31:46+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/jasa-pembuatan-website-company-profile-jakarta</loc>
+    <lastmod>2026-03-29T17:27:28+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/manfaat-seo-untuk-pertumbuhan-bisnis-jangka-panjang</loc>
+    <lastmod>2026-03-29T17:31:45+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/article/tips-meningkatkan-keamanan-website-bisnis</loc>
+    <lastmod>2026-03-26T20:34:16+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/jati-unggul-permai</loc>
+    <lastmod>2026-10-07T15:36:30+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>http://elvacode.com/portfolio/event-management-kinztech-acara</loc>
-    <lastmod>2025-09-12T04:39:24+00:00</lastmod>
+    <loc>http://elvacode.test:8080/portfolio/event-management-kinztech-acara</loc>
+    <lastmod>2025-12-29T11:18:24+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/website-e-commerce-jati-unggul-meuble</loc>
+    <lastmod>2025-12-29T11:32:45+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/custom-tailoring-website-rujha</loc>
+    <lastmod>2025-12-29T11:27:31+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/bicycle-store-velobike</loc>
+    <lastmod>2025-12-29T15:35:39+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/landing-page-kinztech</loc>
+    <lastmod>2026-11-07T21:05:36+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/company-profile-kamir-mawar-chamidah</loc>
+    <lastmod>2025-12-29T16:02:41+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/vehicle-rental-platform-morvix</loc>
+    <lastmod>2026-01-08T09:28:23+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/company-profile-obsidea</loc>
+    <lastmod>2026-01-14T21:04:28+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>http://elvacode.test:8080/portfolio/jati-unggul-furniture</loc>
+    <lastmod>2026-11-07T21:18:40+07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
